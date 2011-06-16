@@ -1,0 +1,249 @@
+﻿/* CSS layout */
+body
+{
+	font-family: Arial, Helvetica, sans-serif;
+	color: #124986;
+}
+
+#masthead
+{
+	width: 100%;
+	float: left;
+}
+
+#logo
+{
+	float: left;
+	width: 135px;
+	height: 90px;
+}
+
+#header
+{
+	margin-left: 200px;
+	
+}
+
+#bottomSpacer
+{
+	
+	width: 210px;
+	height: 300px;
+	background-color: #800000;
+}
+
+.oculto 
+{
+	display:none
+} 
+
+
+
+#container {
+	clear: both;
+	margin-left: 16px;
+	margin-right: 16px;
+	height: 875px;
+	max-height: 875px;
+	min-height: 875px;
+	margin-top: 25px;
+}
+
+#leftmenu
+{
+	float: left;
+	height: 100%;
+	min-height: 100%;
+}
+
+#topmenu
+{
+	width: 100%;
+	min-width: 100%;
+	padding-bottom: 50px;
+}
+
+
+#left_col
+{
+	padding: 0 10px 0 0;
+	float: left;
+	width: 205px;
+	font-size: xx-small;
+	height: 100%;
+}
+#webphoneStatus
+{
+	font-size: xx-small;
+	overflow: auto;
+	height: 50px;
+	max-height: 50px;
+	width: 430px;
+	max-width: 430px;
+}
+#theCallStatus
+{
+	font-size: xx-small;
+	
+	width: 195px;
+	max-width: 195px;
+}
+#DataDisplay
+{
+	font-size: xx-small;
+	width: 195px;
+	max-width: 195px;
+	
+}
+
+#txtCall
+{
+	width: 190px;
+	background-color: #FFFFFF;
+}
+		
+#phone
+{
+	text-align: left;
+	font-size: xx-small;
+	margin-top: 0px;
+	width: 195px;
+	max-width: 195px;
+}
+		
+.style1
+{
+   text-decoration: underline;
+}
+		
+		
+#page_content 
+{
+}
+#data_entry
+{
+	float: left;
+	width: 450;
+}
+
+
+#script_content
+{
+	margin-left: 665px;
+	overflow: auto;
+	height: 790px;
+	padding-left: 20px;
+	padding-right: 20px;
+	max-height: 790px;
+}
+
+
+#AgentFooter
+{
+	padding: 10px;
+	border: thin #124986 dashed;
+	background-color: #FFFFFF;
+	width: 430px;
+	height: 250px;
+	margin-top: 20px;
+	float: left;
+	font-size: xx-small;
+}
+
+
+
+#footer
+{
+	clear: both;
+	background-color: #00FFFF;
+}
+
+#loginuser
+{
+	border-style: solid;
+}
+
+.step_content
+{
+	padding: 5px;
+	height: 450px;
+	width: 440px;
+	max-height: 450px;
+	overflow: auto;
+	max-width: 440px;
+}
+
+div.row {
+	clear: both;
+	padding-top: 5px;
+}
+div.dataEntryTitle
+{
+	padding: 10px 10px 10px 5px;
+	background: #FFFFFF;
+	border: 1px dotted;
+	margin: 0 0 20px 0;
+	font-size: large;
+	font-weight: bold;
+	height: 27px;
+}
+
+div.row span.label
+{
+	float: left;
+	width: 35%;
+	text-align: right;
+}
+
+div.row span.formw {
+  float: right;
+  width: 60%;
+  text-align: left;
+  } 
+		
+.left {
+  float: left;
+  text-align: left;
+  width: 49%;
+	height: 37px;
+}
+
+.right
+{
+	float: right;
+	text-align: right;
+	width: 30%;
+	height: 80px;
+	vertical-align: middle;
+	padding-right: 25px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: small;
+}
+div.row span.label_left
+{
+	float: left;
+	text-align: left;
+	font-size: xx-small;
+}
+div.row span.field_left
+{
+	float: right;
+	text-align: right;
+	font-size: xx-small;
+	font-weight: bold;
+	color: #000000;
+	margin-left: 5px;
+}
+div.row span.field_right
+{
+	float: right;
+	text-align: left;
+	font-size: xx-small;
+	font-weight: bold;
+	
+}
+.spacer2
+{
+	height: 6px;
+}
