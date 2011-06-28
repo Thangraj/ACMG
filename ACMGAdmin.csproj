@@ -66,7 +66,6 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="Account\AddUser.aspx" />
     <Content Include="Account\Add_Delete_Roles.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
@@ -93,7 +92,6 @@
     <Content Include="images\globerotate.gif" />
     <Content Include="images\money.gif" />
     <Content Include="images\rotatingGlobe.gif" />
-    <Content Include="Marketing\ConfigSalesOffers.aspx" />
     <Content Include="Phone\phonecontrol.js" />
     <Content Include="Phone\webphone.jar" />
     <Content Include="Phone\webphoneTEST.jar" />
@@ -134,13 +132,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Account\AddUser.aspx.cs">
       <DependentUpon>AddUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -301,13 +292,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Marketing\ConfigSalesOffers.aspx.cs">
-      <DependentUpon>ConfigSalesOffers.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Marketing\ConfigSalesOffers.aspx.designer.cs">
-      <DependentUpon>ConfigSalesOffers.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\Report_DispositionSummary.aspx.cs">
       <DependentUpon>Report_DispositionSummary.aspx</DependentUpon>
@@ -442,11 +426,6 @@
     <Compile Include="Reports\Report_AgentSummaryRT.aspx.designer.cs">
       <DependentUpon>Report_AgentSummaryRT.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SP_ReportAgentSummary.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SP_ReportAgentSummary.xsd</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -485,17 +464,6 @@
       <DependentUpon>DSReport_AgentSummary.xsd</DependentUpon>
     </None>
     <Content Include="Phone\Web.config" />
-    <None Include="SP_ReportAgentSummary.xsc">
-      <DependentUpon>SP_ReportAgentSummary.xsd</DependentUpon>
-    </None>
-    <None Include="SP_ReportAgentSummary.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SP_ReportAgentSummary.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SP_ReportAgentSummary.xss">
-      <DependentUpon>SP_ReportAgentSummary.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\Report_Dashboard.rdlc" />
