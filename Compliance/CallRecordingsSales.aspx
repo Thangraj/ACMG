@@ -51,7 +51,7 @@
             Font-Size="Small" ShowFooter="True" 
             ShowHeaderWhenEmpty="True" Width="100%" 
             onselectedindexchanged="GridView1_SelectedIndexChanged" CellPadding="4" 
-            ForeColor="#333333">
+            ForeColor="#333333" PageSize="100">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:CommandField ShowSelectButton="True" ButtonType="Button" />
@@ -85,6 +85,8 @@
                 SortExpression="OrderStatus" />
             <asp:BoundField DataField="OrderStatustext" HeaderText="Status Text" 
                 SortExpression="OrderStatustext" />
+            <asp:BoundField DataField="SubmitDateTime" HeaderText="Order Date Time" 
+                SortExpression="SubmitDateTime" />
         </Columns>
         <EditRowStyle BackColor="#999999" />
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
