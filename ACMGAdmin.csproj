@@ -95,6 +95,7 @@
     <Content Include="Phone\phonecontrol.js" />
     <Content Include="Phone\webphone.jar" />
     <Content Include="Phone\webphoneTEST.jar" />
+    <Content Include="Reports\Report_LeadPenetration_RT.aspx" />
     <Content Include="Reports\Report_DispositionSummary.aspx" />
     <Content Include="Reports\Report_LeadPenetration.aspx" />
     <Content Include="Reports\Report_LeadExport.aspx" />
@@ -293,6 +294,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\Report_LeadPenetration_RT.aspx.cs">
+      <DependentUpon>Report_LeadPenetration_RT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Report_LeadPenetration_RT.aspx.designer.cs">
+      <DependentUpon>Report_LeadPenetration_RT.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\Report_DispositionSummary.aspx.cs">
       <DependentUpon>Report_DispositionSummary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -483,6 +491,7 @@
     <EmbeddedResource Include="Reports\Report_LeadExport.rdlc" />
     <EmbeddedResource Include="Reports\Report_LeadFeedByDate.rdlc" />
     <EmbeddedResource Include="Reports\Report_LeadPenetration_1.rdlc" />
+    <EmbeddedResource Include="Reports\Report_LeadPenetration_RT.rdlc" />
     <EmbeddedResource Include="Reports\Report_UnassignedLeadPoolByTimeZone.rdlc" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

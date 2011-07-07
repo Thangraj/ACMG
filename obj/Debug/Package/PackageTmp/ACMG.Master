@@ -96,6 +96,9 @@
                             </asp:MenuItem>
 							<asp:MenuItem 
 								Text="Lead Pool" Value="Lead Pool">
+                                <asp:MenuItem NavigateUrl="~/Reports/Report_LeadPenetration_RT.aspx" 
+                                    Text="Real Time Available Lead Pool" Value="Real Time Available Lead Pool">
+                                </asp:MenuItem>
                                 <asp:MenuItem NavigateUrl="~/Reports/Report_LeadPenetration.aspx" 
                                     Text="Lead Penetration and Activity " 
                                     Value="Lead Penetration and Activity ">

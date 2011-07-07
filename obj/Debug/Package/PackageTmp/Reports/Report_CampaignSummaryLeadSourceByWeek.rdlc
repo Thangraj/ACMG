@@ -22993,7 +22993,6 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
-                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
@@ -23239,10 +23238,6 @@
                                       <TablixMembers>
                                         <TablixMember>
                                           <Group Name="Details" />
-                                          <Visibility>
-                                            <Hidden>true</Hidden>
-                                            <ToggleItem>DropOffPoint</ToggleItem>
-                                          </Visibility>
                                         </TablixMember>
                                         <TablixMember>
                                           <KeepWithGroup>Before</KeepWithGroup>
@@ -23293,10 +23288,6 @@
                                       <KeepWithGroup>Before</KeepWithGroup>
                                     </TablixMember>
                                   </TablixMembers>
-                                  <Visibility>
-                                    <Hidden>true</Hidden>
-                                    <ToggleItem>CampaignCode</ToggleItem>
-                                  </Visibility>
                                 </TablixMember>
                                 <TablixMember>
                                   <TablixHeader>
@@ -23378,10 +23369,6 @@
                                   <KeepWithGroup>Before</KeepWithGroup>
                                 </TablixMember>
                               </TablixMembers>
-                              <Visibility>
-                                <Hidden>true</Hidden>
-                                <ToggleItem>Channel</ToggleItem>
-                              </Visibility>
                             </TablixMember>
                             <TablixMember>
                               <TablixHeader>
@@ -23503,10 +23490,6 @@
                               <KeepWithGroup>Before</KeepWithGroup>
                             </TablixMember>
                           </TablixMembers>
-                          <Visibility>
-                            <Hidden>true</Hidden>
-                            <ToggleItem>ProductLine</ToggleItem>
-                          </Visibility>
                         </TablixMember>
                         <TablixMember>
                           <TablixHeader>
@@ -23668,10 +23651,6 @@
                           <KeepWithGroup>Before</KeepWithGroup>
                         </TablixMember>
                       </TablixMembers>
-                      <Visibility>
-                        <Hidden>true</Hidden>
-                        <ToggleItem>WeekNumber</ToggleItem>
-                      </Visibility>
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
@@ -23873,10 +23852,6 @@
                       <KeepWithGroup>Before</KeepWithGroup>
                     </TablixMember>
                   </TablixMembers>
-                  <Visibility>
-                    <Hidden>true</Hidden>
-                    <ToggleItem>Year</ToggleItem>
-                  </Visibility>
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>

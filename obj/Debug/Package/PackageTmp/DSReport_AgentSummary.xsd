@@ -983,6 +983,51 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sp_Report_AvailableLeads_RTTableAdapter" GeneratorDataComponentClassName="sp_Report_AvailableLeads_RTTableAdapter" Name="sp_Report_AvailableLeads_RT" UserDataComponentName="sp_Report_AvailableLeads_RTTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ACMGREPORTS (Web.config)" DbObjectName="``.`acmgreports`.`sp_Report_AvailableLeads_RT`" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>`acmgreports`.`sp_Report_AvailableLeads_RT`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ActivityDate" DataSetColumn="ActivityDate" />
+              <Mapping SourceColumn="ProductLine" DataSetColumn="ProductLine" />
+              <Mapping SourceColumn="AvailableLeads" DataSetColumn="AvailableLeads" />
+              <Mapping SourceColumn="CallBacks" DataSetColumn="CallBacks" />
+              <Mapping SourceColumn="NewLeads" DataSetColumn="NewLeads" />
+              <Mapping SourceColumn="Day1Old" DataSetColumn="Day1Old" />
+              <Mapping SourceColumn="Day2Old" DataSetColumn="Day2Old" />
+              <Mapping SourceColumn="Day3Old" DataSetColumn="Day3Old" />
+              <Mapping SourceColumn="Day4Old" DataSetColumn="Day4Old" />
+              <Mapping SourceColumn="Day5Old" DataSetColumn="Day5Old" />
+              <Mapping SourceColumn="Day6Old" DataSetColumn="Day6Old" />
+              <Mapping SourceColumn="Day7Old" DataSetColumn="Day7Old" />
+              <Mapping SourceColumn="Older" DataSetColumn="Older" />
+              <Mapping SourceColumn="CallCount0" DataSetColumn="CallCount0" />
+              <Mapping SourceColumn="CallCount1" DataSetColumn="CallCount1" />
+              <Mapping SourceColumn="CallCount2" DataSetColumn="CallCount2" />
+              <Mapping SourceColumn="CallCount3" DataSetColumn="CallCount3" />
+              <Mapping SourceColumn="CallCount4" DataSetColumn="CallCount4" />
+              <Mapping SourceColumn="CallCount5" DataSetColumn="CallCount5" />
+              <Mapping SourceColumn="CallCount6" DataSetColumn="CallCount6" />
+              <Mapping SourceColumn="CallCount7" DataSetColumn="CallCount7" />
+              <Mapping SourceColumn="CallCount8" DataSetColumn="CallCount8" />
+              <Mapping SourceColumn="CallCount9" DataSetColumn="CallCount9" />
+              <Mapping SourceColumn="CallCount10" DataSetColumn="CallCount10" />
+              <Mapping SourceColumn="EST" DataSetColumn="EST" />
+              <Mapping SourceColumn="CST" DataSetColumn="CST" />
+              <Mapping SourceColumn="MST" DataSetColumn="MST" />
+              <Mapping SourceColumn="PST" DataSetColumn="PST" />
+              <Mapping SourceColumn="Hawaii" DataSetColumn="Hawaii" />
+              <Mapping SourceColumn="Carribbean" DataSetColumn="Carribbean" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -2277,6 +2322,48 @@
               <xs:element name="NoSale" msprop:Generator_ColumnVarNameInTable="columnNoSale" msprop:Generator_ColumnPropNameInRow="NoSale" msprop:Generator_ColumnPropNameInTable="NoSaleColumn" msprop:Generator_UserColumnName="NoSale" type="xs:decimal" minOccurs="0" />
               <xs:element name="DeclinedPayment" msprop:Generator_ColumnVarNameInTable="columnDeclinedPayment" msprop:Generator_ColumnPropNameInRow="DeclinedPayment" msprop:Generator_ColumnPropNameInTable="DeclinedPaymentColumn" msprop:Generator_UserColumnName="DeclinedPayment" type="xs:decimal" minOccurs="0" />
               <xs:element name="AgentLoginHours" msprop:Generator_ColumnVarNameInTable="columnAgentLoginHours" msprop:Generator_ColumnPropNameInRow="AgentLoginHours" msprop:Generator_ColumnPropNameInTable="AgentLoginHoursColumn" msprop:Generator_UserColumnName="AgentLoginHours" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="sp_Report_AvailableLeads_RT" msprop:Generator_TableClassName="sp_Report_AvailableLeads_RTDataTable" msprop:Generator_TableVarName="tablesp_Report_AvailableLeads_RT" msprop:Generator_TablePropName="sp_Report_AvailableLeads_RT" msprop:Generator_RowDeletingName="sp_Report_AvailableLeads_RTRowDeleting" msprop:Generator_UserTableName="sp_Report_AvailableLeads_RT" msprop:Generator_RowChangingName="sp_Report_AvailableLeads_RTRowChanging" msprop:Generator_RowEvHandlerName="sp_Report_AvailableLeads_RTRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_Report_AvailableLeads_RTRowDeleted" msprop:Generator_RowEvArgName="sp_Report_AvailableLeads_RTRowChangeEvent" msprop:Generator_RowChangedName="sp_Report_AvailableLeads_RTRowChanged" msprop:Generator_RowClassName="sp_Report_AvailableLeads_RTRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ActivityDate" msprop:Generator_ColumnVarNameInTable="columnActivityDate" msprop:Generator_ColumnPropNameInRow="ActivityDate" msprop:Generator_ColumnPropNameInTable="ActivityDateColumn" msprop:Generator_UserColumnName="ActivityDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ProductLine" msprop:Generator_ColumnVarNameInTable="columnProductLine" msprop:Generator_ColumnPropNameInRow="ProductLine" msprop:Generator_ColumnPropNameInTable="ProductLineColumn" msprop:Generator_UserColumnName="ProductLine" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AvailableLeads" msprop:Generator_ColumnVarNameInTable="columnAvailableLeads" msprop:Generator_ColumnPropNameInRow="AvailableLeads" msprop:Generator_ColumnPropNameInTable="AvailableLeadsColumn" msprop:Generator_UserColumnName="AvailableLeads" type="xs:long" />
+              <xs:element name="CallBacks" msprop:Generator_ColumnVarNameInTable="columnCallBacks" msprop:Generator_ColumnPropNameInRow="CallBacks" msprop:Generator_ColumnPropNameInTable="CallBacksColumn" msprop:Generator_UserColumnName="CallBacks" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NewLeads" msprop:Generator_ColumnVarNameInTable="columnNewLeads" msprop:Generator_ColumnPropNameInRow="NewLeads" msprop:Generator_ColumnPropNameInTable="NewLeadsColumn" msprop:Generator_UserColumnName="NewLeads" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Day1Old" msprop:Generator_ColumnVarNameInTable="columnDay1Old" msprop:Generator_ColumnPropNameInRow="Day1Old" msprop:Generator_ColumnPropNameInTable="Day1OldColumn" msprop:Generator_UserColumnName="Day1Old" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Day2Old" msprop:Generator_ColumnVarNameInTable="columnDay2Old" msprop:Generator_ColumnPropNameInRow="Day2Old" msprop:Generator_ColumnPropNameInTable="Day2OldColumn" msprop:Generator_UserColumnName="Day2Old" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Day3Old" msprop:Generator_ColumnVarNameInTable="columnDay3Old" msprop:Generator_ColumnPropNameInRow="Day3Old" msprop:Generator_ColumnPropNameInTable="Day3OldColumn" msprop:Generator_UserColumnName="Day3Old" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Day4Old" msprop:Generator_ColumnVarNameInTable="columnDay4Old" msprop:Generator_ColumnPropNameInRow="Day4Old" msprop:Generator_ColumnPropNameInTable="Day4OldColumn" msprop:Generator_UserColumnName="Day4Old" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Day5Old" msprop:Generator_ColumnVarNameInTable="columnDay5Old" msprop:Generator_ColumnPropNameInRow="Day5Old" msprop:Generator_ColumnPropNameInTable="Day5OldColumn" msprop:Generator_UserColumnName="Day5Old" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Day6Old" msprop:Generator_ColumnVarNameInTable="columnDay6Old" msprop:Generator_ColumnPropNameInRow="Day6Old" msprop:Generator_ColumnPropNameInTable="Day6OldColumn" msprop:Generator_UserColumnName="Day6Old" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Day7Old" msprop:Generator_ColumnVarNameInTable="columnDay7Old" msprop:Generator_ColumnPropNameInRow="Day7Old" msprop:Generator_ColumnPropNameInTable="Day7OldColumn" msprop:Generator_UserColumnName="Day7Old" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Older" msprop:Generator_ColumnVarNameInTable="columnOlder" msprop:Generator_ColumnPropNameInRow="Older" msprop:Generator_ColumnPropNameInTable="OlderColumn" msprop:Generator_UserColumnName="Older" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CallCount0" msprop:Generator_ColumnVarNameInTable="columnCallCount0" msprop:Generator_ColumnPropNameInRow="CallCount0" msprop:Generator_ColumnPropNameInTable="CallCount0Column" msprop:Generator_UserColumnName="CallCount0" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CallCount1" msprop:Generator_ColumnVarNameInTable="columnCallCount1" msprop:Generator_ColumnPropNameInRow="CallCount1" msprop:Generator_ColumnPropNameInTable="CallCount1Column" msprop:Generator_UserColumnName="CallCount1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CallCount2" msprop:Generator_ColumnVarNameInTable="columnCallCount2" msprop:Generator_ColumnPropNameInRow="CallCount2" msprop:Generator_ColumnPropNameInTable="CallCount2Column" msprop:Generator_UserColumnName="CallCount2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CallCount3" msprop:Generator_ColumnVarNameInTable="columnCallCount3" msprop:Generator_ColumnPropNameInRow="CallCount3" msprop:Generator_ColumnPropNameInTable="CallCount3Column" msprop:Generator_UserColumnName="CallCount3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CallCount4" msprop:Generator_ColumnVarNameInTable="columnCallCount4" msprop:Generator_ColumnPropNameInRow="CallCount4" msprop:Generator_ColumnPropNameInTable="CallCount4Column" msprop:Generator_UserColumnName="CallCount4" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CallCount5" msprop:Generator_ColumnVarNameInTable="columnCallCount5" msprop:Generator_ColumnPropNameInRow="CallCount5" msprop:Generator_ColumnPropNameInTable="CallCount5Column" msprop:Generator_UserColumnName="CallCount5" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CallCount6" msprop:Generator_ColumnVarNameInTable="columnCallCount6" msprop:Generator_ColumnPropNameInRow="CallCount6" msprop:Generator_ColumnPropNameInTable="CallCount6Column" msprop:Generator_UserColumnName="CallCount6" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CallCount7" msprop:Generator_ColumnVarNameInTable="columnCallCount7" msprop:Generator_ColumnPropNameInRow="CallCount7" msprop:Generator_ColumnPropNameInTable="CallCount7Column" msprop:Generator_UserColumnName="CallCount7" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CallCount8" msprop:Generator_ColumnVarNameInTable="columnCallCount8" msprop:Generator_ColumnPropNameInRow="CallCount8" msprop:Generator_ColumnPropNameInTable="CallCount8Column" msprop:Generator_UserColumnName="CallCount8" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CallCount9" msprop:Generator_ColumnVarNameInTable="columnCallCount9" msprop:Generator_ColumnPropNameInRow="CallCount9" msprop:Generator_ColumnPropNameInTable="CallCount9Column" msprop:Generator_UserColumnName="CallCount9" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CallCount10" msprop:Generator_ColumnVarNameInTable="columnCallCount10" msprop:Generator_ColumnPropNameInRow="CallCount10" msprop:Generator_ColumnPropNameInTable="CallCount10Column" msprop:Generator_UserColumnName="CallCount10" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EST" msprop:Generator_ColumnVarNameInTable="columnEST" msprop:Generator_ColumnPropNameInRow="EST" msprop:Generator_ColumnPropNameInTable="ESTColumn" msprop:Generator_UserColumnName="EST" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CST" msprop:Generator_ColumnVarNameInTable="columnCST" msprop:Generator_ColumnPropNameInRow="CST" msprop:Generator_ColumnPropNameInTable="CSTColumn" msprop:Generator_UserColumnName="CST" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MST" msprop:Generator_ColumnVarNameInTable="columnMST" msprop:Generator_ColumnPropNameInRow="MST" msprop:Generator_ColumnPropNameInTable="MSTColumn" msprop:Generator_UserColumnName="MST" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PST" msprop:Generator_ColumnVarNameInTable="columnPST" msprop:Generator_ColumnPropNameInRow="PST" msprop:Generator_ColumnPropNameInTable="PSTColumn" msprop:Generator_UserColumnName="PST" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Hawaii" msprop:Generator_ColumnVarNameInTable="columnHawaii" msprop:Generator_ColumnPropNameInRow="Hawaii" msprop:Generator_ColumnPropNameInTable="HawaiiColumn" msprop:Generator_UserColumnName="Hawaii" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Carribbean" msprop:Generator_ColumnVarNameInTable="columnCarribbean" msprop:Generator_ColumnPropNameInRow="Carribbean" msprop:Generator_ColumnPropNameInTable="CarribbeanColumn" msprop:Generator_UserColumnName="Carribbean" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

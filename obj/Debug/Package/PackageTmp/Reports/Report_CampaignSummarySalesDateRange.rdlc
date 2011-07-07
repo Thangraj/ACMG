@@ -11480,6 +11480,7 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
+                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
@@ -11534,7 +11535,6 @@
                     <TablixMember>
                       <Group Name="Details" />
                       <Visibility>
-                        <Hidden>true</Hidden>
                         <ToggleItem>CallCenterName</ToggleItem>
                       </Visibility>
                     </TablixMember>
@@ -11543,7 +11543,6 @@
                     </TablixMember>
                   </TablixMembers>
                   <Visibility>
-                    <Hidden>true</Hidden>
                     <ToggleItem>CampaignName</ToggleItem>
                   </Visibility>
                 </TablixMember>
