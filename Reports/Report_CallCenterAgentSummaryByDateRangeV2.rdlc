@@ -8702,7 +8702,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Call Center Agent Summary Report By Date Range</Value>
+                <Value>Agent Summary Report By Date Range</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontSize>18pt</FontSize>
@@ -8712,7 +8712,7 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value> Version 2</Value>
+                <Value xml:space="preserve"> </Value>
                 <Style>
                   <FontSize>18pt</FontSize>
                 </Style>

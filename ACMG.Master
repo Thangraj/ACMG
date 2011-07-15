@@ -30,8 +30,8 @@
 							 [ <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a>
 							 ]
 						 </AnonymousTemplate>
-						 <LoggedInTemplate> <span class="bold" >
-						<%= Session["AgentFirstName"] + " " + Session["AgentLastName"]%> 
+						 <LoggedInTemplate> <span class="bold" >(Call Center:
+						<%= " " + Session["theCallCenterName"] + ") " + Session["AgentFirstName"] + " " + Session["AgentLastName"]%> 
 								<%-- (<asp:LoginName ID="HeadLoginName" runat="server" />)--%>
 								
 							 </span>! [
@@ -73,22 +73,22 @@
 			<LoggedInTemplate>
 			<div>
 				<asp:Menu ID="MainMenu" runat="server" 
-					StaticSubMenuIndent="10px" Orientation="Horizontal" BackColor="#F7F6F3" 
+					StaticSubMenuIndent="10px" Orientation="Horizontal" BackColor="White" 
                     DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" 
-                    ForeColor="#7C6F57" RenderingMode="Table">
-					<DynamicHoverStyle BackColor="#666666" ForeColor="White" />
+                    ForeColor="#284E98" RenderingMode="Table">
+					<DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
                     <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                    <DynamicMenuStyle BackColor="#E3EAEB" />
-                    <DynamicSelectedStyle BackColor="#1C5E55" />
+                    <DynamicMenuStyle BackColor="#B5C7DE" />
+                    <DynamicSelectedStyle BackColor="#507CD1" />
 					<Items>
 						<asp:MenuItem Text="Reports" Value="Reports">
 						    <asp:MenuItem 
                                 Text="Agent" 
                                 Value="Agent">
-                                <asp:MenuItem NavigateUrl="~/Reports/ReportCallCenterAgentSummaryTodayV2.aspx" 
+                                <asp:MenuItem NavigateUrl="~/Reports/Report_CallCenterAgentSummaryTodayV2.aspx" 
                                     Text="Agent Summary Today " Value="Agent Summary Today">
                                 </asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Reports/ReportCallCenterAgentSummaryByDateRangeV2.aspx" 
+                                <asp:MenuItem NavigateUrl="~/Reports/Report_CallCenterAgentSummaryByDateRangeV2.aspx" 
                                     Text="Agent Summary By Date Range " 
                                     Value="Agent Summary By Date Range "></asp:MenuItem>
                                 <asp:MenuItem NavigateUrl="~/Reports/Report_DispositionSummary.aspx" 
@@ -153,9 +153,9 @@
                                 Text="Live Call Monitor" Value="Live Call Monitor"></asp:MenuItem>
                         </asp:MenuItem>
 					</Items>
-				    <StaticHoverStyle BackColor="#666666" ForeColor="White" />
+				    <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
 				    <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-				    <StaticSelectedStyle BackColor="#1C5E55" />
+				    <StaticSelectedStyle BackColor="#507CD1" />
 				</asp:Menu>
 				</div>
 			</LoggedInTemplate>

@@ -15,7 +15,7 @@ namespace ACMGAdmin.Account
     //
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Request.QueryString.HasKeys()) { 
             if (!Roles.IsUserInRole("Administrators") && !Roles.IsUserInRole("User Admin"))
             {
                 //Label1.Text = User.Identity.Name + " is in role TestRole";
@@ -27,7 +27,7 @@ namespace ACMGAdmin.Account
             {
                 //Label1.Text = User.Identity.Name + " is NOT in role TestRole";
             }
-
+            }
             theCallCenterConnectString = Session["theCallCenterConnectString"].ToString();
             LabelUserList.Text = "Add User for " + Session["theCallCenterName"].ToString();
             if (IsPostBack)
@@ -67,7 +67,7 @@ namespace ACMGAdmin.Account
         {
             // Add User.
             MembershipCreateStatus theCreateStatus= new MembershipCreateStatus();
-           MembershipUser newUser = Membership.Providers[theCallCenterConnectString].CreateUser(username.Text, password.Text, email.Text,null,null,true,null,out theCreateStatus);
+            MembershipUser newUser = Membership.Providers[theCallCenterConnectString].CreateUser(username.Text.Trim(), password.Text.Trim(), email.Text.Trim(), null, null, true, null, out theCreateStatus);
            //newUser.Comment = comment.Text;
            // Membership.Providers[theCallCenterConnectString].UpdateUser(newUser);
            if (theCreateStatus.ToString() == "Success")
@@ -77,7 +77,7 @@ namespace ACMGAdmin.Account
                {
                    if (rolebox.Selected)
                    {
-                       Roles.AddUserToRole(username.Text, rolebox.Text);
+                       Roles.AddUserToRole(username.Text.Trim(), rolebox.Text);
                    }
                }
            }
@@ -88,6 +88,10 @@ namespace ACMGAdmin.Account
         {
             UserRoles.DataSource = Roles.GetAllRoles();
             UserRoles.DataBind();
+            if (!Roles.IsUserInRole("Administrators"))
+            {
+                UserRoles.Items.Remove("Administrators");
+            }
         }
 
 
@@ -97,7 +101,7 @@ namespace ACMGAdmin.Account
             DataAccess.LDAPAccess theLDAP = new DataAccess.LDAPAccess();
 
 
-            theLDAP.updateUserFullName(username.Text, txtfname.Text, txtlname.Text, theCallCenterConnectString);
+            theLDAP.updateUserFullName(username.Text.Trim(), txtfname.Text.Trim(), txtlname.Text.Trim(), theCallCenterConnectString);
         
         
         

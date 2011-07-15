@@ -15,7 +15,7 @@ namespace ACMGAdmin.Account
     //
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Request.QueryString.HasKeys()) { 
             if (!Roles.IsUserInRole("Administrators") && !Roles.IsUserInRole("User Admin"))
             {
                 //Label1.Text = User.Identity.Name + " is in role TestRole";
@@ -27,7 +27,7 @@ namespace ACMGAdmin.Account
             {
                 //Label1.Text = User.Identity.Name + " is NOT in role TestRole";
             }
-
+            }
             theCallCenterConnectString = Session["theCallCenterConnectString"].ToString();
             LabelUserList.Text = "Add User for " + Session["theCallCenterName"].ToString();
             if (IsPostBack)

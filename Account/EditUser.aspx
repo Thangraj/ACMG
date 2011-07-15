@@ -13,6 +13,17 @@
 <asp:CheckBoxList ID="UserRoles" runat="server" />
 
 <h3><asp:Label ID="LabelFullName" runat="server"   Text=""></asp:Label></h3>
+    <p>
+        <asp:Label ID="LabelFname" runat="server" Text="First Name:"></asp:Label>
+        <asp:TextBox ID="TextBoxFname" runat="server" Height="22px" 
+            style="margin-left: 16px; margin-right: 4px" Width="204px"></asp:TextBox>
+    </p>
+    <p>
+        <asp:Label ID="LabelLname" runat="server" Text="Last Name:"></asp:Label>
+        <asp:TextBox ID="TextBoxLname" runat="server" Height="22px" 
+            style="margin-left: 19px; margin-right: 0px" Width="202px"></asp:TextBox>
+    </p>
+    <p>&nbsp;</p>
 
    
 
@@ -87,7 +98,9 @@
 
 
 <div style="text-align: right; width: 100%; margin: 20px 0px;">
-<asp:Button ID="Button3" runat="server" Text="Update Roles For This User" OnClick="EditUserRoles" OnClientClick="return confirm('Click OK to Update Roles For This User.')" />
+<asp:Button ID="Button3" runat="server" Text="Update Roles For This User" 
+        OnClick="EditUserRoles" 
+        OnClientClick="return confirm('Click OK to Update  This User.')" />
 &nbsp;&nbsp;&nbsp;
 <asp:Button ID="Button1" runat="server" Text="Unlock User" OnClick="UnlockUser" OnClientClick="return confirm('Click OK to unlock this user.')" />
 &nbsp;&nbsp;&nbsp;
@@ -95,11 +108,7 @@
 </div>
 
 
-<%--<asp:ObjectDataSource ID="MemberData" runat="server" DataObjectTypeName="System.Web.Security.MembershipUser" SelectMethod="GetUser" UpdateMethod="UpdateUser" TypeName="System.Web.Security.Membership">
-	<SelectParameters>
-		<asp:QueryStringParameter Name="username" QueryStringField="username" />
-	</SelectParameters>
-</asp:ObjectDataSource> --%>
+<%--<asp:CommandField ButtonType="button" ShowEditButton="true" EditText="Edit User Info" />--%>
 </td>
 
 </tr></table>

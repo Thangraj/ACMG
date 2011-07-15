@@ -79,13 +79,13 @@ namespace ACMGAdmin.DataAccess
             ds.SearchScope = SearchScope.Subtree;
            // ds.PropertiesToLoad.Add("sn");
            // ds.PropertiesToLoad.Add("givenName");
-            ds.Filter = string.Format("(&(objectCategory=person)(samAccountName={0}))", theUserName);
+            ds.Filter = string.Format("(&(objectCategory=person)(samAccountName={0}))", theUserName.Trim());
             SearchResult sr = ds.FindOne();
             if (sr != null)
             {
                 DirectoryEntry theUser = sr.GetDirectoryEntry();
-                AddUpdateProperty(theUser, "givenName", theFirstName);
-                AddUpdateProperty(theUser, "sn", thelastName);
+                AddUpdateProperty(theUser, "givenName", theFirstName.Trim());
+                AddUpdateProperty(theUser, "sn", thelastName.Trim());
                 theUser.CommitChanges();
            }
 

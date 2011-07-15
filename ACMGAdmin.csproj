@@ -99,22 +99,13 @@
     <Content Include="Reports\Report_DispositionSummary.aspx" />
     <Content Include="Reports\Report_LeadPenetration.aspx" />
     <Content Include="Reports\Report_LeadExport.aspx" />
-    <Content Include="Reports\Dashboard.aspx" />
-    <Content Include="Reports\Report_UnassignedLeadPoolByTimeZone.aspx" />
     <Content Include="Reports\Report_LeadFeedByDate.aspx" />
     <Content Include="Reports\Report_CampaignSummarySalesDateRange.aspx" />
     <Content Include="Reports\Report_CampaignSummaryRoutingGroupDateRange.aspx" />
     <Content Include="Reports\Report_CampaignSummaryLeadSourceByWeek.aspx" />
     <Content Include="Reports\Report_CampaignSummaryAgentDateRange.aspx" />
-    <Content Include="Reports\Report_ActiveLeadPoolByTimeZone.aspx" />
-    <Content Include="Reports\ReportCallCenterAgentSummaryByDateRangeV3.aspx" />
-    <Content Include="Reports\ReportCampaignSummaryLeadByWeek.aspx" />
-    <Content Include="Reports\ReportCallCenterAgentSummaryByDateRangeV2.aspx" />
-    <Content Include="Reports\ReportCallCenterAgentSummaryTodayV2.aspx" />
-    <Content Include="Reports\ReportCallCenterAgentSummaryToday.aspx" />
-    <Content Include="Reports\ReportCallCenterAgentSummaryByDateRange.aspx" />
-    <Content Include="Reports\ReportsMain.aspx" />
-    <Content Include="Reports\Report_AgentSummaryRT.aspx" />
+    <Content Include="Reports\Report_CallCenterAgentSummaryByDateRangeV2.aspx" />
+    <Content Include="Reports\Report_CallCenterAgentSummaryTodayV2.aspx" />
     <Content Include="Styles\ACMGSite.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -130,6 +121,7 @@
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -322,20 +314,6 @@
     <Compile Include="Reports\Report_LeadExport.aspx.designer.cs">
       <DependentUpon>Report_LeadExport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reports\Dashboard.aspx.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\Dashboard.aspx.designer.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\Report_UnassignedLeadPoolByTimeZone.aspx.cs">
-      <DependentUpon>Report_UnassignedLeadPoolByTimeZone.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\Report_UnassignedLeadPoolByTimeZone.aspx.designer.cs">
-      <DependentUpon>Report_UnassignedLeadPoolByTimeZone.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Reports\Report_LeadFeedByDate.aspx.cs">
       <DependentUpon>Report_LeadFeedByDate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -371,68 +349,19 @@
     <Compile Include="Reports\Report_CampaignSummaryAgentDateRange.aspx.designer.cs">
       <DependentUpon>Report_CampaignSummaryAgentDateRange.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reports\Report_ActiveLeadPoolByTimeZone.aspx.cs">
-      <DependentUpon>Report_ActiveLeadPoolByTimeZone.aspx</DependentUpon>
+    <Compile Include="Reports\Report_CallCenterAgentSummaryByDateRangeV2.aspx.cs">
+      <DependentUpon>Report_CallCenterAgentSummaryByDateRangeV2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Reports\Report_ActiveLeadPoolByTimeZone.aspx.designer.cs">
-      <DependentUpon>Report_ActiveLeadPoolByTimeZone.aspx</DependentUpon>
+    <Compile Include="Reports\Report_CallCenterAgentSummaryByDateRangeV2.aspx.designer.cs">
+      <DependentUpon>Report_CallCenterAgentSummaryByDateRangeV2.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reports\ReportCallCenterAgentSummaryByDateRangeV3.aspx.cs">
-      <DependentUpon>ReportCallCenterAgentSummaryByDateRangeV3.aspx</DependentUpon>
+    <Compile Include="Reports\Report_CallCenterAgentSummaryTodayV2.aspx.cs">
+      <DependentUpon>Report_CallCenterAgentSummaryTodayV2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Reports\ReportCallCenterAgentSummaryByDateRangeV3.aspx.designer.cs">
-      <DependentUpon>ReportCallCenterAgentSummaryByDateRangeV3.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\ReportCampaignSummaryLeadByWeek.aspx.cs">
-      <DependentUpon>ReportCampaignSummaryLeadByWeek.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\ReportCampaignSummaryLeadByWeek.aspx.designer.cs">
-      <DependentUpon>ReportCampaignSummaryLeadByWeek.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\ReportCallCenterAgentSummaryByDateRangeV2.aspx.cs">
-      <DependentUpon>ReportCallCenterAgentSummaryByDateRangeV2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\ReportCallCenterAgentSummaryByDateRangeV2.aspx.designer.cs">
-      <DependentUpon>ReportCallCenterAgentSummaryByDateRangeV2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\ReportCallCenterAgentSummaryTodayV2.aspx.cs">
-      <DependentUpon>ReportCallCenterAgentSummaryTodayV2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\ReportCallCenterAgentSummaryTodayV2.aspx.designer.cs">
-      <DependentUpon>ReportCallCenterAgentSummaryTodayV2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\ReportCallCenterAgentSummaryToday.aspx.cs">
-      <DependentUpon>ReportCallCenterAgentSummaryToday.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\ReportCallCenterAgentSummaryToday.aspx.designer.cs">
-      <DependentUpon>ReportCallCenterAgentSummaryToday.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\ReportCallCenterAgentSummaryByDateRange.aspx.cs">
-      <DependentUpon>ReportCallCenterAgentSummaryByDateRange.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\ReportCallCenterAgentSummaryByDateRange.aspx.designer.cs">
-      <DependentUpon>ReportCallCenterAgentSummaryByDateRange.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\ReportsMain.aspx.cs">
-      <DependentUpon>ReportsMain.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\ReportsMain.aspx.designer.cs">
-      <DependentUpon>ReportsMain.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\Report_AgentSummaryRT.aspx.cs">
-      <DependentUpon>Report_AgentSummaryRT.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\Report_AgentSummaryRT.aspx.designer.cs">
-      <DependentUpon>Report_AgentSummaryRT.aspx</DependentUpon>
+    <Compile Include="Reports\Report_CallCenterAgentSummaryTodayV2.aspx.designer.cs">
+      <DependentUpon>Report_CallCenterAgentSummaryTodayV2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -474,16 +403,9 @@
     <Content Include="Phone\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\Report_Dashboard.rdlc" />
-    <EmbeddedResource Include="Reports\Report_ActiveLeadPoolByTimeZone.rdlc" />
-    <EmbeddedResource Include="Reports\Report_AgentSummaryDateRange.rdlc" />
-    <EmbeddedResource Include="Reports\Report_CallCenterAgentSummaryByDateRangeV3.rdlc" />
     <EmbeddedResource Include="Reports\Report_CallCenterAgentSummaryByDateRangeV2.rdlc" />
     <EmbeddedResource Include="Reports\Report_CallCenterAgentSummaryTodayV2.rdlc" />
-    <EmbeddedResource Include="Reports\Report_CallCenterAgentSummaryToday.rdlc" />
-    <EmbeddedResource Include="Reports\Report_CallCenterAgentSummaryByDateRange.rdlc" />
     <EmbeddedResource Include="Reports\Report_CampaignSummaryAgentDateRange.rdlc" />
-    <EmbeddedResource Include="Reports\Report_CampaignSummaryLead.rdlc" />
     <EmbeddedResource Include="Reports\Report_CampaignSummaryLeadSourceByWeek.rdlc" />
     <EmbeddedResource Include="Reports\Report_CampaignSummaryRoutingGroupDateRange.rdlc" />
     <EmbeddedResource Include="Reports\Report_CampaignSummarySalesDateRange.rdlc" />
@@ -492,7 +414,6 @@
     <EmbeddedResource Include="Reports\Report_LeadFeedByDate.rdlc" />
     <EmbeddedResource Include="Reports\Report_LeadPenetration_1.rdlc" />
     <EmbeddedResource Include="Reports\Report_LeadPenetration_RT.rdlc" />
-    <EmbeddedResource Include="Reports\Report_UnassignedLeadPoolByTimeZone.rdlc" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

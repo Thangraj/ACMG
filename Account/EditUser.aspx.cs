@@ -42,9 +42,11 @@ namespace ACMGAdmin.Account
             UserInfo.DataSource = myDataSource;
             UserInfo.DataBind();
             //replace with object- only using Phillipine center.
-
+            if (IsPostBack == false) { 
             UserUpdateMessage.Text = "";
             LabelFullName.Text = getFullname(user.UserName);
+            
+            }
         }
 
         protected void UserInfo_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
@@ -60,8 +62,8 @@ namespace ACMGAdmin.Account
             {
                 // Update user info:
                 Membership.Providers[theCallCenterConnectString].UpdateUser(user);
+
                 
-                               
                 // Update user roles:
                 UpdateUserRoles();
 
@@ -84,7 +86,10 @@ namespace ACMGAdmin.Account
             // Load the User Roles into checkboxes.
             UserRoles.DataSource = Roles.GetAllRoles();
             UserRoles.DataBind();
-
+            if (!Roles.IsUserInRole("Administrators"))
+            {
+                UserRoles.Items.Remove("Administrators");
+            }
             // Disable checkboxes if appropriate:
             //if (UserInfo.CurrentMode != DetailsViewMode.Edit)
             //{
@@ -149,7 +154,27 @@ namespace ACMGAdmin.Account
             //Session["AgentFirstName"] = theAgentName[0];
             //Session["AgentLastName"] = theAgentName[1];
 
+
+            TextBoxFname.Text = theAgentName[0].ToString().Trim();
+            TextBoxLname.Text = theAgentName[1].ToString().Trim();
+
+           
+
+            if (!(TextBoxFname.Text == "" || TextBoxLname.Text == "")) { TextBoxLname.Enabled = false; TextBoxFname.Enabled = false; }
+
             return theAgentName[0].ToString() + " " + theAgentName[1].ToString();
+        }
+
+        protected void addFullName()
+        {
+
+            DataAccess.LDAPAccess theLDAP = new DataAccess.LDAPAccess();
+
+
+            theLDAP.updateUserFullName(user.UserName, TextBoxFname.Text.Trim(), TextBoxLname.Text.Trim(), theCallCenterConnectString);
+
+
+
         }
 
         protected void UserInfo_PageIndexChanging(object sender, DetailsViewPageEventArgs e)
@@ -163,7 +188,8 @@ namespace ACMGAdmin.Account
             {
                 // Update user info:
                 // Membership.Providers[theCallCenterConnectString].UpdateUser(user);
-
+                //update name:
+                addFullName();
                 // Update user roles:
                 UpdateUserRoles();
 
