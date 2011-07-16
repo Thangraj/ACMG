@@ -188,6 +188,8 @@ namespace ACMGAdmin.Account
             {
                 // Update user info:
                 // Membership.Providers[theCallCenterConnectString].UpdateUser(user);
+                
+                
                 //update name:
                 addFullName();
                 // Update user roles:
@@ -206,5 +208,34 @@ namespace ACMGAdmin.Account
                 UserInfo.ChangeMode(DetailsViewMode.ReadOnly);
             }
         }
+
+        protected void ChangePasswordPushButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                //update password:
+                Boolean ischanged = user.ChangePassword(CurrentPassword.Text, NewPassword.Text);
+
+                UserUpdateMessage.Text = "Update Password " + ischanged.ToString();
+
+                // e.Cancel = true;
+                // UserInfo.ChangeMode(DetailsViewMode.ReadOnly);
+            }
+            catch (Exception ex)
+            {
+                UserUpdateMessage.Text = "Update Password Failed: " + ex.Message;
+
+                //e.Cancel = true;
+                UserInfo.ChangeMode(DetailsViewMode.ReadOnly);
+            }
+        }
+
+        protected void CancelPushButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewUsersByRole.aspx");
+        }
+
+       
     }
 }

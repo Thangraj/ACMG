@@ -83,8 +83,8 @@
 					<Items>
 						<asp:MenuItem Text="Reports" Value="Reports">
 						    <asp:MenuItem 
-                                Text="Agent" 
-                                Value="Agent">
+                                Text="Agent Reports" 
+                                Value="Agent Reports">
                                 <asp:MenuItem NavigateUrl="~/Reports/Report_CallCenterAgentSummaryTodayV2.aspx" 
                                     Text="Agent Summary Today " Value="Agent Summary Today">
                                 </asp:MenuItem>
@@ -95,7 +95,7 @@
                                     Text="Disposition Summary" Value="Disposition Summary"></asp:MenuItem>
                             </asp:MenuItem>
 							<asp:MenuItem 
-								Text="Lead Pool" Value="Lead Pool">
+								Text="Lead Pool Reports" Value="Lead Pool Reports">
                                 <asp:MenuItem NavigateUrl="~/Reports/Report_LeadPenetration_RT.aspx" 
                                     Text="Real Time Available Lead Pool" Value="Real Time Available Lead Pool">
                                 </asp:MenuItem>
@@ -107,8 +107,8 @@
                                     Text="Leed Feed By Date" Value="Leed Feed By Date"></asp:MenuItem>
                             </asp:MenuItem>
 						    <asp:MenuItem 
-                                Text="Campaign" 
-                                Value="Campaign">
+                                Text="Campaign Reports" 
+                                Value="Campaign Reports">
                                 <asp:MenuItem NavigateUrl="~/Reports/Report_CampaignSummarySalesDateRange.aspx" 
                                     Text="Campaign Summary By Date Range" Value="Campaign Summary By Date Range">
                                 </asp:MenuItem>
@@ -122,35 +122,80 @@
                                     Text="Campaign Summary By routing Group + Date Range" 
                                     Value="Campaign Summary By routing Group + Date Range"></asp:MenuItem>
                             </asp:MenuItem>
-						</asp:MenuItem>
-					    <asp:MenuItem Text="Marketing" Value="Marketing">
-                            <asp:MenuItem Text="Script Builder" Value="Script Builder"></asp:MenuItem>
-                            <asp:MenuItem Text="Campaigns" Value="Campaigns"></asp:MenuItem>
-                            <asp:MenuItem Text="Campaign Scheduler" Value="Campaign Scheduler">
+						    <asp:MenuItem Text="Lead List Reports" Value="Lead List Reports">
+                                <asp:MenuItem NavigateUrl="~/Reports/Report_LeadExport.aspx" 
+                                    Text="Lead List Export" Value="Lead List Export"></asp:MenuItem>
                             </asp:MenuItem>
-                            <asp:MenuItem Text="Test Control" Value="Test Control"></asp:MenuItem>
+						</asp:MenuItem>
+					    <asp:MenuItem Text="Compliance" Value="Compliance">
+                            <asp:MenuItem Text="Call Recordings" Value="Call Recordings">
+                                <asp:MenuItem NavigateUrl="~/Compliance/CallRecordingsSales.aspx" 
+                                    Text="Call Recordings All Sales" Value="Call Recordings All Sales">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Compliance/CallRecordingsSearch.aspx" 
+                                    Text="Call Recordings Search" Value="Call Recordings Search"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Live Call Monitor" Value="Live Call Monitor">
+                                <asp:MenuItem NavigateUrl="~/Compliance/LiveCallMonitor.aspx" 
+                                    Text="Monitor Calls" Value="Monitor Calls"></asp:MenuItem>
+                            </asp:MenuItem>
                         </asp:MenuItem>
-                        <asp:MenuItem Text="Lead Management" Value="Lead Management">
-                            <asp:MenuItem Text="Lead Export" Value="Lead Export" 
-                                NavigateUrl="~/Reports/Report_LeadExport.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Campaign Management" Value="Campaign Management">
+                            <asp:MenuItem Text="Campaign Configuration" Value="Campaign Configuration">
+                                <asp:MenuItem Text="Preview Dial Campaigns" Value="Preview Dial Campaigns">
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Campaign DNIS Assignment" Value="Campaign DNIS Assignment">
+                                </asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Leads To Campaign Configuration" 
+                                Value="Leads To Campaign Configuration">
+                                <asp:MenuItem Text="Lead Group Types" Value="Lead Group Types"></asp:MenuItem>
+                                <asp:MenuItem Text="Lead Group to Campaign Assignment" 
+                                    Value="Lead Group to Campaign Assignment"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Sales Package Configuration" 
+                                Value="Sales Package Configuration">
+                                <asp:MenuItem Text="Sales Packages" Value="Sales Packages"></asp:MenuItem>
+                                <asp:MenuItem Text="Product Offers" Value="Product Offers"></asp:MenuItem>
+                                <asp:MenuItem Text="Product Offer Codes" Value="Product Offer Codes">
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Sales Scripts" Value="Sales Scripts"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Campaign Scheduling and Routing" 
+                                Value="Campaign Scheduling and Routing">
+                                <asp:MenuItem Text="Agent Skill Groups" Value="Agent Skill Groups">
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Assign Agents To Skill Groups" 
+                                    Value="Assign Agents To Skill Groups"></asp:MenuItem>
+                                <asp:MenuItem Text="Set Up Offers/Campaigns Routing and Schedule" 
+                                    Value="Set Up Offers/Campaigns Routing and Schedule"></asp:MenuItem>
+                                <asp:MenuItem Text="View Current Routing and Schedules" 
+                                    Value="View Current Routing and Schedules"></asp:MenuItem>
+                                <asp:MenuItem Text="Test View Offers By Agent " 
+                                    Value="Test View Offers By Agent "></asp:MenuItem>
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Dialer Configuration" Value="Dialer Configuration">
                             <asp:MenuItem Text="Dialer Rules" Value="Dialer Rules"></asp:MenuItem>
-                            <asp:MenuItem Text="External Feed" Value="External Feed"></asp:MenuItem>
                         </asp:MenuItem>
-                        <asp:MenuItem Text="System Admin" Value="System Admin">
-                            <asp:MenuItem Text="View Users" Value="View Users" 
-                                NavigateUrl="~/Account/ViewUsersByRole.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="User Admin" Value="User Admin">
+                            <asp:MenuItem NavigateUrl="~/Account/ViewUsersByRole.aspx" 
+                                Text="View/Edit Users" Value="View/Edit Users"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Account/AddUser.aspx" Text="Add User" 
                                 Value="Add User"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Account/Edit_Site_Roles.aspx" Text="Edit Roles" 
-                                Value="Edit Roles"></asp:MenuItem>
                         </asp:MenuItem>
-					    <asp:MenuItem Text="Compliance" Value="Compliance">
-                            <asp:MenuItem NavigateUrl="~/Compliance/CallRecordingsSales.aspx" 
-                                Text="Call Recordings SALES" Value="Call Recordings SALES"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Compliance/CallRecordingsSearch.aspx" 
-                                Text="Call Recordings SEARCH" Value="Call Recordings SEARCH"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Compliance/LiveCallMonitor.aspx" 
-                                Text="Live Call Monitor" Value="Live Call Monitor"></asp:MenuItem>
+                        <asp:MenuItem Text="System Admin" Value="System Admin">
+                            <asp:MenuItem Text="Call Centers " Value="Call Centers "></asp:MenuItem>
+                            <asp:MenuItem Text="Call Dispositions " Value="Call Dispositions ">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Allowed Calling Times By State" 
+                                Value="Allowed Calling Times By State"></asp:MenuItem>
+                            <asp:MenuItem Text="Holidays" Value="Holidays"></asp:MenuItem>
+                            <asp:MenuItem Text="PBX Phone Extensions" Value="PBX Phone Extensions">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Routing Groups" Value="Routing Groups"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Account/Edit_Site_Roles.aspx" Text="User Roles" 
+                                Value="User Roles"></asp:MenuItem>
                         </asp:MenuItem>
 					</Items>
 				    <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
