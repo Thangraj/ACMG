@@ -74,7 +74,7 @@
     <Content Include="Account\EditUser.aspx" />
     <Content Include="Account\Edit_Site_Roles.aspx" />
     <Content Include="Account\Login.aspx" />
-    <Content Include="Account\NoAccess.aspx" />
+    <Content Include="NoAccess.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\ViewUsers.aspx" />
     <Content Include="Account\ViewUsersByRole.aspx" />
@@ -181,11 +181,11 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account\NoAccess.aspx.cs">
+    <Compile Include="NoAccess.aspx.cs">
       <DependentUpon>NoAccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account\NoAccess.aspx.designer.cs">
+    <Compile Include="NoAccess.aspx.designer.cs">
       <DependentUpon>NoAccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Register.aspx.cs">
@@ -368,7 +368,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account\Web.config" />
+    <Content Include="Account\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="images\Web.config" />

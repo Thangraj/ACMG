@@ -23,7 +23,7 @@ namespace ACMGAdmin.Account
             if (!Roles.IsUserInRole("Administrators") && !Roles.IsUserInRole("User Admin"))
             {
                 //Label1.Text = User.Identity.Name + " is in role TestRole";
-               Response.Redirect("NoAccess.aspx");
+               Response.Redirect("~NoAccess.aspx");
                 
             }
             

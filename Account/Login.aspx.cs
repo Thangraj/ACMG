@@ -15,11 +15,15 @@ namespace ACMGAdmin.Account
 
         {
            //DropDownList theDropDown = (DropDownList)LoginUser.FindControl("DropDownCallCenter");
+  
 
 
             
             if (IsPostBack == false)
+
             {
+                if (Request.IsAuthenticated && !(Request.QueryString["ReturnUrl"]=="" || (Request.QueryString["ReturnUrl"]==null))){
+                Response.Redirect("~/NoAccess.aspx");}
                 DataAccess.MySQLAccess myObj = new DataAccess.MySQLAccess();
                 DataSet ds = new DataSet();
                 ds = myObj.getCallCenters("LocalMySqlServer");
