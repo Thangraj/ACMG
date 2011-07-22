@@ -176,7 +176,8 @@
                             </asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Dialer Configuration" Value="Dialer Configuration">
-                            <asp:MenuItem Text="Dialer Rules" Value="Dialer Rules"></asp:MenuItem>
+                            <asp:MenuItem Text="Dialer Rules" Value="Dialer Rules" 
+                                NavigateUrl="~/MasterInterfaces/DialerRules.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="User Admin" Value="User Admin">
                             <asp:MenuItem NavigateUrl="~/Account/ViewUsersByRole.aspx" 
