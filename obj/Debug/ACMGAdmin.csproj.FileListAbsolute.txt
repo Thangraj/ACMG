@@ -72,3 +72,10 @@ D:\ACMG_Project\Projects\ACMGMaster\ACMGAdmin\obj\Debug\RdlCompile.cache
 D:\ACMG_Project\Projects\ACMGMaster\ACMGAdmin\obj\Debug\RdlCompile.compiled
 D:\ACMG_Project\Projects\ACMGMaster\ACMGAdmin\obj\Debug\ACMGAdmin.dll
 D:\ACMG_Project\Projects\ACMGMaster\ACMGAdmin\obj\Debug\ACMGAdmin.pdb
+C:\Thangaraj\Asterisk\ACMG_Base\OD-AdministrationandReportingApplication\bin\ACMGAdmin.dll
+C:\Thangaraj\Asterisk\ACMG_Base\OD-AdministrationandReportingApplication\bin\ACMGAdmin.pdb
+C:\Thangaraj\Asterisk\ACMG_Base\OD-AdministrationandReportingApplication\obj\Debug\ResolveAssemblyReference.cache
+C:\Thangaraj\Asterisk\ACMG_Base\OD-AdministrationandReportingApplication\obj\Debug\RdlCompile.cache
+C:\Thangaraj\Asterisk\ACMG_Base\OD-AdministrationandReportingApplication\obj\Debug\RdlCompile.compiled
+C:\Thangaraj\Asterisk\ACMG_Base\OD-AdministrationandReportingApplication\obj\Debug\ACMGAdmin.dll
+C:\Thangaraj\Asterisk\ACMG_Base\OD-AdministrationandReportingApplication\obj\Debug\ACMGAdmin.pdb
