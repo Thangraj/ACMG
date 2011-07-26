@@ -20,6 +20,7 @@ namespace ACMGAdmin.Reports
         {
            
            this.ReportViewer1.LocalReport.Refresh();
+           this.ReportViewer3.LocalReport.Refresh();
         
         }
 

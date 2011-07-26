@@ -405,6 +405,7 @@
     <Content Include="Phone\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\Report_LeadPenetration_RT_Unavailable.rdlc" />
     <EmbeddedResource Include="Reports\Report_CallCenterAgentSummaryByDateRangeV2.rdlc" />
     <EmbeddedResource Include="Reports\Report_CallCenterAgentSummaryTodayV2.rdlc" />
     <EmbeddedResource Include="Reports\Report_CampaignSummaryAgentDateRange.rdlc" />
