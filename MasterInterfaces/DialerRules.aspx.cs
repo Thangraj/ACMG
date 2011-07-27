@@ -140,8 +140,6 @@ namespace ACMGAdmin.MasterInterfaces
 
                 gvDialerRules.DataSource = dtDialerRules;
                 gvDialerRules.DataBind();
-                // putting the datatable in session 
-                Session["dtDialerRules"] = dtDialerRules;
             }
             catch (Exception ex)
             {

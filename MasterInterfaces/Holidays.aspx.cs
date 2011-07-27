@@ -133,6 +133,15 @@ namespace ACMGAdmin.MasterInterfaces
                         {
                             populateHolidayGrid("","");
                             ConfirmationMessage.InnerText = "Inserted Successfully !";
+
+                            //storing the values in the hidden fields to verify the modification & to highlight in the screen..
+                            hdnState.Value = drpState.SelectedValue;
+                            //hdnState.Value = txtState.Text;
+                            hdnMonth.Value = drpMonth.SelectedValue;
+                            hdnDay.Value = drpDay.SelectedValue;
+                            hdnHolidayName.Value = txtHolidayName.Text;
+                            hdnNotes.Value = txtNotes.Text;
+                            hdnDate.Value = txtTheDate.Text;
                         }
 
                     }

@@ -5,8 +5,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<script type="text/javascript">
-    // function which will highlight the field values whcih have been changed in Edit Mode and intimate the user with the
+   // function which will highlight the field values whcih have been changed in Edit Mode and intimate the user with the
+ <script type="text/javascript">
+
     // message box...
     function highlightModFields() {
 
@@ -253,7 +254,7 @@
                     <asp:Label ID="lblHolidayName" Text="Holiday Name" CssClass="detailheader" runat="server"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtHolidayName" Width="250px" Font-Names="Arial" MaxLength="25"  TabIndex="4"
+                    <asp:TextBox ID="txtHolidayName" Width="250px" Font-Names="Arial" TabIndex="4"
                         runat="server" CssClass="detailitem"  Text="" 
                        ></asp:TextBox>
                       <asp:RequiredFieldValidator ID="rfvHolidayName" ForeColor="Red" Display="Dynamic" runat="server" ControlToValidate="txtHolidayName" ErrorMessage="Please enter holiday name value !"></asp:RequiredFieldValidator>

@@ -106,23 +106,40 @@
                 txtStartTimeESTObj.style.backgroundColor = '#FFFFFF';
             }
 
-            /*
-            if (rblHolidaysObj.value != hdnDialHolidaysObj.value) {
-            bChanged = true;
-            rblHolidaysObj.style.backgroundColor = '#FFEBCD';
-            }
-            else {
-            rblHolidaysObj.style.backgroundColor = '#FFFFFF';
+           
+             // checking the Radiobutton selected value
+            for (var i = 0; i < '<%= rblHolidays.Items.Count %>'; i++) {
+
+                if (document.getElementById(rblHolidaysObj.id + "_" + [i].toString()).checked == true) {
+
+                    if (document.getElementById(rblHolidaysObj.id + "_" + [i].toString()).value != hdnDialHolidaysObj.value) {
+                        bChanged = true;
+                        rblHolidaysObj.style.backgroundColor = '#FF3366';
+                    }
+                    else {
+                        rblHolidaysObj.style.backgroundColor = '#FFFFFF';
+                    }
+                    
+                }
             }
 
-            if (rblActiveObj.value != hdnDialActiveObj.value) {
-            bChanged = true;
-            rblActiveObj.style.backgroundColor = '#FFEBCD';
+
+            for (var i = 0; i < '<%= rblActive.Items.Count %>'; i++) {
+
+                if (document.getElementById(rblActiveObj.id + "_" + [i].toString()).checked == true) {
+
+                    if (document.getElementById(rblActiveObj.id + "_" + [i].toString()).value != hdnDialActiveObj.value) {
+                        bChanged = true;
+                        rblActiveObj.style.backgroundColor = '#FF3366';
+                    }
+                    else {
+                        rblActiveObj.style.backgroundColor = '#FFFFFF';
+                    }
+                    
+                }
             }
-            else {
-            rblActiveObj.style.backgroundColor = '#FFFFFF';
-            }
-            */
+
+            
             if (txtPriorityObj.value != hdnPriorityObj.value) {
                 bChanged = true;
                 txtPriorityObj.style.backgroundColor = '#FF3366';

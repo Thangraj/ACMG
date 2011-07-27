@@ -287,6 +287,8 @@ namespace ACMGAdmin.DataAccess
 
         #region MasterInterface_Methods
 
+        #region Holiday Screen
+
         #region getHolidays
         // This method will output the Holiday data in a Dataset
         public DataSet getHolidays(string theConnectionString)
@@ -493,6 +495,43 @@ namespace ACMGAdmin.DataAccess
 
         #endregion
 
+        #region getUsStates
+        // This method will fetch all the US States from tbl_us_states table..
+        public DataSet getUsStates(string theConnectionString)
+        {
+            //to get all the Holiday List from the DB
+            string theCommandName = "sp_admin_getUsStates";
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCommand.CommandType = CommandType.StoredProcedure;
+
+                    //Creating an empty Dataadapter to the command..
+                    MySqlDataAdapter myDataAdapter = new MySqlDataAdapter();
+                    myDataAdapter.SelectCommand = myCommand;
+                    // filling the Dataset from the output of stored procedure
+                    DataSet dsStates = new DataSet();
+                    myDataAdapter.Fill(dsStates);
+
+                    return dsStates;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        #endregion
+
+        #endregion
+
+        #region DialerRule Screen
+
         #region getDialerRules
         // This method will fetch the DialerRules details from the database...
         public DataSet getDialerRules(string theConnectionString)
@@ -684,14 +723,17 @@ namespace ACMGAdmin.DataAccess
 
 
         #endregion
+        
+        #endregion
 
+        #region CallCenter Screen
 
-        #region getUsStates
-        // This method will fetch all the US States from tbl_us_states table..
-        public DataSet getUsStates(string theConnectionString)
+        #region getCallCenter
+        // This method will output the CallCenter data in a Dataset
+        public DataSet getCallCenter(string theConnectionString)
         {
             //to get all the Holiday List from the DB
-            string theCommandName = "sp_admin_getUsStates";
+            string theCommandName = "sp_admin_getCallCenter";
             try
             {
                 //getting the connectionstring from the Appln to fetch the data...
@@ -703,13 +745,250 @@ namespace ACMGAdmin.DataAccess
                     myCommand.CommandType = CommandType.StoredProcedure;
 
                     //Creating an empty Dataadapter to the command..
-                    MySqlDataAdapter myDataAdapter = new MySqlDataAdapter();
-                    myDataAdapter.SelectCommand = myCommand;
+                    MySqlDataAdapter myAdapter = new MySqlDataAdapter();
+                    myAdapter.SelectCommand = myCommand;
                     // filling the Dataset from the output of stored procedure
-                    DataSet dsStates = new DataSet();
-                    myDataAdapter.Fill(dsStates);
+                    DataSet dsCallCenter = new DataSet();
+                    myAdapter.Fill(dsCallCenter);
 
-                    return dsStates;
+                    return dsCallCenter;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        #endregion
+
+        #region getCallCenterByID
+        // This method will check the i/p CallCenterID in DB and if present it will output the CallCenter data in a Dataset..
+        public DataSet getCallCenterByID(string theConnectionString, int intCallCenterID)
+        {
+            //to get all the Holiday List from the DB
+            string theCommandName = "sp_admin_getCallCenterByID";
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCommand.CommandType = CommandType.StoredProcedure;
+                    myCommand.Parameters.Add("iCallCenterID", MySqlDbType.Int32);
+                    myCommand.Parameters[0].Value = intCallCenterID;
+
+                    //Creating an empty Dataadapter to the command..
+                    MySqlDataAdapter myAdapter = new MySqlDataAdapter();
+                    myAdapter.SelectCommand = myCommand;
+                    // filling the Dataset from the output of stored procedure
+                    DataSet dsSelectedCallCenter = new DataSet();
+                    myAdapter.Fill(dsSelectedCallCenter);
+
+                    return dsSelectedCallCenter;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        #endregion
+
+        #region insertCallCenter
+
+        public Int32 insertCallCenter(string theConnectionString, string strCallCenter, string strCallCenterNotes,
+                                      string strConnectionStringName, string strActive, string strModifyUser, 
+                                      string strModifyDateTime, string strScreenName, string strTableName, 
+                                      string strBeforeImage, string strAfterImage)
+        {
+            //to get all the Holiday List from the DB
+            string theCommandName = "sp_admin_insCallCenter";
+            Int32 intRecAffected = 0;
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCallCenterCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCallCenterCommand.CommandType = CommandType.StoredProcedure;
+
+                    MySqlParameter myParamCallCenter = new MySqlParameter();
+                    myParamCallCenter.ParameterName = "strCallCenterName";
+                    myParamCallCenter.Value = strCallCenter;
+                    myCallCenterCommand.Parameters.Add(myParamCallCenter);
+                    myParamCallCenter.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamNotes = new MySqlParameter();
+                    myParamNotes.ParameterName = "strCallCenterNotes";
+                    myParamNotes.Value = strCallCenterNotes;
+                    myCallCenterCommand.Parameters.Add(myParamNotes);
+                    myParamNotes.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamConnectString = new MySqlParameter();
+                    myParamConnectString.ParameterName = "strConnectStringName";
+                    myParamConnectString.Value = strConnectionStringName;
+                    myCallCenterCommand.Parameters.Add(myParamConnectString);
+                    myParamConnectString.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamActive = new MySqlParameter();
+                    myParamActive.ParameterName = "iActive";
+                    myParamActive.Value = Convert.ToInt32(strActive);
+                    myCallCenterCommand.Parameters.Add(myParamActive);
+                    myParamActive.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyUser = new MySqlParameter();
+                    myParamModifyUser.ParameterName = "strModifyUser";
+                    myParamModifyUser.Value = strModifyUser;
+                    myCallCenterCommand.Parameters.Add(myParamModifyUser);
+                    myParamModifyUser.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyDate = new MySqlParameter();
+                    myParamModifyDate.ParameterName = "strModifyDateTime";
+                    myParamModifyDate.Value = strModifyDateTime;
+                    myCallCenterCommand.Parameters.Add(myParamModifyDate);
+                    myParamModifyDate.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamScreenName = new MySqlParameter();
+                    myParamScreenName.ParameterName = "strScreenName";
+                    myParamScreenName.Value = strScreenName;
+                    myCallCenterCommand.Parameters.Add(myParamScreenName);
+                    myParamScreenName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTabelName = new MySqlParameter();
+                    myParamTabelName.ParameterName = "strTableName";
+                    myParamTabelName.Value = strTableName;
+                    myCallCenterCommand.Parameters.Add(myParamTabelName);
+                    myParamTabelName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBeforeImage = new MySqlParameter();
+                    myParamBeforeImage.ParameterName = "tBeforeImage";
+                    myParamBeforeImage.Value = strBeforeImage;
+                    myCallCenterCommand.Parameters.Add(myParamBeforeImage);
+                    myParamBeforeImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamAfterImage = new MySqlParameter();
+                    myParamAfterImage.ParameterName = "tAfterImage";
+                    myParamAfterImage.Value = strAfterImage;
+                    myCallCenterCommand.Parameters.Add(myParamAfterImage);
+                    myParamAfterImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamOutRes = new MySqlParameter();
+                    myParamOutRes.ParameterName = "oCount";
+                    myParamOutRes.Value = strAfterImage;
+                    myCallCenterCommand.Parameters.Add(myParamOutRes);
+                    myParamOutRes.Direction = ParameterDirection.Output;
+
+                    myCallCenterCommand.ExecuteNonQuery();
+                    intRecAffected = Convert.ToInt32(myCallCenterCommand.Parameters["oCount"].Value);
+                    return intRecAffected;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        #endregion
+
+        #region updateCallCenterDetails
+        public Int32 updateCallCenterDetails(string theConnectionString, int intCallCenterID, string strCallCenter, string strCallCenterNotes, 
+                                             string strConnectionStringName, string strActive, string strModifyUser, string strModifyDateTime,
+                                             string strScreenName, string strTableName, string strBeforeImage, string strAfterImage)
+        {
+            //to get all the Holiday List from the DB
+            string theCommandName = "sp_admin_updCallCenter";
+            Int32 intRecAffected = 0;
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCommand.CommandType = CommandType.StoredProcedure;
+
+                    // input parameters for stored procedure
+                    MySqlParameter myParamCallCenterID = new MySqlParameter();
+                    myParamCallCenterID.ParameterName = "iCallCenterId";
+                    myParamCallCenterID.Value = intCallCenterID;
+                    myCommand.Parameters.Add(myParamCallCenterID);
+                    myParamCallCenterID.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamCallCenter = new MySqlParameter();
+                    myParamCallCenter.ParameterName = "strCallCenterName";
+                    myParamCallCenter.Value = strCallCenter;
+                    myCommand.Parameters.Add(myParamCallCenter);
+                    myParamCallCenter.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamNotes = new MySqlParameter();
+                    myParamNotes.ParameterName = "strCallCenterNotes";
+                    myParamNotes.Value = strCallCenterNotes;
+                    myCommand.Parameters.Add(myParamNotes);
+                    myParamNotes.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamConnStringName = new MySqlParameter();
+                    myParamConnStringName.ParameterName = "strConnectStringName";
+                    myParamConnStringName.Value = strConnectionStringName;
+                    myCommand.Parameters.Add(myParamConnStringName);
+                    myParamConnStringName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamActive = new MySqlParameter();
+                    myParamActive.ParameterName = "iActive";
+                    myParamActive.Value = Convert.ToInt32(strActive);
+                    myCommand.Parameters.Add(myParamActive);
+                    myParamActive.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyUser = new MySqlParameter();
+                    myParamModifyUser.ParameterName = "strModifyUser";
+                    myParamModifyUser.Value = strModifyUser;
+                    myCommand.Parameters.Add(myParamModifyUser);
+                    myParamModifyUser.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyDate = new MySqlParameter();
+                    myParamModifyDate.ParameterName = "strModifyDateTime";
+                    myParamModifyDate.Value = strModifyDateTime;
+                    myCommand.Parameters.Add(myParamModifyDate);
+                    myParamModifyDate.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamScreenName = new MySqlParameter();
+                    myParamScreenName.ParameterName = "strScreenName";
+                    myParamScreenName.Value = strScreenName;
+                    myCommand.Parameters.Add(myParamScreenName);
+                    myParamScreenName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTabelName = new MySqlParameter();
+                    myParamTabelName.ParameterName = "strTableName";
+                    myParamTabelName.Value = strTableName;
+                    myCommand.Parameters.Add(myParamTabelName);
+                    myParamTabelName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBeforeImage = new MySqlParameter();
+                    myParamBeforeImage.ParameterName = "tBeforeImage";
+                    myParamBeforeImage.Value = strBeforeImage;
+                    myCommand.Parameters.Add(myParamBeforeImage);
+                    myParamBeforeImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamAfterImage = new MySqlParameter();
+                    myParamAfterImage.ParameterName = "tAfterImage";
+                    myParamAfterImage.Value = strAfterImage;
+                    myCommand.Parameters.Add(myParamAfterImage);
+                    myParamAfterImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamOutRes = new MySqlParameter();
+                    myParamOutRes.ParameterName = "oCount";
+                    myParamOutRes.Value = strAfterImage;
+                    myCommand.Parameters.Add(myParamOutRes);
+                    myParamOutRes.Direction = ParameterDirection.Output;
+
+                    myCommand.ExecuteNonQuery();
+                    intRecAffected = Convert.ToInt32(myCommand.Parameters["oCount"].Value);
+                    return intRecAffected;
                 }
             }
             catch (Exception e)
@@ -723,11 +1002,15 @@ namespace ACMGAdmin.DataAccess
         #endregion
 
 
-       
 
-    
-    
-    
+        #endregion
+
+
+
+
+
+
+
     }
 
 
