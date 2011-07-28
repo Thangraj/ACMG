@@ -186,7 +186,7 @@
                         </asp:MenuItem>
                         <asp:MenuItem Text="System Admin" Value="System Admin">
                             <asp:MenuItem Text="Call Centers " Value="Call Centers" NavigateUrl="~/MasterInterfaces/CallCenter.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Call Dispositions " Value="Call Dispositions ">
+                            <asp:MenuItem Text="Call Dispositions " Value="Call Dispositions " NavigateUrl="~/MasterInterfaces/CallDispositions.aspx">
                             </asp:MenuItem>
                             <asp:MenuItem Text="Allowed Calling Times By State" 
                                 Value="Allowed Calling Times By State"></asp:MenuItem>

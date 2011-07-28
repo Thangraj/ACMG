@@ -14,8 +14,6 @@
             // variable declarations
             var bChanged = false;
 
-            var test = document.getElementById('<%= Page.Master.FindControl("MainContent").FindControl("txtDaysBetDials").ClientID%>');
-
             var txtDaysBetDialsObj = document.getElementById('<%= Page.Master.FindControl("MainContent").FindControl("txtDaysBetDials").ClientID%>');
             var txtHrsBetDialsObj = document.getElementById('<%= Page.Master.FindControl("MainContent").FindControl("txtHrsBetDials").ClientID%>');
             var txtMinsBetDialsObj = document.getElementById('<%= Page.Master.FindControl("MainContent").FindControl("txtMinsBetDials").ClientID%>');

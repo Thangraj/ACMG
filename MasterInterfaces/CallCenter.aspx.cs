@@ -103,7 +103,7 @@ namespace ACMGAdmin.MasterInterfaces
                         if (iOutput > 0)
                         {
                             populateCallCenterGrid();
-                            ConfirmationMessage.InnerText = "updated successfully !";
+                            ConfirmationMessage.InnerText = "Updated Successfully !";
 
                             //storing the values in the hidden fields to verify the modification & to highlight in the screen..
                             hdnCallCenterName.Value = txtCallCenter.Text;

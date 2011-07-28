@@ -5,9 +5,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-   // function which will highlight the field values whcih have been changed in Edit Mode and intimate the user with the
+   
  <script type="text/javascript">
-
+     // function which will highlight the field values whcih have been changed in Edit Mode and intimate the user with the
     // message box...
     function highlightModFields() {
 

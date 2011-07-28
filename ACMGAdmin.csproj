@@ -76,6 +76,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="images\Calendar.jpg" />
     <Content Include="MasterInterfaces\CallCenter.aspx" />
+    <Content Include="MasterInterfaces\CallDispositions.aspx" />
     <Content Include="MasterInterfaces\DialerRules.aspx" />
     <Content Include="MasterInterfaces\Holidays.aspx" />
     <Content Include="NoAccess.aspx" />
@@ -191,6 +192,13 @@
     </Compile>
     <Compile Include="MasterInterfaces\CallCenter.aspx.designer.cs">
       <DependentUpon>CallCenter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterInterfaces\CallDispositions.aspx.cs">
+      <DependentUpon>CallDispositions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterInterfaces\CallDispositions.aspx.designer.cs">
+      <DependentUpon>CallDispositions.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterInterfaces\DialerRules.aspx.cs">
       <DependentUpon>DialerRules.aspx</DependentUpon>

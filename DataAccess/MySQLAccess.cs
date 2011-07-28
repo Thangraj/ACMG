@@ -566,7 +566,7 @@ namespace ACMGAdmin.DataAccess
         #endregion
 
         #region getDialerRulesByID
-        // This method will output the Holiday data in a Dataset
+        // This method will output the DialerRules data in a Dataset
         public DataSet getDialerRulesByID(string theConnectionString, int intDialerRulesID)
         {
             //to get all the Holiday List from the DB
@@ -1000,6 +1000,422 @@ namespace ACMGAdmin.DataAccess
 
 
         #endregion
+
+        #region CallDisposition Screen
+
+        #region getCallDispositions
+        // This method will fetch the DialerRules details from the database...
+        public DataSet getCallDispositions(string theConnectionString)
+        {
+            //to get all the Holiday List from the DB
+            string theCommandName = "sp_admin_getCallDispositions";
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCommand.CommandType = CommandType.StoredProcedure;
+
+                    //Creating an empty Dataadapter to the command..
+                    MySqlDataAdapter myAdapter = new MySqlDataAdapter();
+                    myAdapter.SelectCommand = myCommand;
+                    // filling the Dataset from the output of stored procedure
+                    DataSet dsCallDisposition = new DataSet();
+                    myAdapter.Fill(dsCallDisposition);
+
+                    return dsCallDisposition;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        #endregion
+
+        #region getCallDispByID
+        // This method will output the Call Dispositions data in a Dataset
+        public DataSet getCallDispByID(string theConnectionString, int intCallDispID)
+        {
+            //to get all the Holiday List from the DB
+            string theCommandName = "sp_admin_getCallDispByID";
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCommand.CommandType = CommandType.StoredProcedure;
+                    myCommand.Parameters.Add("iCallDispositionId", MySqlDbType.Int32);
+                    myCommand.Parameters[0].Value = intCallDispID;
+
+                    //Creating an empty Dataadapter to the command..
+                    MySqlDataAdapter myAdapter = new MySqlDataAdapter();
+                    myAdapter.SelectCommand = myCommand;
+                    // filling the Dataset from the output of stored procedure
+                    DataSet dsCallDisposition = new DataSet();
+                    myAdapter.Fill(dsCallDisposition);
+
+                    return dsCallDisposition;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        #endregion
+
+        #region insertCallDisposition
+
+        public Int32 insertCallDisposition(string theConnectionString, string strCallDisp, string strDoNotCall,
+                                      string strSale, string strContact, string strBadLead, string strCallBack,
+                                      string strNotInterested, string strSystemDefaults, string strCustom, string strNotCalled,
+                                      string strDialed, string strNotDialed, string strProcessedGood, string strProcessedBad,
+                                      string strNotProcessed,
+                                      string strModifyUser,string strModifyDateTime, string strScreenName, 
+                                      string strTableName,string strBeforeImage, string strAfterImage)
+        {
+            
+            string theCommandName = "sp_admin_insCallDisp";
+            Int32 intRecAffected = 0;
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCallDispCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCallDispCommand.CommandType = CommandType.StoredProcedure;
+
+                    MySqlParameter myParamCallDisp = new MySqlParameter();
+                    myParamCallDisp.ParameterName = "strCallDisp";
+                    myParamCallDisp.Value = strCallDisp;
+                    myCallDispCommand.Parameters.Add(myParamCallDisp);
+                    myParamCallDisp.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamDoNotCall = new MySqlParameter();
+                    myParamDoNotCall.ParameterName = "iDoNotCall";
+                    myParamDoNotCall.Value = Convert.ToInt32(strDoNotCall);
+                    myCallDispCommand.Parameters.Add(myParamDoNotCall);
+                    myParamDoNotCall.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSale = new MySqlParameter();
+                    myParamSale.ParameterName = "iSale";
+                    myParamSale.Value = Convert.ToInt32(strSale);
+                    myCallDispCommand.Parameters.Add(myParamSale);
+                    myParamSale.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamContact = new MySqlParameter();
+                    myParamContact.ParameterName = "iContact";
+                    myParamContact.Value = Convert.ToInt32(strContact);
+                    myCallDispCommand.Parameters.Add(myParamContact);
+                    myParamContact.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBadLead = new MySqlParameter();
+                    myParamBadLead.ParameterName = "iBadLead";
+                    myParamBadLead.Value = Convert.ToInt32(strBadLead);
+                    myCallDispCommand.Parameters.Add(myParamBadLead);
+                    myParamBadLead.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamCallBack = new MySqlParameter();
+                    myParamCallBack.ParameterName = "iCallBack";
+                    myParamCallBack.Value = Convert.ToInt32(strCallBack);
+                    myCallDispCommand.Parameters.Add(myParamCallBack);
+                    myParamCallBack.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamNotInterested = new MySqlParameter();
+                    myParamNotInterested.ParameterName = "iNotInterested";
+                    myParamNotInterested.Value = Convert.ToInt32(strNotInterested);
+                    myCallDispCommand.Parameters.Add(myParamNotInterested);
+                    myParamNotInterested.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSysDefault = new MySqlParameter();
+                    myParamSysDefault.ParameterName = "iSystemDefaults";
+                    myParamSysDefault.Value = Convert.ToInt32(strSystemDefaults);
+                    myCallDispCommand.Parameters.Add(myParamSysDefault);
+                    myParamSysDefault.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamCustom = new MySqlParameter();
+                    myParamCustom.ParameterName = "iCustom";
+                    myParamCustom.Value = Convert.ToInt32(strCustom);
+                    myCallDispCommand.Parameters.Add(myParamCustom);
+                    myParamCustom.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamNotCalled = new MySqlParameter();
+                    myParamNotCalled.ParameterName = "iNotCalled";
+                    myParamNotCalled.Value = Convert.ToInt32(strNotCalled);
+                    myCallDispCommand.Parameters.Add(myParamNotCalled);
+                    myParamNotCalled.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamDialed = new MySqlParameter();
+                    myParamDialed.ParameterName = "iDialed";
+                    myParamDialed.Value = Convert.ToInt32(strDialed);
+                    myCallDispCommand.Parameters.Add(myParamDialed);
+                    myParamDialed.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamNotDialed = new MySqlParameter();
+                    myParamNotDialed.ParameterName = "iNotDialed";
+                    myParamNotDialed.Value = Convert.ToInt32(strNotDialed);
+                    myCallDispCommand.Parameters.Add(myParamNotDialed);
+                    myParamNotDialed.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamProcessedGood = new MySqlParameter();
+                    myParamProcessedGood.ParameterName = "iProcessedGood";
+                    myParamProcessedGood.Value = Convert.ToInt32(strProcessedGood);
+                    myCallDispCommand.Parameters.Add(myParamProcessedGood);
+                    myParamProcessedGood.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamProcessedBad = new MySqlParameter();
+                    myParamProcessedBad.ParameterName = "iProcessedBad";
+                    myParamProcessedBad.Value = Convert.ToInt32(strProcessedBad);
+                    myCallDispCommand.Parameters.Add(myParamProcessedBad);
+                    myParamProcessedBad.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamNotProcessed = new MySqlParameter();
+                    myParamNotProcessed.ParameterName = "iNotProcessed";
+                    myParamNotProcessed.Value = Convert.ToInt32(strNotProcessed);
+                    myCallDispCommand.Parameters.Add(myParamNotProcessed);
+                    myParamNotProcessed.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyUser = new MySqlParameter();
+                    myParamModifyUser.ParameterName = "strModifyUser";
+                    myParamModifyUser.Value = strModifyUser;
+                    myCallDispCommand.Parameters.Add(myParamModifyUser);
+                    myParamModifyUser.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyDate = new MySqlParameter();
+                    myParamModifyDate.ParameterName = "strModifyDateTime";
+                    myParamModifyDate.Value = strModifyDateTime;
+                    myCallDispCommand.Parameters.Add(myParamModifyDate);
+                    myParamModifyDate.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamScreenName = new MySqlParameter();
+                    myParamScreenName.ParameterName = "strScreenName";
+                    myParamScreenName.Value = strScreenName;
+                    myCallDispCommand.Parameters.Add(myParamScreenName);
+                    myParamScreenName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTabelName = new MySqlParameter();
+                    myParamTabelName.ParameterName = "strTableName";
+                    myParamTabelName.Value = strTableName;
+                    myCallDispCommand.Parameters.Add(myParamTabelName);
+                    myParamTabelName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBeforeImage = new MySqlParameter();
+                    myParamBeforeImage.ParameterName = "tBeforeImage";
+                    myParamBeforeImage.Value = strBeforeImage;
+                    myCallDispCommand.Parameters.Add(myParamBeforeImage);
+                    myParamBeforeImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamAfterImage = new MySqlParameter();
+                    myParamAfterImage.ParameterName = "tAfterImage";
+                    myParamAfterImage.Value = strAfterImage;
+                    myCallDispCommand.Parameters.Add(myParamAfterImage);
+                    myParamAfterImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamOutRes = new MySqlParameter();
+                    myParamOutRes.ParameterName = "oCount";
+                    myParamOutRes.Value = strAfterImage;
+                    myCallDispCommand.Parameters.Add(myParamOutRes);
+                    myParamOutRes.Direction = ParameterDirection.Output;
+
+                    myCallDispCommand.ExecuteNonQuery();
+                    intRecAffected = Convert.ToInt32(myCallDispCommand.Parameters["oCount"].Value);
+                    return intRecAffected;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        #endregion
+
+        #region insertCallDisposition
+
+        public Int32 updateCallDisposition(string theConnectionString, int intCallDispID, string strCallDisp, string strDoNotCall,
+                                            string strSale, string strContact, string strBadLead, string strCallBack,
+                                            string strNotInterested, string strSystemDefaults, string strCustom, string strNotCalled,
+                                            string strDialed, string strNotDialed, string strProcessedGood, string strProcessedBad,
+                                            string strNotProcessed,
+                                            string strModifyUser, string strModifyDateTime, string strScreenName,
+                                            string strTableName, string strBeforeImage, string strAfterImage)
+        {
+
+            string theCommandName = "sp_admin_updCallDisp";
+            Int32 intRecAffected = 0;
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCallDispUpdCmd = new MySqlCommand(theCommandName, mySqlCon);
+                    myCallDispUpdCmd.CommandType = CommandType.StoredProcedure;
+
+                    MySqlParameter myParamCallDispId = new MySqlParameter();
+                    myParamCallDispId.ParameterName = "iCallDispositionID";
+                    myParamCallDispId.Value = intCallDispID;
+                    myCallDispUpdCmd.Parameters.Add(myParamCallDispId);
+                    myParamCallDispId.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamCallDisp = new MySqlParameter();
+                    myParamCallDisp.ParameterName = "strCallDisp";
+                    myParamCallDisp.Value = strCallDisp;
+                    myCallDispUpdCmd.Parameters.Add(myParamCallDisp);
+                    myParamCallDisp.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamDoNotCall = new MySqlParameter();
+                    myParamDoNotCall.ParameterName = "iDoNotCall";
+                    myParamDoNotCall.Value = Convert.ToInt32(strDoNotCall);
+                    myCallDispUpdCmd.Parameters.Add(myParamDoNotCall);
+                    myParamDoNotCall.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSale = new MySqlParameter();
+                    myParamSale.ParameterName = "iSale";
+                    myParamSale.Value = Convert.ToInt32(strSale);
+                    myCallDispUpdCmd.Parameters.Add(myParamSale);
+                    myParamSale.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamContact = new MySqlParameter();
+                    myParamContact.ParameterName = "iContact";
+                    myParamContact.Value = Convert.ToInt32(strContact);
+                    myCallDispUpdCmd.Parameters.Add(myParamContact);
+                    myParamContact.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBadLead = new MySqlParameter();
+                    myParamBadLead.ParameterName = "iBadLead";
+                    myParamBadLead.Value = Convert.ToInt32(strBadLead);
+                    myCallDispUpdCmd.Parameters.Add(myParamBadLead);
+                    myParamBadLead.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamCallBack = new MySqlParameter();
+                    myParamCallBack.ParameterName = "iCallBack";
+                    myParamCallBack.Value = Convert.ToInt32(strCallBack);
+                    myCallDispUpdCmd.Parameters.Add(myParamCallBack);
+                    myParamCallBack.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamNotInterested = new MySqlParameter();
+                    myParamNotInterested.ParameterName = "iNotInterested";
+                    myParamNotInterested.Value = Convert.ToInt32(strNotInterested);
+                    myCallDispUpdCmd.Parameters.Add(myParamNotInterested);
+                    myParamNotInterested.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSysDefault = new MySqlParameter();
+                    myParamSysDefault.ParameterName = "iSystemDefaults";
+                    myParamSysDefault.Value = Convert.ToInt32(strSystemDefaults);
+                    myCallDispUpdCmd.Parameters.Add(myParamSysDefault);
+                    myParamSysDefault.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamCustom = new MySqlParameter();
+                    myParamCustom.ParameterName = "iCustom";
+                    myParamCustom.Value = Convert.ToInt32(strCustom);
+                    myCallDispUpdCmd.Parameters.Add(myParamCustom);
+                    myParamCustom.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamNotCalled = new MySqlParameter();
+                    myParamNotCalled.ParameterName = "iNotCalled";
+                    myParamNotCalled.Value = Convert.ToInt32(strNotCalled);
+                    myCallDispUpdCmd.Parameters.Add(myParamNotCalled);
+                    myParamNotCalled.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamDialed = new MySqlParameter();
+                    myParamDialed.ParameterName = "iDialed";
+                    myParamDialed.Value = Convert.ToInt32(strDialed);
+                    myCallDispUpdCmd.Parameters.Add(myParamDialed);
+                    myParamDialed.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamNotDialed = new MySqlParameter();
+                    myParamNotDialed.ParameterName = "iNotDialed";
+                    myParamNotDialed.Value = Convert.ToInt32(strNotDialed);
+                    myCallDispUpdCmd.Parameters.Add(myParamNotDialed);
+                    myParamNotDialed.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamProcessedGood = new MySqlParameter();
+                    myParamProcessedGood.ParameterName = "iProcessedGood";
+                    myParamProcessedGood.Value = Convert.ToInt32(strProcessedGood);
+                    myCallDispUpdCmd.Parameters.Add(myParamProcessedGood);
+                    myParamProcessedGood.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamProcessedBad = new MySqlParameter();
+                    myParamProcessedBad.ParameterName = "iProcessedBad";
+                    myParamProcessedBad.Value = Convert.ToInt32(strProcessedBad);
+                    myCallDispUpdCmd.Parameters.Add(myParamProcessedBad);
+                    myParamProcessedBad.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamNotProcessed = new MySqlParameter();
+                    myParamNotProcessed.ParameterName = "iNotProcessed";
+                    myParamNotProcessed.Value = Convert.ToInt32(strNotProcessed);
+                    myCallDispUpdCmd.Parameters.Add(myParamNotProcessed);
+                    myParamNotProcessed.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyUser = new MySqlParameter();
+                    myParamModifyUser.ParameterName = "strModifyUser";
+                    myParamModifyUser.Value = strModifyUser;
+                    myCallDispUpdCmd.Parameters.Add(myParamModifyUser);
+                    myParamModifyUser.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyDate = new MySqlParameter();
+                    myParamModifyDate.ParameterName = "strModifyDateTime";
+                    myParamModifyDate.Value = strModifyDateTime;
+                    myCallDispUpdCmd.Parameters.Add(myParamModifyDate);
+                    myParamModifyDate.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamScreenName = new MySqlParameter();
+                    myParamScreenName.ParameterName = "strScreenName";
+                    myParamScreenName.Value = strScreenName;
+                    myCallDispUpdCmd.Parameters.Add(myParamScreenName);
+                    myParamScreenName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTabelName = new MySqlParameter();
+                    myParamTabelName.ParameterName = "strTableName";
+                    myParamTabelName.Value = strTableName;
+                    myCallDispUpdCmd.Parameters.Add(myParamTabelName);
+                    myParamTabelName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBeforeImage = new MySqlParameter();
+                    myParamBeforeImage.ParameterName = "tBeforeImage";
+                    myParamBeforeImage.Value = strBeforeImage;
+                    myCallDispUpdCmd.Parameters.Add(myParamBeforeImage);
+                    myParamBeforeImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamAfterImage = new MySqlParameter();
+                    myParamAfterImage.ParameterName = "tAfterImage";
+                    myParamAfterImage.Value = strAfterImage;
+                    myCallDispUpdCmd.Parameters.Add(myParamAfterImage);
+                    myParamAfterImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamOutRes = new MySqlParameter();
+                    myParamOutRes.ParameterName = "oCount";
+                    myParamOutRes.Value = strAfterImage;
+                    myCallDispUpdCmd.Parameters.Add(myParamOutRes);
+                    myParamOutRes.Direction = ParameterDirection.Output;
+
+                    myCallDispUpdCmd.ExecuteNonQuery();
+                    intRecAffected = Convert.ToInt32(myCallDispUpdCmd.Parameters["oCount"].Value);
+                    return intRecAffected;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        #endregion
+
+        #endregion
+
+
 
 
 
