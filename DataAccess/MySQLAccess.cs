@@ -1239,7 +1239,7 @@ namespace ACMGAdmin.DataAccess
 
         #endregion
 
-        #region insertCallDisposition
+        #region updateCallDisposition
 
         public Int32 updateCallDisposition(string theConnectionString, int intCallDispID, string strCallDisp, string strDoNotCall,
                                             string strSale, string strContact, string strBadLead, string strCallBack,
@@ -1415,7 +1415,329 @@ namespace ACMGAdmin.DataAccess
 
         #endregion
 
+        #region Phone Extensions
 
+        #region getPhoneExtensions
+        /// <summary>
+        /// This method will fetch the Phone Extension details from the database...
+        /// </summary>
+        public DataSet getPhoneExtensions(string theConnectionString)
+        {
+            //to get all the PhoneExtension List from the DB
+            string theCommandName = "sp_admin_getPhoneExtensions";
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCommand.CommandType = CommandType.StoredProcedure;
+
+                    //Creating an empty Dataadapter to the command..
+                    MySqlDataAdapter myAdapter = new MySqlDataAdapter();
+                    myAdapter.SelectCommand = myCommand;
+                    // filling the Dataset from the output of stored procedure
+                    DataSet dsPhoneExt = new DataSet();
+                    myAdapter.Fill(dsPhoneExt);
+
+                    return dsPhoneExt;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        #endregion
+
+        #region getPhoneExtensionByID
+
+        /// <summary>
+        /// This method will check the i/p PhoneExtensionID in DB and if present it will output the matched 
+        /// record in a Dataset..
+        /// </summary>
+        public DataSet getPhoneExtensionByID(string theConnectionString, int intPhoneExtID)
+        {
+            //to get all the Holiday List from the DB
+            string theCommandName = "sp_admin_getPhoneExtensionByID";
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCommand.CommandType = CommandType.StoredProcedure;
+                    myCommand.Parameters.Add("iPhoneExtensionID", MySqlDbType.Int32);
+                    myCommand.Parameters[0].Value = intPhoneExtID;
+
+                    //Creating an empty Dataadapter to the command..
+                    MySqlDataAdapter myAdapter = new MySqlDataAdapter();
+                    myAdapter.SelectCommand = myCommand;
+                    // filling the Dataset from the output of stored procedure
+                    DataSet dsSelectedPhoneExt = new DataSet();
+                    myAdapter.Fill(dsSelectedPhoneExt);
+
+                    return dsSelectedPhoneExt;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        #endregion
+
+        #region insertPhoneExtension
+        /// <summary>
+        /// This method will take the user i/p from the screen and inserts the PhoneExtension record in the Database 
+        /// </summary>
+        public Int32 insertPhoneExtension(string theConnectionString, string strSwitchName, string strCompany,
+                                          string strSwitchAddress, string strSwitchPort, string strExtension, 
+                                          string strUserName, string strPassword, 
+                                          string strModifyUser, string strModifyDateTime, string strScreenName,
+                                          string strTableName, string strBeforeImage, string strAfterImage)
+        {
+
+            string theCommandName = "sp_admin_insPhoneExtension";
+            Int32 intRecAffected = 0;
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myPhoneExtCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myPhoneExtCommand.CommandType = CommandType.StoredProcedure;
+
+                    MySqlParameter myParamSwitchName = new MySqlParameter();
+                    myParamSwitchName.ParameterName = "strSwitchName";
+                    myParamSwitchName.Value = strSwitchName;
+                    myPhoneExtCommand.Parameters.Add(myParamSwitchName);
+                    myParamSwitchName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamCompany = new MySqlParameter();
+                    myParamCompany.ParameterName = "strCompany";
+                    myParamCompany.Value = strCompany;
+                    myPhoneExtCommand.Parameters.Add(myParamCompany);
+                    myParamCompany.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSwitchAddress = new MySqlParameter();
+                    myParamSwitchAddress.ParameterName = "strSwitchAddress";
+                    myParamSwitchAddress.Value = strSwitchAddress;
+                    myPhoneExtCommand.Parameters.Add(myParamSwitchAddress);
+                    myParamSwitchAddress.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSwitchPort = new MySqlParameter();
+                    myParamSwitchPort.ParameterName = "strSwitchPort";
+                    myParamSwitchPort.Value = strSwitchPort;
+                    myPhoneExtCommand.Parameters.Add(myParamSwitchPort);
+                    myParamSwitchPort.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamExtension = new MySqlParameter();
+                    myParamExtension.ParameterName = "strExtension";
+                    myParamExtension.Value = strExtension;
+                    myPhoneExtCommand.Parameters.Add(myParamExtension);
+                    myParamExtension.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamUserName = new MySqlParameter();
+                    myParamUserName.ParameterName = "strUserName";
+                    myParamUserName.Value = strUserName;
+                    myPhoneExtCommand.Parameters.Add(myParamUserName);
+                    myParamUserName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamPassword = new MySqlParameter();
+                    myParamPassword.ParameterName = "strPassword";
+                    myParamPassword.Value = strPassword;
+                    myPhoneExtCommand.Parameters.Add(myParamPassword);
+                    myParamPassword.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyUser = new MySqlParameter();
+                    myParamModifyUser.ParameterName = "strModifyUser";
+                    myParamModifyUser.Value = strModifyUser;
+                    myPhoneExtCommand.Parameters.Add(myParamModifyUser);
+                    myParamModifyUser.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyDate = new MySqlParameter();
+                    myParamModifyDate.ParameterName = "strModifyDateTime";
+                    myParamModifyDate.Value = strModifyDateTime;
+                    myPhoneExtCommand.Parameters.Add(myParamModifyDate);
+                    myParamModifyDate.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamScreenName = new MySqlParameter();
+                    myParamScreenName.ParameterName = "strScreenName";
+                    myParamScreenName.Value = strScreenName;
+                    myPhoneExtCommand.Parameters.Add(myParamScreenName);
+                    myParamScreenName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTabelName = new MySqlParameter();
+                    myParamTabelName.ParameterName = "strTableName";
+                    myParamTabelName.Value = strTableName;
+                    myPhoneExtCommand.Parameters.Add(myParamTabelName);
+                    myParamTabelName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBeforeImage = new MySqlParameter();
+                    myParamBeforeImage.ParameterName = "tBeforeImage";
+                    myParamBeforeImage.Value = strBeforeImage;
+                    myPhoneExtCommand.Parameters.Add(myParamBeforeImage);
+                    myParamBeforeImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamAfterImage = new MySqlParameter();
+                    myParamAfterImage.ParameterName = "tAfterImage";
+                    myParamAfterImage.Value = strAfterImage;
+                    myPhoneExtCommand.Parameters.Add(myParamAfterImage);
+                    myParamAfterImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamOutRes = new MySqlParameter();
+                    myParamOutRes.ParameterName = "oCount";
+                    myParamOutRes.Value = strAfterImage;
+                    myPhoneExtCommand.Parameters.Add(myParamOutRes);
+                    myParamOutRes.Direction = ParameterDirection.Output;
+
+                    myPhoneExtCommand.ExecuteNonQuery();
+                    intRecAffected = Convert.ToInt32(myPhoneExtCommand.Parameters["oCount"].Value);
+                    return intRecAffected;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        #endregion
+
+        #region updatePhoneExtension
+        /// <summary>
+        /// This method will take the changes entered by the user from the screen and updates the PhoneExtension record in the Database 
+        /// </summary>
+        public Int32 updatePhoneExtension(string theConnectionString, int intPhoneExtId, string strSwitchName, 
+                                          string strCompany, string strSwitchAddress, string strSwitchPort, 
+                                          string strExtension, string strUserName, string strPassword,
+                                          string strModifyUser, string strModifyDateTime, string strScreenName,
+                                          string strTableName, string strBeforeImage, string strAfterImage)
+        {
+
+            string theCommandName = "sp_admin_updPhoneExtension";
+            Int32 intRecAffected = 0;
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myPhoneExtCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myPhoneExtCommand.CommandType = CommandType.StoredProcedure;
+
+                    MySqlParameter myParamPhonExtId = new MySqlParameter();
+                    myParamPhonExtId.ParameterName = "iPhoneExtensionID";
+                    myParamPhonExtId.Value = intPhoneExtId;
+                    myPhoneExtCommand.Parameters.Add(myParamPhonExtId);
+                    myParamPhonExtId.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSwitchName = new MySqlParameter();
+                    myParamSwitchName.ParameterName = "strSwitchName";
+                    myParamSwitchName.Value = strSwitchName;
+                    myPhoneExtCommand.Parameters.Add(myParamSwitchName);
+                    myParamSwitchName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamCompany = new MySqlParameter();
+                    myParamCompany.ParameterName = "strCompany";
+                    myParamCompany.Value = strCompany;
+                    myPhoneExtCommand.Parameters.Add(myParamCompany);
+                    myParamCompany.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSwitchAddress = new MySqlParameter();
+                    myParamSwitchAddress.ParameterName = "strSwitchAddress";
+                    myParamSwitchAddress.Value = strSwitchAddress;
+                    myPhoneExtCommand.Parameters.Add(myParamSwitchAddress);
+                    myParamSwitchAddress.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSwitchPort = new MySqlParameter();
+                    myParamSwitchPort.ParameterName = "strSwitchPort";
+                    myParamSwitchPort.Value = strSwitchPort;
+                    myPhoneExtCommand.Parameters.Add(myParamSwitchPort);
+                    myParamSwitchPort.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamExtension = new MySqlParameter();
+                    myParamExtension.ParameterName = "strExtension";
+                    myParamExtension.Value = strExtension;
+                    myPhoneExtCommand.Parameters.Add(myParamExtension);
+                    myParamExtension.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamUserName = new MySqlParameter();
+                    myParamUserName.ParameterName = "strUserName";
+                    myParamUserName.Value = strUserName;
+                    myPhoneExtCommand.Parameters.Add(myParamUserName);
+                    myParamUserName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamPassword = new MySqlParameter();
+                    myParamPassword.ParameterName = "strPassword";
+                    myParamPassword.Value = strPassword;
+                    myPhoneExtCommand.Parameters.Add(myParamPassword);
+                    myParamPassword.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyUser = new MySqlParameter();
+                    myParamModifyUser.ParameterName = "strModifyUser";
+                    myParamModifyUser.Value = strModifyUser;
+                    myPhoneExtCommand.Parameters.Add(myParamModifyUser);
+                    myParamModifyUser.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyDate = new MySqlParameter();
+                    myParamModifyDate.ParameterName = "strModifyDateTime";
+                    myParamModifyDate.Value = strModifyDateTime;
+                    myPhoneExtCommand.Parameters.Add(myParamModifyDate);
+                    myParamModifyDate.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamScreenName = new MySqlParameter();
+                    myParamScreenName.ParameterName = "strScreenName";
+                    myParamScreenName.Value = strScreenName;
+                    myPhoneExtCommand.Parameters.Add(myParamScreenName);
+                    myParamScreenName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTabelName = new MySqlParameter();
+                    myParamTabelName.ParameterName = "strTableName";
+                    myParamTabelName.Value = strTableName;
+                    myPhoneExtCommand.Parameters.Add(myParamTabelName);
+                    myParamTabelName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBeforeImage = new MySqlParameter();
+                    myParamBeforeImage.ParameterName = "tBeforeImage";
+                    myParamBeforeImage.Value = strBeforeImage;
+                    myPhoneExtCommand.Parameters.Add(myParamBeforeImage);
+                    myParamBeforeImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamAfterImage = new MySqlParameter();
+                    myParamAfterImage.ParameterName = "tAfterImage";
+                    myParamAfterImage.Value = strAfterImage;
+                    myPhoneExtCommand.Parameters.Add(myParamAfterImage);
+                    myParamAfterImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamOutRes = new MySqlParameter();
+                    myParamOutRes.ParameterName = "oCount";
+                    myParamOutRes.Value = strAfterImage;
+                    myPhoneExtCommand.Parameters.Add(myParamOutRes);
+                    myParamOutRes.Direction = ParameterDirection.Output;
+
+                    myPhoneExtCommand.ExecuteNonQuery();
+                    intRecAffected = Convert.ToInt32(myPhoneExtCommand.Parameters["oCount"].Value);
+                    return intRecAffected;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        #endregion
+
+        #endregion
 
 
 
