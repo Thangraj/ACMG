@@ -140,22 +140,22 @@
                                 <ControlStyle ForeColor="White" Font-Size="0px" Width="0px"/>
                                 <ItemStyle CssClass="detailitem" Width="0px" />
                             </asp:TemplateField>
-                            <asp:BoundField DataField="SwitchName" ReadOnly="true" HeaderText="SwitchName" HeaderStyle-CssClass="detailheader" SortExpression="State"
+                            <asp:BoundField DataField="SwitchName" ReadOnly="true" HeaderText="SwitchName" HeaderStyle-CssClass="detailheader"  
                                 ItemStyle-CssClass="detailitem">
                                 <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
                                 <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
                             </asp:BoundField>
-                            <asp:BoundField DataField="Company" ReadOnly="true" HeaderText="Company" HeaderStyle-CssClass="detailheader" SortExpression="Month"
+                            <asp:BoundField DataField="Company" ReadOnly="true" HeaderText="Company" HeaderStyle-CssClass="detailheader"  
                                 ItemStyle-CssClass="detailitem">
                                 <HeaderStyle CssClass="detailheader" Width="75px"></HeaderStyle>
                                 <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
                             </asp:BoundField>
-                            <asp:BoundField DataField="SwitchAddress" ReadOnly="true" HeaderText="SwitchAddress" HeaderStyle-CssClass="detailheader" SortExpression="Day"
+                            <asp:BoundField DataField="SwitchAddress" ReadOnly="true" HeaderText="SwitchAddress" HeaderStyle-CssClass="detailheader"  
                                 ItemStyle-CssClass="detailitem">
                                 <HeaderStyle CssClass="detailheader" Width="175px"></HeaderStyle>
                                 <ItemStyle CssClass="detailitem" Width="175px" HorizontalAlign="Center"></ItemStyle>
                             </asp:BoundField>
-                            <asp:BoundField DataField="SwitchPort" ReadOnly="true" HeaderText="SwitchPort" SortExpression="HolidayName"
+                            <asp:BoundField DataField="SwitchPort" ReadOnly="true" HeaderText="SwitchPort"  
                                 HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
                                 <HeaderStyle CssClass="detailheader" Width="75px"></HeaderStyle>
                                 <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
