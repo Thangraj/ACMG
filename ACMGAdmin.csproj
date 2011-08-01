@@ -79,6 +79,7 @@
     <Content Include="MasterInterfaces\CallDispositions.aspx" />
     <Content Include="MasterInterfaces\DialerRules.aspx" />
     <Content Include="MasterInterfaces\Holidays.aspx" />
+    <Content Include="MasterInterfaces\LeadCampaigns.aspx" />
     <Content Include="MasterInterfaces\PhoneExtensions.aspx" />
     <Content Include="NoAccess.aspx" />
     <Content Include="Account\Register.aspx" />
@@ -214,6 +215,13 @@
     </Compile>
     <Compile Include="MasterInterfaces\Holidays.aspx.designer.cs">
       <DependentUpon>Holidays.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterInterfaces\LeadCampaigns.aspx.cs">
+      <DependentUpon>LeadCampaigns.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterInterfaces\LeadCampaigns.aspx.designer.cs">
+      <DependentUpon>LeadCampaigns.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterInterfaces\PhoneExtensions.aspx.cs">
       <DependentUpon>PhoneExtensions.aspx</DependentUpon>

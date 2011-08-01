@@ -1739,7 +1739,290 @@ namespace ACMGAdmin.DataAccess
 
         #endregion
 
+        #region Lead Campaigns
 
+        #region getLeadCampaigns
+        /// <summary>
+        /// This method will fetch the Lead Campaign details from the database...
+        /// </summary>
+        public DataSet getLeadCampaigns(string theConnectionString)
+        {
+            //to get all the PhoneExtension List from the DB
+            string theCommandName = "sp_admin_getLeadCampaigns";
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCommand.CommandType = CommandType.StoredProcedure;
+
+                    //Creating an empty Dataadapter to the command..
+                    MySqlDataAdapter myAdapter = new MySqlDataAdapter();
+                    myAdapter.SelectCommand = myCommand;
+                    // filling the Dataset from the output of stored procedure
+                    DataSet dsLeadCampaign = new DataSet();
+                    myAdapter.Fill(dsLeadCampaign);
+
+                    return dsLeadCampaign;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        #endregion
+
+        #region getLeadCampaignsByID
+
+        /// <summary>
+        /// This method will check the i/p LeadCampaignId in DB and if present it will output the matched 
+        /// record in a Dataset..
+        /// </summary>
+        public DataSet getLeadCampaignsByID(string theConnectionString, int intLeadCampaignsId)
+        {
+            //to get all the Holiday List from the DB
+            string theCommandName = "sp_admin_getLeadCampaignsByID";
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCommand.CommandType = CommandType.StoredProcedure;
+                    myCommand.Parameters.Add("iLeadCampaignID", MySqlDbType.Int32);
+                    myCommand.Parameters[0].Value = intLeadCampaignsId;
+
+                    //Creating an empty Dataadapter to the command..
+                    MySqlDataAdapter myAdapter = new MySqlDataAdapter();
+                    myAdapter.SelectCommand = myCommand;
+                    // filling the Dataset from the output of stored procedure
+                    DataSet dsSelectedLeadCampaign = new DataSet();
+                    myAdapter.Fill(dsSelectedLeadCampaign);
+
+                    return dsSelectedLeadCampaign;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        #endregion
+
+        #region insertLeadCampaign
+        /// <summary>
+        /// This method will take the user i/p from the screen and inserts the LeadCampaign record in the Database 
+        /// It creates a record in the admin_log table for the logging functionality
+        /// </summary>
+        public Int32 insertLeadCampaign(string theConnectionString, string strCampaignProdCode, string strProductLine,
+                                          string strChannel, string strTargusCode,
+                                          string strModifyUser, string strModifyDateTime, string strScreenName,
+                                          string strTableName, string strBeforeImage, string strAfterImage)
+        {
+
+            string theCommandName = "sp_admin_insLeadCampaign";
+            Int32 intRecAffected = 0;
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myLeadCampCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myLeadCampCommand.CommandType = CommandType.StoredProcedure;
+
+                    MySqlParameter myParamProdCode = new MySqlParameter();
+                    myParamProdCode.ParameterName = "strCampaignProdCode";
+                    myParamProdCode.Value = strCampaignProdCode;
+                    myLeadCampCommand.Parameters.Add(myParamProdCode);
+                    myParamProdCode.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamProdLine = new MySqlParameter();
+                    myParamProdLine.ParameterName = "strProductLine";
+                    myParamProdLine.Value = strProductLine;
+                    myLeadCampCommand.Parameters.Add(myParamProdLine);
+                    myParamProdLine.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamChannel = new MySqlParameter();
+                    myParamChannel.ParameterName = "strChannel";
+                    myParamChannel.Value = strChannel;
+                    myLeadCampCommand.Parameters.Add(myParamChannel);
+                    myParamChannel.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTargusCode = new MySqlParameter();
+                    myParamTargusCode.ParameterName = "strTargusCode";
+                    myParamTargusCode.Value = strTargusCode;
+                    myLeadCampCommand.Parameters.Add(myParamTargusCode);
+                    myParamTargusCode.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyUser = new MySqlParameter();
+                    myParamModifyUser.ParameterName = "strModifyUser";
+                    myParamModifyUser.Value = strModifyUser;
+                    myLeadCampCommand.Parameters.Add(myParamModifyUser);
+                    myParamModifyUser.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyDate = new MySqlParameter();
+                    myParamModifyDate.ParameterName = "strModifyDateTime";
+                    myParamModifyDate.Value = strModifyDateTime;
+                    myLeadCampCommand.Parameters.Add(myParamModifyDate);
+                    myParamModifyDate.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamScreenName = new MySqlParameter();
+                    myParamScreenName.ParameterName = "strScreenName";
+                    myParamScreenName.Value = strScreenName;
+                    myLeadCampCommand.Parameters.Add(myParamScreenName);
+                    myParamScreenName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTabelName = new MySqlParameter();
+                    myParamTabelName.ParameterName = "strTableName";
+                    myParamTabelName.Value = strTableName;
+                    myLeadCampCommand.Parameters.Add(myParamTabelName);
+                    myParamTabelName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBeforeImage = new MySqlParameter();
+                    myParamBeforeImage.ParameterName = "tBeforeImage";
+                    myParamBeforeImage.Value = strBeforeImage;
+                    myLeadCampCommand.Parameters.Add(myParamBeforeImage);
+                    myParamBeforeImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamAfterImage = new MySqlParameter();
+                    myParamAfterImage.ParameterName = "tAfterImage";
+                    myParamAfterImage.Value = strAfterImage;
+                    myLeadCampCommand.Parameters.Add(myParamAfterImage);
+                    myParamAfterImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamOutRes = new MySqlParameter();
+                    myParamOutRes.ParameterName = "oResCount";
+                    myLeadCampCommand.Parameters.Add(myParamOutRes);
+                    myParamOutRes.Direction = ParameterDirection.Output;
+
+                    myLeadCampCommand.ExecuteNonQuery();
+                    intRecAffected = Convert.ToInt32(myLeadCampCommand.Parameters["oResCount"].Value);
+                    return intRecAffected;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        #endregion
+
+        #region updateLeadCampaign
+        /// <summary>
+        /// This method will take the changes entered by the user from the screen and updates the LeadCmapaign record in the Database 
+        /// </summary>
+        public Int32 updateLeadCampaign(string theConnectionString, int intLeadCampaignId, string strCampaignProdCode, string strProductLine,
+                                          string strChannel, string strTargusCode,
+                                          string strModifyUser, string strModifyDateTime, string strScreenName,
+                                          string strTableName, string strBeforeImage, string strAfterImage)
+        {
+
+            string theCommandName = "sp_admin_updLeadCampaign";
+            Int32 intRecAffected = 0;
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myLeadCampaignCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myLeadCampaignCommand.CommandType = CommandType.StoredProcedure;
+
+                    MySqlParameter myParamLeadCampaignId = new MySqlParameter();
+                    myParamLeadCampaignId.ParameterName = "intLeadCampaignID";
+                    myParamLeadCampaignId.Value = intLeadCampaignId;
+                    myLeadCampaignCommand.Parameters.Add(myParamLeadCampaignId);
+                    myParamLeadCampaignId.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamCampaignProdCode = new MySqlParameter();
+                    myParamCampaignProdCode.ParameterName = "strCampaignProdCode";
+                    myParamCampaignProdCode.Value = strCampaignProdCode;
+                    myLeadCampaignCommand.Parameters.Add(myParamCampaignProdCode);
+                    myParamCampaignProdCode.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamProductLine = new MySqlParameter();
+                    myParamProductLine.ParameterName = "strProductLine";
+                    myParamProductLine.Value = strProductLine;
+                    myLeadCampaignCommand.Parameters.Add(myParamProductLine);
+                    myParamProductLine.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamChannel = new MySqlParameter();
+                    myParamChannel.ParameterName = "strChannel";
+                    myParamChannel.Value = strChannel;
+                    myLeadCampaignCommand.Parameters.Add(myParamChannel);
+                    myParamChannel.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTargusCode = new MySqlParameter();
+                    myParamTargusCode.ParameterName = "strTargusCode";
+                    myParamTargusCode.Value = strTargusCode;
+                    myLeadCampaignCommand.Parameters.Add(myParamTargusCode);
+                    myParamTargusCode.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyUser = new MySqlParameter();
+                    myParamModifyUser.ParameterName = "strModifyUser";
+                    myParamModifyUser.Value = strModifyUser;
+                    myLeadCampaignCommand.Parameters.Add(myParamModifyUser);
+                    myParamModifyUser.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyDate = new MySqlParameter();
+                    myParamModifyDate.ParameterName = "strModifyDateTime";
+                    myParamModifyDate.Value = strModifyDateTime;
+                    myLeadCampaignCommand.Parameters.Add(myParamModifyDate);
+                    myParamModifyDate.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamScreenName = new MySqlParameter();
+                    myParamScreenName.ParameterName = "strScreenName";
+                    myParamScreenName.Value = strScreenName;
+                    myLeadCampaignCommand.Parameters.Add(myParamScreenName);
+                    myParamScreenName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTabelName = new MySqlParameter();
+                    myParamTabelName.ParameterName = "strTableName";
+                    myParamTabelName.Value = strTableName;
+                    myLeadCampaignCommand.Parameters.Add(myParamTabelName);
+                    myParamTabelName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBeforeImage = new MySqlParameter();
+                    myParamBeforeImage.ParameterName = "tBeforeImage";
+                    myParamBeforeImage.Value = strBeforeImage;
+                    myLeadCampaignCommand.Parameters.Add(myParamBeforeImage);
+                    myParamBeforeImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamAfterImage = new MySqlParameter();
+                    myParamAfterImage.ParameterName = "tAfterImage";
+                    myParamAfterImage.Value = strAfterImage;
+                    myLeadCampaignCommand.Parameters.Add(myParamAfterImage);
+                    myParamAfterImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamOutRes = new MySqlParameter();
+                    myParamOutRes.ParameterName = "oResCount";
+                    myLeadCampaignCommand.Parameters.Add(myParamOutRes);
+                    myParamOutRes.Direction = ParameterDirection.Output;
+
+                    myLeadCampaignCommand.ExecuteNonQuery();
+                    intRecAffected = Convert.ToInt32(myLeadCampaignCommand.Parameters["oResCount"].Value);
+                    return intRecAffected;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        #endregion
+
+        #endregion
 
         #endregion
 

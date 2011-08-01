@@ -142,7 +142,7 @@
                         </asp:MenuItem>
                         <asp:MenuItem Text="Campaign Management" Value="Campaign Management">
                             <asp:MenuItem Text="Campaign Configuration" Value="Campaign Configuration">
-                                <asp:MenuItem Text="Preview Dial Campaigns" Value="Preview Dial Campaigns">
+                                <asp:MenuItem Text="Preview Dial Campaigns" Value="Preview Dial Campaigns" NavigateUrl="~/MasterInterfaces/LeadCampaigns.aspx">
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Campaign DNIS Assignment" Value="Campaign DNIS Assignment">
                                 </asp:MenuItem>

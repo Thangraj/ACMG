@@ -123,9 +123,9 @@ namespace ACMGAdmin.MasterInterfaces
                                             hdnSwitchAddress.Value + " || " + hdnSwitchPort.Value + " || " + hdnExtension.Value + " || " +
                                             hdnUserName.Value + " || " + hdnPassword.Value);
 
-                    strAfterImage.Append(hdnPhoneExtensionId.Value + " || " + hdnSwitchName.Value + " || " + hdnCompany.Value + " || " +
-                                            hdnSwitchAddress.Value + " || " + hdnSwitchPort.Value + " || " + hdnExtension.Value + " || " +
-                                            hdnUserName.Value + " || " + hdnPassword.Value);
+                    strAfterImage.Append(hdnPhoneExtensionId.Value + " || " + txtSwitchName.Text + " || " + txtCompany.Text + " || " +
+                                            txtSwitchAddress.Text + " || " + txtSwitchPort.Text + " || " + txtExtension.Text + " || " +
+                                            txtUserName.Text+ " || " + txtPassword.Text);
 
                     if (hdnFlagType.Value == "EDIT")
                     {
@@ -205,13 +205,13 @@ namespace ACMGAdmin.MasterInterfaces
         #region Private Methods
 
         /// <summary>
-        /// this function will fetch the values from Database and populate the DialerRules Gridview.
+        /// this function will fetch the values from Database and populate the Phone Extensions Gridview.
         /// </summary>
         private void populatePhoneExtGrid()
         {
             try
             {
-                // code to populate the Holiday data in the Gridview..
+                // code to populate the Phone Extension data in the Gridview..
                 DataAccess.MySQLAccess myObj = new DataAccess.MySQLAccess();
                 DataSet dsPhoneExtensions = new DataSet();
                 dsPhoneExtensions = myObj.getPhoneExtensions("LocalMySqlServer");
@@ -322,7 +322,7 @@ namespace ACMGAdmin.MasterInterfaces
         {
             try
             {
-                // calling the populateHolidayGrid to refresh the Grid Data
+                // calling the populatePhoneExtGrid to refresh the Grid Data
                 populatePhoneExtGrid();
 
                 //// setting the default values for the controls before adding a new record...
