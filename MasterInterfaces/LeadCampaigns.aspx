@@ -85,7 +85,7 @@ function highlightModFields() {
             <tr>
                 <td>
                     <h3>
-                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="Lead Campaign Details:"></asp:Label>
+                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="Lead Group Details:"></asp:Label>
                     </h3>
                 </td>
             </tr>
@@ -93,6 +93,7 @@ function highlightModFields() {
                 <td>
                     <asp:GridView ID="gvLeadCampaigns" runat="server" AutoGenerateColumns="False" Font-Size="9pt"
                         AllowPaging="True" OnPageIndexChanging="gvLeadCampaigns_PageIndexChanging" 
+                        AllowSorting="true" onsorting="gvLeadCampaigns_Sorting"
                         >
                         <AlternatingRowStyle BackColor="#E9ECF1" ForeColor="#284775"  />
                         <EditRowStyle BackColor="#999999" />
@@ -107,23 +108,23 @@ function highlightModFields() {
                                 <ControlStyle ForeColor="White" Font-Size="0px" Width="0px"/>
                                 <ItemStyle CssClass="detailitem" Width="0px" />
                             </asp:TemplateField>
-                            <asp:BoundField DataField="CampaignProductCode" ReadOnly="true" HeaderText="Campaign ProductCode" HeaderStyle-CssClass="detailheader"  
-                                ItemStyle-CssClass="detailitem">
+                            <asp:BoundField DataField="CampaignProductCode" ReadOnly="true" HeaderText="Lead Group Product Code" HeaderStyle-CssClass="detailheader"  
+                                SortExpression="CampaignProductCode"    ItemStyle-CssClass="detailitem">
                                 <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
                                 <ItemStyle CssClass="detailitem" Width="150px" ></ItemStyle>
                             </asp:BoundField>
                             <asp:BoundField DataField="ProductLine" ReadOnly="true" HeaderText="Product Line" HeaderStyle-CssClass="detailheader"  
-                                ItemStyle-CssClass="detailitem">
+                                SortExpression="ProductLine" ItemStyle-CssClass="detailitem">
                                 <HeaderStyle CssClass="detailheader" Width="175px"></HeaderStyle>
                                 <ItemStyle CssClass="detailitem" Width="125px" ></ItemStyle>
                             </asp:BoundField>
                             <asp:BoundField DataField="Channel" ReadOnly="true" HeaderText="Channel" HeaderStyle-CssClass="detailheader"  
-                                ItemStyle-CssClass="detailitem">
+                                SortExpression="Channel" ItemStyle-CssClass="detailitem">
                                 <HeaderStyle CssClass="detailheader" Width="75px"></HeaderStyle>
                                 <ItemStyle CssClass="detailitem" Width="75px" ></ItemStyle>
                             </asp:BoundField>
                             <asp:BoundField DataField="TargusCode" ReadOnly="true" HeaderText="Targus Code"  
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                SortExpression="TargusCode" HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
                                 <HeaderStyle CssClass="detailheader" Width="175px"></HeaderStyle>
                                 <ItemStyle CssClass="detailitem" Width="175px" ></ItemStyle>
                             </asp:BoundField>

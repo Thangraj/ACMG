@@ -18,18 +18,21 @@ namespace ACMGAdmin.MasterInterfaces
     public partial class LeadCampaigns : System.Web.UI.Page
     {
         #region Protected Methods
+        DataSet dsLeadCampaigns = new DataSet();
+        DataView dvLeadCampaigns = new DataView();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-
                 // adding the Javascript function to the Save button
                 btnSave.Attributes.Add("onclick", "return highlightModFields();");
 
                 if (!IsPostBack)
                 {
-                    populateLeadCampaignGrid();
+                    ViewState["sortOrder"] = "";
+                    ViewState["SortExpression"] = "";
+                    populateLeadCampaignGrid("","");
                 }
             }
             catch (Exception ex)
@@ -83,7 +86,17 @@ namespace ACMGAdmin.MasterInterfaces
             try
             {
                 gvLeadCampaigns.PageIndex = e.NewPageIndex;
-                populateLeadCampaignGrid();
+                // getting the sort expression from the viewstate
+
+                string strSortExp = ViewState["SortExpression"].ToString();
+                if ((strSortExp != string.Empty) && (sortOrder != string.Empty))
+                {
+                    populateLeadCampaignGrid(strSortExp, sortOrder);
+                }
+                else
+                {
+                    populateLeadCampaignGrid("", "");
+                }
             }
             catch (Exception ex)
             {
@@ -127,7 +140,7 @@ namespace ACMGAdmin.MasterInterfaces
                         //checking whether record has been updated
                         if (iOutput > 0)
                         {
-                            populateLeadCampaignGrid();
+                            populateLeadCampaignGrid("","");
                             ConfirmationMessage.InnerText = "Updated Successfully !";
 
                             populateHiddenFields();
@@ -143,7 +156,7 @@ namespace ACMGAdmin.MasterInterfaces
                                                                                 strUser, strDateTime, strScreenName, strTableName, strBeforeImage.ToString(), strAfterImage.ToString());
                         if (intInsOut > 0)
                         {
-                            populateLeadCampaignGrid();
+                            populateLeadCampaignGrid("","");
                             ConfirmationMessage.InnerText = "Inserted Successfully !";
 
                             populateHiddenFields();
@@ -189,6 +202,15 @@ namespace ACMGAdmin.MasterInterfaces
             }
         }
 
+        /// <summary>
+        /// This event will perform the sorting functionality in the GridView.
+        /// </summary>
+        protected void gvLeadCampaigns_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            ViewState["SortExpression"] = e.SortExpression;
+            populateLeadCampaignGrid(e.SortExpression, sortOrder);
+        }
+
         #endregion
 
 
@@ -197,7 +219,7 @@ namespace ACMGAdmin.MasterInterfaces
         /// <summary>
         /// this function will fetch the values from Database and populate the Lead Campaign Gridview.
         /// </summary>
-        private void populateLeadCampaignGrid()
+        private void populateLeadCampaignGrid(string strSortExp, string strSortDir)
         {
             try
             {
@@ -206,10 +228,15 @@ namespace ACMGAdmin.MasterInterfaces
                 DataSet dsLeadCampaigns = new DataSet();
                 dsLeadCampaigns = myObj.getLeadCampaigns("LocalMySqlServer");
 
-                DataTable dtLeadCampaigns = new DataTable();
-                dtLeadCampaigns = dsLeadCampaigns.Tables[0];
+                dvLeadCampaigns = dsLeadCampaigns.Tables[0].DefaultView;
 
-                gvLeadCampaigns.DataSource = dtLeadCampaigns;
+                //checking whether the sorting has been applied or not..
+                if (strSortExp != string.Empty)
+                {
+                    dvLeadCampaigns.Sort = String.Format("{0} {1}", strSortExp, strSortDir);
+                }
+
+                gvLeadCampaigns.DataSource = dvLeadCampaigns;
                 gvLeadCampaigns.DataBind();
             }
             catch (Exception ex)
@@ -305,7 +332,7 @@ namespace ACMGAdmin.MasterInterfaces
             try
             {
                 // calling the populateLeadCampaignGrid to refresh the Grid Data
-                populateLeadCampaignGrid();
+                populateLeadCampaignGrid("","");
 
                 // setting the default values for the controls before adding a new record...
                 txtCampaignProdCode.Text = "";
@@ -330,6 +357,34 @@ namespace ACMGAdmin.MasterInterfaces
             }
 
         }
+
+        /// <summary>
+        /// this function will be used to handle the sorting functionality of the GridView.
+        /// </summary>
+        public string sortOrder
+        {
+            get
+            {
+                if (ViewState["sortOrder"].ToString() == "desc")
+                {
+                    ViewState["sortOrder"] = "asc";
+                }
+                else
+                {
+                    ViewState["sortOrder"] = "desc";
+                } return ViewState["sortOrder"].ToString();
+            }
+
+            set
+            {
+                ViewState["sortOrder"] = value;
+            }
+        }
+
+
+
         #endregion
+
+      
     }
 }

@@ -142,14 +142,14 @@
                         </asp:MenuItem>
                         <asp:MenuItem Text="Campaign Management" Value="Campaign Management">
                             <asp:MenuItem Text="Campaign Configuration" Value="Campaign Configuration">
-                                <asp:MenuItem Text="Preview Dial Campaigns" Value="Preview Dial Campaigns" NavigateUrl="~/MasterInterfaces/LeadCampaigns.aspx">
+                                <asp:MenuItem Text="Preview Dial Campaigns" Value="Preview Dial Campaigns" >
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Campaign DNIS Assignment" Value="Campaign DNIS Assignment">
                                 </asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Leads To Campaign Configuration" 
                                 Value="Leads To Campaign Configuration">
-                                <asp:MenuItem Text="Lead Group Types" Value="Lead Group Types"></asp:MenuItem>
+                                <asp:MenuItem Text="Lead Group Types" Value="Lead Group Types" NavigateUrl="~/MasterInterfaces/LeadCampaigns.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Lead Group to Campaign Assignment" 
                                     Value="Lead Group to Campaign Assignment"></asp:MenuItem>
                             </asp:MenuItem>
@@ -188,7 +188,7 @@
                             <asp:MenuItem Text="Call Centers " Value="Call Centers" NavigateUrl="~/MasterInterfaces/CallCenter.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Call Dispositions " Value="Call Dispositions " NavigateUrl="~/MasterInterfaces/CallDispositions.aspx">
                             </asp:MenuItem>
-                            <asp:MenuItem Text="Allowed Calling Times By State" 
+                            <asp:MenuItem Text="Allowed Calling Times By State"  NavigateUrl="~/MasterInterfaces/CallingTimesByState.aspx"
                                 Value="Allowed Calling Times By State"></asp:MenuItem>
                             <asp:MenuItem Text="Holidays" Value="Holidays" NavigateUrl="~/MasterInterfaces/Holidays.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="PBX Phone Extensions" Value="PBX Phone Extensions" NavigateUrl="~/MasterInterfaces/PhoneExtensions.aspx">

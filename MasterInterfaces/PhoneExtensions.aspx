@@ -114,75 +114,7 @@
 
 
 <div>
-     <table>
-            <tr>
-                <td>
-                    <h3>
-                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="Phone Extension Details:"></asp:Label>
-                    </h3>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:GridView ID="gvPhoneExtensions" runat="server" AutoGenerateColumns="False" Font-Size="9pt"
-                        AllowPaging="True" OnPageIndexChanging="gvPhoneExtensions_PageIndexChanging" 
-                        AllowSorting="true" >
-                        <AlternatingRowStyle BackColor="#E9ECF1" ForeColor="#284775"  />
-                        <EditRowStyle BackColor="#999999" />
-                        <HeaderStyle BackColor="#5970A6" Font-Bold="True" ForeColor="White" />
-                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" />
-                        <Columns>
-                            <asp:TemplateField HeaderText="Edit"  >
-                                <ItemTemplate>
-                                    <asp:RadioButton ID="rdEditPhoneExt" runat="server"  AutoPostBack="true"
-                                         oncheckedchanged="rdEditPhoneExt_CheckedChanged" Text='<%# Eval("PhoneExtensionId") %>' TextAlign ="Right"  width="0px" Font-Size="0px" />
-                                </ItemTemplate>
-                                <ControlStyle ForeColor="White" Font-Size="0px" Width="0px"/>
-                                <ItemStyle CssClass="detailitem" Width="0px" />
-                            </asp:TemplateField>
-                            <asp:BoundField DataField="SwitchName" ReadOnly="true" HeaderText="SwitchName" HeaderStyle-CssClass="detailheader"  
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="Company" ReadOnly="true" HeaderText="Company" HeaderStyle-CssClass="detailheader"  
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="75px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="SwitchAddress" ReadOnly="true" HeaderText="SwitchAddress" HeaderStyle-CssClass="detailheader"  
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="175px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="175px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="SwitchPort" ReadOnly="true" HeaderText="SwitchPort"  
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="75px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="Extension" ReadOnly="true" HeaderText="Extension" HeaderStyle-CssClass="detailheader"
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="75px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="UserName" ReadOnly="true" HeaderText="UserName" HeaderStyle-CssClass="detailheader"
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="75px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="Password" ReadOnly="true" HeaderText="Password" HeaderStyle-CssClass="detailheader"
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="125px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="125px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                        </Columns>
-                    </asp:GridView>
-                </td>
-            </tr>
-        </table>
-        <br />
-        <br />
-        <table>
+    <table>
             <tr>
                 <td style="background-color: #E9ECF1; width: 150px">
                     <asp:Label ID="lblSwitchName" Text="Switch Name" CssClass="detailheader" runat="server"></asp:Label>
@@ -307,6 +239,75 @@
                 </td>
             </tr>
         </table>
+
+
+     <table>
+            <tr>
+                <td>
+                    <h3>
+                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="Phone Extension Details:"></asp:Label>
+                    </h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:GridView ID="gvPhoneExtensions" runat="server" AutoGenerateColumns="False" Font-Size="9pt"
+                        AllowPaging="True" OnPageIndexChanging="gvPhoneExtensions_PageIndexChanging" 
+                        AllowSorting="true" PageSize="100" >
+                        <AlternatingRowStyle BackColor="#E9ECF1" ForeColor="#284775"  />
+                        <EditRowStyle BackColor="#999999" />
+                        <HeaderStyle BackColor="#5970A6" Font-Bold="True" ForeColor="White" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                        <Columns>
+                            <asp:TemplateField HeaderText="Edit"  >
+                                <ItemTemplate>
+                                    <asp:RadioButton ID="rdEditPhoneExt" runat="server"  AutoPostBack="true"
+                                         oncheckedchanged="rdEditPhoneExt_CheckedChanged" Text='<%# Eval("PhoneExtensionId") %>' TextAlign ="Right"  width="0px" Font-Size="0px" />
+                                </ItemTemplate>
+                                <ControlStyle ForeColor="White" Font-Size="0px" Width="0px"/>
+                                <ItemStyle CssClass="detailitem" Width="0px" />
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="SwitchName" ReadOnly="true" HeaderText="SwitchName" HeaderStyle-CssClass="detailheader"  
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="Company" ReadOnly="true" HeaderText="Company" HeaderStyle-CssClass="detailheader"  
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="75px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="SwitchAddress" ReadOnly="true" HeaderText="SwitchAddress" HeaderStyle-CssClass="detailheader"  
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="175px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="175px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="SwitchPort" ReadOnly="true" HeaderText="SwitchPort"  
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="75px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="Extension" ReadOnly="true" HeaderText="Extension" HeaderStyle-CssClass="detailheader"
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="75px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="UserName" ReadOnly="true" HeaderText="UserName" HeaderStyle-CssClass="detailheader"
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="75px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="Password" ReadOnly="true" HeaderText="Password" HeaderStyle-CssClass="detailheader"
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="125px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="125px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                        </Columns>
+                    </asp:GridView>
+                </td>
+            </tr>
+        </table>
+        
 </div>
 
 

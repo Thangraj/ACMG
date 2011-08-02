@@ -2024,6 +2024,351 @@ namespace ACMGAdmin.DataAccess
 
         #endregion
 
+        #region Calling Times ByState
+
+        #region getCallingTimesByState
+        /// <summary>
+        /// This method will fetch the Calling Times ByState details from the database...
+        /// </summary>
+        public DataSet getCallingTimesByState(string theConnectionString)
+        {
+            //to get all the PhoneExtension List from the DB
+            string theCommandName = "sp_admin_getCallingTimesByState";
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCommand.CommandType = CommandType.StoredProcedure;
+
+                    //Creating an empty Dataadapter to the command..
+                    MySqlDataAdapter myAdapter = new MySqlDataAdapter();
+                    myAdapter.SelectCommand = myCommand;
+                    // filling the Dataset from the output of stored procedure
+                    DataSet dsCallingTimes = new DataSet();
+                    myAdapter.Fill(dsCallingTimes);
+
+                    return dsCallingTimes;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        #endregion
+
+        #region getCallingTimesByStateAbbr
+
+        /// <summary>
+        /// This method will check the i/p State Abbr in DB and if present it will output the matched 
+        /// record in a Dataset..
+        /// </summary>
+        public DataSet getCallingTimesByStateAbbr(string theConnectionString, string strStateAbbr)
+        {
+            //to get all the Holiday List from the DB
+            string theCommandName = "sp_admin_getCallingTimesByStateAbbr";
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCommand.CommandType = CommandType.StoredProcedure;
+                    myCommand.Parameters.Add("strState", MySqlDbType.VarChar);
+                    myCommand.Parameters[0].Value = strStateAbbr;
+
+                    //Creating an empty Dataadapter to the command..
+                    MySqlDataAdapter myAdapter = new MySqlDataAdapter();
+                    myAdapter.SelectCommand = myCommand;
+                    // filling the Dataset from the output of stored procedure
+                    DataSet dsSelectedCallingTimes = new DataSet();
+                    myAdapter.Fill(dsSelectedCallingTimes);
+
+                    return dsSelectedCallingTimes;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        #endregion
+
+        #region insCallingTimesByState
+        /// <summary>
+        /// This method will take the user i/p from the screen and inserts the CallingTimesByState record in the Database 
+        /// It creates a record in the admin_log table for the logging functionality
+        /// </summary>
+        public Int32 insCallingTimesByState(string theConnectionString, string strState, string strWeekdayStartTime,
+                                          string strWeekdayEndTime, string strSaturdayStartTime, string strSaturdayEndTime,
+                                          string strSundayStartTime, string strSundayEndTime,
+                                          string strHolidayStartTime, string strHolidayEndTime,
+                                          string strModifyUser, string strModifyDateTime, string strScreenName,
+                                          string strTableName, string strBeforeImage, string strAfterImage)
+        {
+
+            string theCommandName = "sp_admin_insCallingTimesByState";
+            Int32 intRecAffected = 0;
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCallingTimesCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCallingTimesCommand.CommandType = CommandType.StoredProcedure;
+
+                    MySqlParameter myParamState = new MySqlParameter();
+                    myParamState.ParameterName = "strState";
+                    myParamState.Value = strState;
+                    myCallingTimesCommand.Parameters.Add(myParamState);
+                    myParamState.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamWeekdayStartTime = new MySqlParameter();
+                    myParamWeekdayStartTime.ParameterName = "strWeekdayStartTime";
+                    myParamWeekdayStartTime.Value = strWeekdayStartTime;
+                    myCallingTimesCommand.Parameters.Add(myParamWeekdayStartTime);
+                    myParamWeekdayStartTime.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamWeekdayEndTime = new MySqlParameter();
+                    myParamWeekdayEndTime.ParameterName = "strWeekdayEndTime";
+                    myParamWeekdayEndTime.Value = strWeekdayEndTime;
+                    myCallingTimesCommand.Parameters.Add(myParamWeekdayEndTime);
+                    myParamWeekdayEndTime.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSaturdayStartTime = new MySqlParameter();
+                    myParamSaturdayStartTime.ParameterName = "strSaturdayStartTime";
+                    myParamSaturdayStartTime.Value = strSaturdayStartTime;
+                    myCallingTimesCommand.Parameters.Add(myParamSaturdayStartTime);
+                    myParamSaturdayStartTime.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSaturdayEndTime = new MySqlParameter();
+                    myParamSaturdayEndTime.ParameterName = "strSaturdayEndTime";
+                    myParamSaturdayEndTime.Value = strSaturdayEndTime;
+                    myCallingTimesCommand.Parameters.Add(myParamSaturdayEndTime);
+                    myParamSaturdayEndTime.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSundayStartTime = new MySqlParameter();
+                    myParamSundayStartTime.ParameterName = "strSundayStartTime";
+                    myParamSundayStartTime.Value = strSundayStartTime;
+                    myCallingTimesCommand.Parameters.Add(myParamSundayStartTime);
+                    myParamSundayStartTime.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSundayEndTime = new MySqlParameter();
+                    myParamSundayEndTime.ParameterName = "strSundayEndTime";
+                    myParamSundayEndTime.Value = strSundayEndTime;
+                    myCallingTimesCommand.Parameters.Add(myParamSundayEndTime);
+                    myParamSundayEndTime.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamHolidayStartTime = new MySqlParameter();
+                    myParamHolidayStartTime.ParameterName = "strHolidayStartTime";
+                    myParamHolidayStartTime.Value = strHolidayStartTime;
+                    myCallingTimesCommand.Parameters.Add(myParamHolidayStartTime);
+                    myParamHolidayStartTime.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamHolidayEndTime = new MySqlParameter();
+                    myParamHolidayEndTime.ParameterName = "strHolidayEndTime";
+                    myParamHolidayEndTime.Value = strHolidayEndTime;
+                    myCallingTimesCommand.Parameters.Add(myParamHolidayEndTime);
+                    myParamHolidayEndTime.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyUser = new MySqlParameter();
+                    myParamModifyUser.ParameterName = "strModifyUser";
+                    myParamModifyUser.Value = strModifyUser;
+                    myCallingTimesCommand.Parameters.Add(myParamModifyUser);
+                    myParamModifyUser.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyDate = new MySqlParameter();
+                    myParamModifyDate.ParameterName = "strModifyDateTime";
+                    myParamModifyDate.Value = strModifyDateTime;
+                    myCallingTimesCommand.Parameters.Add(myParamModifyDate);
+                    myParamModifyDate.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamScreenName = new MySqlParameter();
+                    myParamScreenName.ParameterName = "strScreenName";
+                    myParamScreenName.Value = strScreenName;
+                    myCallingTimesCommand.Parameters.Add(myParamScreenName);
+                    myParamScreenName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTabelName = new MySqlParameter();
+                    myParamTabelName.ParameterName = "strTableName";
+                    myParamTabelName.Value = strTableName;
+                    myCallingTimesCommand.Parameters.Add(myParamTabelName);
+                    myParamTabelName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBeforeImage = new MySqlParameter();
+                    myParamBeforeImage.ParameterName = "tBeforeImage";
+                    myParamBeforeImage.Value = strBeforeImage;
+                    myCallingTimesCommand.Parameters.Add(myParamBeforeImage);
+                    myParamBeforeImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamAfterImage = new MySqlParameter();
+                    myParamAfterImage.ParameterName = "tAfterImage";
+                    myParamAfterImage.Value = strAfterImage;
+                    myCallingTimesCommand.Parameters.Add(myParamAfterImage);
+                    myParamAfterImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamOutRes = new MySqlParameter();
+                    myParamOutRes.ParameterName = "vResult";
+                    myCallingTimesCommand.Parameters.Add(myParamOutRes);
+                    myParamOutRes.Direction = ParameterDirection.Output;
+
+                    myCallingTimesCommand.ExecuteNonQuery();
+                    intRecAffected = Convert.ToInt32(myCallingTimesCommand.Parameters["vResult"].Value);
+                    return intRecAffected;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        #endregion
+
+        #region updCallingTimesByState
+        /// <summary>
+        /// This method will take the user i/p from the screen and updated the CallingTimesByState record in the Database 
+        /// It creates a record in the admin_log table for the logging functionality
+        /// </summary>
+        public Int32 updCallingTimesByState(string theConnectionString, string strState, string strWeekdayStartTime,
+                                          string strWeekdayEndTime, string strSaturdayStartTime, string strSaturdayEndTime,
+                                          string strSundayStartTime, string strSundayEndTime,
+                                          string strHolidayStartTime, string strHolidayEndTime,
+                                          string strModifyUser, string strModifyDateTime, string strScreenName,
+                                          string strTableName, string strBeforeImage, string strAfterImage)
+        {
+
+            string theCommandName = "sp_admin_updCallingTimesByState";
+            Int32 intRecAffected = 0;
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCallingTimesCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCallingTimesCommand.CommandType = CommandType.StoredProcedure;
+
+                    MySqlParameter myParamState = new MySqlParameter();
+                    myParamState.ParameterName = "strState";
+                    myParamState.Value = strState;
+                    myCallingTimesCommand.Parameters.Add(myParamState);
+                    myParamState.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamWeekdayStartTime = new MySqlParameter();
+                    myParamWeekdayStartTime.ParameterName = "strWeekdayStartTime";
+                    myParamWeekdayStartTime.Value = strWeekdayStartTime;
+                    myCallingTimesCommand.Parameters.Add(myParamWeekdayStartTime);
+                    myParamWeekdayStartTime.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamWeekdayEndTime = new MySqlParameter();
+                    myParamWeekdayEndTime.ParameterName = "strWeekdayEndTime";
+                    myParamWeekdayEndTime.Value = strWeekdayEndTime;
+                    myCallingTimesCommand.Parameters.Add(myParamWeekdayEndTime);
+                    myParamWeekdayEndTime.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSaturdayStartTime = new MySqlParameter();
+                    myParamSaturdayStartTime.ParameterName = "strSaturdayStartTime";
+                    myParamSaturdayStartTime.Value = strSaturdayStartTime;
+                    myCallingTimesCommand.Parameters.Add(myParamSaturdayStartTime);
+                    myParamSaturdayStartTime.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSaturdayEndTime = new MySqlParameter();
+                    myParamSaturdayEndTime.ParameterName = "strSaturdayEndTime";
+                    myParamSaturdayEndTime.Value = strSaturdayEndTime;
+                    myCallingTimesCommand.Parameters.Add(myParamSaturdayEndTime);
+                    myParamSaturdayEndTime.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSundayStartTime = new MySqlParameter();
+                    myParamSundayStartTime.ParameterName = "strSundayStartTime";
+                    myParamSundayStartTime.Value = strSundayStartTime;
+                    myCallingTimesCommand.Parameters.Add(myParamSundayStartTime);
+                    myParamSundayStartTime.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamSundayEndTime = new MySqlParameter();
+                    myParamSundayEndTime.ParameterName = "strSundayEndTime";
+                    myParamSundayEndTime.Value = strSundayEndTime;
+                    myCallingTimesCommand.Parameters.Add(myParamSundayEndTime);
+                    myParamSundayEndTime.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamHolidayStartTime = new MySqlParameter();
+                    myParamHolidayStartTime.ParameterName = "strHolidayStartTime";
+                    myParamHolidayStartTime.Value = strHolidayStartTime;
+                    myCallingTimesCommand.Parameters.Add(myParamHolidayStartTime);
+                    myParamHolidayStartTime.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamHolidayEndTime = new MySqlParameter();
+                    myParamHolidayEndTime.ParameterName = "strHolidayEndTime";
+                    myParamHolidayEndTime.Value = strHolidayEndTime;
+                    myCallingTimesCommand.Parameters.Add(myParamHolidayEndTime);
+                    myParamHolidayEndTime.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyUser = new MySqlParameter();
+                    myParamModifyUser.ParameterName = "strModifyUser";
+                    myParamModifyUser.Value = strModifyUser;
+                    myCallingTimesCommand.Parameters.Add(myParamModifyUser);
+                    myParamModifyUser.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyDate = new MySqlParameter();
+                    myParamModifyDate.ParameterName = "strModifyDateTime";
+                    myParamModifyDate.Value = strModifyDateTime;
+                    myCallingTimesCommand.Parameters.Add(myParamModifyDate);
+                    myParamModifyDate.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamScreenName = new MySqlParameter();
+                    myParamScreenName.ParameterName = "strScreenName";
+                    myParamScreenName.Value = strScreenName;
+                    myCallingTimesCommand.Parameters.Add(myParamScreenName);
+                    myParamScreenName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTabelName = new MySqlParameter();
+                    myParamTabelName.ParameterName = "strTableName";
+                    myParamTabelName.Value = strTableName;
+                    myCallingTimesCommand.Parameters.Add(myParamTabelName);
+                    myParamTabelName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBeforeImage = new MySqlParameter();
+                    myParamBeforeImage.ParameterName = "tBeforeImage";
+                    myParamBeforeImage.Value = strBeforeImage;
+                    myCallingTimesCommand.Parameters.Add(myParamBeforeImage);
+                    myParamBeforeImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamAfterImage = new MySqlParameter();
+                    myParamAfterImage.ParameterName = "tAfterImage";
+                    myParamAfterImage.Value = strAfterImage;
+                    myCallingTimesCommand.Parameters.Add(myParamAfterImage);
+                    myParamAfterImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamOutRes = new MySqlParameter();
+                    myParamOutRes.ParameterName = "vResult";
+                    myCallingTimesCommand.Parameters.Add(myParamOutRes);
+                    myParamOutRes.Direction = ParameterDirection.Output;
+
+                    myCallingTimesCommand.ExecuteNonQuery();
+                    intRecAffected = Convert.ToInt32(myCallingTimesCommand.Parameters["vResult"].Value);
+                    return intRecAffected;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        #endregion
+
+        #endregion
+
+
         #endregion
 
 

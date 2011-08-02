@@ -185,7 +185,7 @@
             <tr>
                 <td>
                     <h3>
-                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="DialerRule Details:"></asp:Label>
+                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="Dialer Rule Details:"></asp:Label>
                     </h3>
                 </td>
             </tr>

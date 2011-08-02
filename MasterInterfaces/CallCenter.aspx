@@ -96,7 +96,7 @@
             <tr>
                 <td>
                     <h3>
-                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="CallCenter Details:"></asp:Label>
+                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="Call Center Details:"></asp:Label>
                     </h3>
                 </td>
             </tr>

@@ -13,24 +13,6 @@ namespace ACMGAdmin.MasterInterfaces {
     public partial class PhoneExtensions {
         
         /// <summary>
-        /// lblHeader control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHeader;
-        
-        /// <summary>
-        /// gvPhoneExtensions control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvPhoneExtensions;
-        
-        /// <summary>
         /// lblSwitchName control.
         /// </summary>
         /// <remarks>
@@ -353,5 +335,23 @@ namespace ACMGAdmin.MasterInterfaces {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnPassword;
+        
+        /// <summary>
+        /// lblHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHeader;
+        
+        /// <summary>
+        /// gvPhoneExtensions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvPhoneExtensions;
     }
 }

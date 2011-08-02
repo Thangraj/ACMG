@@ -286,7 +286,7 @@
             <tr>
                 <td>
                     <h3>
-                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="CallDisposition Details:"></asp:Label>
+                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="Call Disposition Details:"></asp:Label>
                     </h3>
                 </td>
             </tr>
