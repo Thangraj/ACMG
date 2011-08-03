@@ -2368,6 +2368,267 @@ namespace ACMGAdmin.DataAccess
 
         #endregion
 
+        #region RoutingGroups
+
+        #region getRoutingGroups
+        /// <summary>
+        /// This method will fetch the RoutingGroups details from the database...
+        /// </summary>
+        public DataSet getRoutingGroups(string theConnectionString)
+        {
+            //to get all the PhoneExtension List from the DB
+            string theCommandName = "sp_admin_getRoutingGroups";
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCommand.CommandType = CommandType.StoredProcedure;
+
+                    //Creating an empty Dataadapter to the command..
+                    MySqlDataAdapter myAdapter = new MySqlDataAdapter();
+                    myAdapter.SelectCommand = myCommand;
+                    // filling the Dataset from the output of stored procedure
+                    DataSet dsRoutingGroups = new DataSet();
+                    myAdapter.Fill(dsRoutingGroups);
+
+                    return dsRoutingGroups;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        #endregion
+
+        #region getRoutingGroupsByID
+
+        /// <summary>
+        /// This method will check the i/p RoutingGroupId in DB and if present it will output the matched 
+        /// record in a Dataset..
+        /// </summary>
+        public DataSet getRoutingGroupsByID(string theConnectionString, int intRoutingGroupId)
+        {
+            //to get all the Holiday List from the DB
+            string theCommandName = "sp_admin_getRoutingGroupsByID";
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCommand.CommandType = CommandType.StoredProcedure;
+                    myCommand.Parameters.Add("iRoutingGroupId", MySqlDbType.Int32);
+                    myCommand.Parameters[0].Value = intRoutingGroupId;
+
+                    //Creating an empty Dataadapter to the command..
+                    MySqlDataAdapter myAdapter = new MySqlDataAdapter();
+                    myAdapter.SelectCommand = myCommand;
+                    // filling the Dataset from the output of stored procedure
+                    DataSet dsSelectedRoutingGroup = new DataSet();
+                    myAdapter.Fill(dsSelectedRoutingGroup);
+
+                    return dsSelectedRoutingGroup;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        #endregion
+
+        #region insRoutingGroups
+        /// <summary>
+        /// This method will take the user i/p from the screen and inserts the routinggroup record in the Database 
+        /// It creates a record in the admin_log table for the logging functionality
+        /// </summary>
+        public Int32 insRoutingGroups(string theConnectionString, string strRoutingGroup, string strRoutingGroupDesc,
+                                          string strModifyUser, string strModifyDateTime, string strScreenName,
+                                          string strTableName, string strBeforeImage, string strAfterImage)
+        {
+
+            string theCommandName = "sp_admin_insRoutingGroups";
+            Int32 intRecAffected = 0;
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myRoutingGroups = new MySqlCommand(theCommandName, mySqlCon);
+                    myRoutingGroups.CommandType = CommandType.StoredProcedure;
+
+                    MySqlParameter myParamRoutingGroup = new MySqlParameter();
+                    myParamRoutingGroup.ParameterName = "strRoutingGroup";
+                    myParamRoutingGroup.Value = strRoutingGroup;
+                    myRoutingGroups.Parameters.Add(myParamRoutingGroup);
+                    myParamRoutingGroup.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamRoutingGroupDesc = new MySqlParameter();
+                    myParamRoutingGroupDesc.ParameterName = "strRoutingGroupDesc";
+                    myParamRoutingGroupDesc.Value = strRoutingGroupDesc;
+                    myRoutingGroups.Parameters.Add(myParamRoutingGroupDesc);
+                    myParamRoutingGroupDesc.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyUser = new MySqlParameter();
+                    myParamModifyUser.ParameterName = "strModifyUser";
+                    myParamModifyUser.Value = strModifyUser;
+                    myRoutingGroups.Parameters.Add(myParamModifyUser);
+                    myParamModifyUser.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyDate = new MySqlParameter();
+                    myParamModifyDate.ParameterName = "strModifyDateTime";
+                    myParamModifyDate.Value = strModifyDateTime;
+                    myRoutingGroups.Parameters.Add(myParamModifyDate);
+                    myParamModifyDate.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamScreenName = new MySqlParameter();
+                    myParamScreenName.ParameterName = "strScreenName";
+                    myParamScreenName.Value = strScreenName;
+                    myRoutingGroups.Parameters.Add(myParamScreenName);
+                    myParamScreenName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTabelName = new MySqlParameter();
+                    myParamTabelName.ParameterName = "strTableName";
+                    myParamTabelName.Value = strTableName;
+                    myRoutingGroups.Parameters.Add(myParamTabelName);
+                    myParamTabelName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBeforeImage = new MySqlParameter();
+                    myParamBeforeImage.ParameterName = "tBeforeImage";
+                    myParamBeforeImage.Value = strBeforeImage;
+                    myRoutingGroups.Parameters.Add(myParamBeforeImage);
+                    myParamBeforeImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamAfterImage = new MySqlParameter();
+                    myParamAfterImage.ParameterName = "tAfterImage";
+                    myParamAfterImage.Value = strAfterImage;
+                    myRoutingGroups.Parameters.Add(myParamAfterImage);
+                    myParamAfterImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamOutRes = new MySqlParameter();
+                    myParamOutRes.ParameterName = "oCount";
+                    myRoutingGroups.Parameters.Add(myParamOutRes);
+                    myParamOutRes.Direction = ParameterDirection.Output;
+
+                    myRoutingGroups.ExecuteNonQuery();
+                    intRecAffected = Convert.ToInt32(myRoutingGroups.Parameters["oCount"].Value);
+                    return intRecAffected;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        #endregion
+
+        #region updRoutingGroups
+        /// <summary>
+        /// This method will take the user i/p from the screen and updated the RoutingGroups record in the Database 
+        /// It creates a record in the admin_log table for the logging functionality
+        /// </summary>
+        public Int32 updRoutingGroups(string theConnectionString, Int32 iRoutingGroupId,
+                                          string strRoutingGroup, string strRoutingGroupDesc,
+                                          string strModifyUser, string strModifyDateTime, string strScreenName,
+                                          string strTableName, string strBeforeImage, string strAfterImage)
+        {
+
+            string theCommandName = "sp_admin_updRoutingGroups";
+            Int32 intRecAffected = 0;
+            try
+            {
+                //getting the connectionstring from the Appln to fetch the data...
+                string myConString = GetConnectionStringByName(theConnectionString);
+                using (MySql.Data.MySqlClient.MySqlConnection mySqlCon = GetConnection(myConString))
+                {
+                    mySqlCon.Open();
+                    MySqlCommand myCallingTimesCommand = new MySqlCommand(theCommandName, mySqlCon);
+                    myCallingTimesCommand.CommandType = CommandType.StoredProcedure;
+
+                    MySqlParameter myParamRoutingGroupId = new MySqlParameter();
+                    myParamRoutingGroupId.ParameterName = "iRoutingGroupId";
+                    myParamRoutingGroupId.Value = iRoutingGroupId;
+                    myCallingTimesCommand.Parameters.Add(myParamRoutingGroupId);
+                    myParamRoutingGroupId.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamRoutingGroup = new MySqlParameter();
+                    myParamRoutingGroup.ParameterName = "strRoutingGroup";
+                    myParamRoutingGroup.Value = strRoutingGroup;
+                    myCallingTimesCommand.Parameters.Add(myParamRoutingGroup);
+                    myParamRoutingGroup.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamRoutingGroupDesc = new MySqlParameter();
+                    myParamRoutingGroupDesc.ParameterName = "strRoutingGroupDesc";
+                    myParamRoutingGroupDesc.Value = strRoutingGroupDesc;
+                    myCallingTimesCommand.Parameters.Add(myParamRoutingGroupDesc);
+                    myParamRoutingGroupDesc.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyUser = new MySqlParameter();
+                    myParamModifyUser.ParameterName = "strModifyUser";
+                    myParamModifyUser.Value = strModifyUser;
+                    myCallingTimesCommand.Parameters.Add(myParamModifyUser);
+                    myParamModifyUser.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyDate = new MySqlParameter();
+                    myParamModifyDate.ParameterName = "strModifyDateTime";
+                    myParamModifyDate.Value = strModifyDateTime;
+                    myCallingTimesCommand.Parameters.Add(myParamModifyDate);
+                    myParamModifyDate.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamScreenName = new MySqlParameter();
+                    myParamScreenName.ParameterName = "strScreenName";
+                    myParamScreenName.Value = strScreenName;
+                    myCallingTimesCommand.Parameters.Add(myParamScreenName);
+                    myParamScreenName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTabelName = new MySqlParameter();
+                    myParamTabelName.ParameterName = "strTableName";
+                    myParamTabelName.Value = strTableName;
+                    myCallingTimesCommand.Parameters.Add(myParamTabelName);
+                    myParamTabelName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBeforeImage = new MySqlParameter();
+                    myParamBeforeImage.ParameterName = "tBeforeImage";
+                    myParamBeforeImage.Value = strBeforeImage;
+                    myCallingTimesCommand.Parameters.Add(myParamBeforeImage);
+                    myParamBeforeImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamAfterImage = new MySqlParameter();
+                    myParamAfterImage.ParameterName = "tAfterImage";
+                    myParamAfterImage.Value = strAfterImage;
+                    myCallingTimesCommand.Parameters.Add(myParamAfterImage);
+                    myParamAfterImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamOutRes = new MySqlParameter();
+                    myParamOutRes.ParameterName = "oCount";
+                    myCallingTimesCommand.Parameters.Add(myParamOutRes);
+                    myParamOutRes.Direction = ParameterDirection.Output;
+
+                    myCallingTimesCommand.ExecuteNonQuery();
+                    intRecAffected = Convert.ToInt32(myCallingTimesCommand.Parameters["oCount"].Value);
+                    return intRecAffected;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        #endregion
+
+        #endregion
+
 
         #endregion
 

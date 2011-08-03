@@ -82,6 +82,7 @@
     <Content Include="MasterInterfaces\Holidays.aspx" />
     <Content Include="MasterInterfaces\LeadCampaigns.aspx" />
     <Content Include="MasterInterfaces\PhoneExtensions.aspx" />
+    <Content Include="MasterInterfaces\RoutingGroups.aspx" />
     <Content Include="NoAccess.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\ViewUsers.aspx" />
@@ -237,6 +238,13 @@
     </Compile>
     <Compile Include="MasterInterfaces\PhoneExtensions.aspx.designer.cs">
       <DependentUpon>PhoneExtensions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterInterfaces\RoutingGroups.aspx.cs">
+      <DependentUpon>RoutingGroups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterInterfaces\RoutingGroups.aspx.designer.cs">
+      <DependentUpon>RoutingGroups.aspx</DependentUpon>
     </Compile>
     <Compile Include="NoAccess.aspx.cs">
       <DependentUpon>NoAccess.aspx</DependentUpon>

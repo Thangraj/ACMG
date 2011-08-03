@@ -193,7 +193,7 @@
                             <asp:MenuItem Text="Holidays" Value="Holidays" NavigateUrl="~/MasterInterfaces/Holidays.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="PBX Phone Extensions" Value="PBX Phone Extensions" NavigateUrl="~/MasterInterfaces/PhoneExtensions.aspx">
                             </asp:MenuItem>
-                            <asp:MenuItem Text="Routing Groups" Value="Routing Groups"></asp:MenuItem>
+                            <asp:MenuItem Text="Routing Groups" Value="Routing Groups" NavigateUrl="~/MasterInterfaces/RoutingGroups.aspx"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Account/Edit_Site_Roles.aspx" Text="User Roles" 
                                 Value="User Roles"></asp:MenuItem>
                         </asp:MenuItem>
