@@ -633,7 +633,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!AgentLoginHours.Value)</Value>
+                              <Value>=Fields!AgentLoginHours.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -682,7 +682,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!AgentLoginHours.Value-Fields!AgentLeadHours.Value)</Value>
+                              <Value>=Fields!AgentLoginHours.Value-Fields!AgentLeadHours.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0.00;(0.00)</Format>
@@ -732,7 +732,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!TotalPhoneTimeHours.Value)</Value>
+                              <Value>=Fields!TotalPhoneTimeHours.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0.00;(0.00)</Format>
@@ -782,7 +782,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!AgentLeadHours.Value-Fields!TotalPhoneTimeHours.Value)</Value>
+                              <Value>=Fields!AgentLeadHours.Value-Fields!TotalPhoneTimeHours.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0.00;(0.00)</Format>
@@ -832,7 +832,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!AgentLoginHours.Value-Fields!AgentLeadHours.Value)/Sum(Fields!AgentLoginHours.Value)</Value>
+                              <Value>=(Fields!AgentLoginHours.Value-Fields!AgentLeadHours.Value)/(Fields!AgentLoginHours.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0.00%</Format>
@@ -882,7 +882,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!TotalPhoneTimeHours.Value)/Sum(Fields!AgentLoginHours.Value)</Value>
+                              <Value>=(Fields!TotalPhoneTimeHours.Value)/(Fields!AgentLoginHours.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0.00%</Format>
@@ -932,7 +932,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!AgentLeadHours.Value-Fields!TotalPhoneTimeHours.Value)/sum(Fields!AgentLoginHours.Value)</Value>
+                              <Value>=(Fields!AgentLeadHours.Value-Fields!TotalPhoneTimeHours.Value)/(Fields!AgentLoginHours.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0.00%</Format>
@@ -982,7 +982,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!AgentLoginHours.Value)</Value>
+                              <Value>=Fields!AgentLoginHours.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -1031,7 +1031,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Contacts.Value)</Value>
+                              <Value>=Fields!Contacts.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -1064,7 +1064,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!GrossOrders.Value)</Value>
+                              <Value>=Fields!GrossOrders.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0;(0)</Format>
@@ -1098,7 +1098,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=sum(Fields!Contacts.Value)-sum(Fields!GrossOrders.Value)</Value>
+                              <Value>=(Fields!Contacts.Value)-(Fields!GrossOrders.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0;(0)</Format>
@@ -1132,7 +1132,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!BadLeads.Value)</Value>
+                              <Value>=Fields!BadLeads.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -1165,7 +1165,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!DoNotCalls.Value)</Value>
+                              <Value>=Fields!DoNotCalls.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0;(0)</Format>
@@ -1199,7 +1199,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!CallBacks.Value)</Value>
+                              <Value>=Fields!CallBacks.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0;(0)</Format>
@@ -1233,7 +1233,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!LeadKills.Value)</Value>
+                              <Value>=Fields!LeadKills.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -1266,7 +1266,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!TotalCalls.Value)</Value>
+                              <Value>=Fields!TotalCalls.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0;(0)</Format>
@@ -1300,7 +1300,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!GrossOrders.Value)/Sum(Fields!AgentLoginHours.Value)</Value>
+                              <Value>=(Fields!GrossOrders.Value)/(Fields!AgentLoginHours.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0.00;(0.00)</Format>
@@ -1334,7 +1334,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Contacts.Value)/Sum(Fields!AgentLoginHours.Value)</Value>
+                              <Value>=(Fields!Contacts.Value)/(Fields!AgentLoginHours.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0.00;(0.00)</Format>
@@ -1368,7 +1368,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=sum(Fields!LeadKills.Value)/sum(Fields!AgentLoginHours.Value)</Value>
+                              <Value>=(Fields!LeadKills.Value)/(Fields!AgentLoginHours.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0.00;(0.00)</Format>
@@ -1407,7 +1407,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!ProcessedOrders.Value)</Value>
+                              <Value>=Fields!ProcessedOrders.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0;(0)</Format>
@@ -1441,7 +1441,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!ProcessedOrders.Value)/Sum(Fields!GrossOrders.Value)</Value>
+                              <Value>=(Fields!ProcessedOrders.Value)/(Fields!GrossOrders.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0.00%</Format>
@@ -1475,7 +1475,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=sum(Fields!ProcessedOrders.Value)/sum(Fields!AgentLoginHours.Value)</Value>
+                              <Value>=(Fields!ProcessedOrders.Value)/(Fields!AgentLoginHours.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0.00;(0.00)</Format>
@@ -1509,7 +1509,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=sum(Fields!ProcessedOrders.Value)/sum(Fields!Contacts.Value)</Value>
+                              <Value>=(Fields!ProcessedOrders.Value)/(Fields!Contacts.Value)</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
@@ -1546,7 +1546,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!CrossSellsProcessed.Value+Fields!CrossSell2sProcessed.Value+Fields!CrossSell3sProcessed.Value)/sum(Fields!ProcessedOrders.Value)</Value>
+                              <Value>=(Fields!CrossSellsProcessed.Value+Fields!CrossSell2sProcessed.Value+Fields!CrossSell3sProcessed.Value)/(Fields!ProcessedOrders.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0.00%</Format>
@@ -1580,7 +1580,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!DownsellsProcessed.Value+Fields!Downsell2sProcessed.Value+Fields!Downsell3sProcessed.Value)/sum(Fields!ProcessedOrders.Value)</Value>
+                              <Value>=(Fields!DownsellsProcessed.Value+Fields!Downsell2sProcessed.Value+Fields!Downsell3sProcessed.Value)/(Fields!ProcessedOrders.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0.00%</Format>
@@ -1614,7 +1614,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!ClubsProcessed.Value)/sum(Fields!ProcessedOrders.Value)</Value>
+                              <Value>=(Fields!ClubsProcessed.Value)/(Fields!ProcessedOrders.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>0.00%</Format>
@@ -1648,7 +1648,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!CoreSalesProcessed.Value)</Value>
+                              <Value>=Fields!CoreSalesProcessed.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -1681,7 +1681,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!CrossSellsProcessed.Value+Fields!CrossSell2sProcessed.Value+Fields!CrossSell3sProcessed.Value)</Value>
+                              <Value>=(Fields!CrossSellsProcessed.Value+Fields!CrossSell2sProcessed.Value+Fields!CrossSell3sProcessed.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -1714,7 +1714,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!DownsellsProcessed.Value+Fields!Downsell2sProcessed.Value+Fields!Downsell3sProcessed.Value)</Value>
+                              <Value>=(Fields!DownsellsProcessed.Value+Fields!Downsell2sProcessed.Value+Fields!Downsell3sProcessed.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -1747,7 +1747,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!ClubsProcessed.Value)</Value>
+                              <Value>=Fields!ClubsProcessed.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -1780,7 +1780,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!ProcessedNowACMG.Value)</Value>
+                              <Value>=Fields!ProcessedNowACMG.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>'$'0.00;('$'0.00)</Format>
@@ -1815,7 +1815,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!ProcessedDelayedACMG.Value)</Value>
+                              <Value>=Fields!ProcessedDelayedACMG.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>'$'0.00;('$'0.00)</Format>
@@ -1850,7 +1850,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!RecurringAmountACMG.Value)</Value>
+                              <Value>=Fields!RecurringAmountACMG.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Format>'$'0.00;('$'0.00)</Format>
@@ -1885,7 +1885,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!HydroxatoneTrialProcessed.Value)</Value>
+                              <Value>=Fields!HydroxatoneTrialProcessed.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -1918,7 +1918,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!HydroxatoneFullPayProcessed.Value)</Value>
+                              <Value>=Fields!HydroxatoneFullPayProcessed.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -1951,7 +1951,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!HydroxatoneMDAProcessed.Value)</Value>
+                              <Value>=Fields!HydroxatoneMDAProcessed.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -1984,7 +1984,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!HydroxatoneDEProcessed.Value)</Value>
+                              <Value>=Fields!HydroxatoneDEProcessed.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -2017,7 +2017,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!HydrolyzeTrialProcessed.Value)</Value>
+                              <Value>=Fields!HydrolyzeTrialProcessed.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -2050,7 +2050,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!HydrolyzeFullPayProcessed.Value)</Value>
+                              <Value>=Fields!HydrolyzeFullPayProcessed.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -2083,7 +2083,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!CeltrixaTrialProcessed.Value)</Value>
+                              <Value>=Fields!CeltrixaTrialProcessed.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -2116,7 +2116,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!CeltrixaFullPayProcessed.Value)</Value>
+                              <Value>=Fields!CeltrixaFullPayProcessed.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -2149,7 +2149,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!CeltrixaMDAProcessed.Value)</Value>
+                              <Value>=Fields!CeltrixaMDAProcessed.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -2182,7 +2182,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!InstantEffectTrialProcessed.Value)</Value>
+                              <Value>=Fields!InstantEffectTrialProcessed.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -2215,7 +2215,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!InstantEffectFullPayTrialProcessed.Value)</Value>
+                              <Value>=Fields!InstantEffectFullPayTrialProcessed.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -2248,7 +2248,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!InstantEffectFullPayProcessed.Value)</Value>
+                              <Value>=Fields!InstantEffectFullPayProcessed.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -2281,7 +2281,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!FunSourceClubProcessed.Value)</Value>
+                              <Value>=Fields!FunSourceClubProcessed.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -2314,7 +2314,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!ValuePlusClubProcessed.Value)</Value>
+                              <Value>=Fields!ValuePlusClubProcessed.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>

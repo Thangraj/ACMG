@@ -65,8 +65,14 @@
         <br /><br />  <hr />
         <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" 
             Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
-            WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="100%" Height="700px" 
-            PageCountMode="Actual">
+            WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="100%" 
+            Height="" ShowBackButton="False" ShowCredentialPrompts="False" 
+            ShowDocumentMapButton="False" ShowExportControls="False" 
+            ShowFindControls="False" ShowPageNavigationControls="False" 
+            ShowParameterPrompts="False" ShowPrintButton="False" 
+            ShowPromptAreaButton="False" ShowRefreshButton="False" ShowToolBar="False" 
+            ShowWaitControlCancelLink="False" ShowZoomControl="False" 
+            SizeToReportContent="True">
             <localreport reportpath="Reports\Report_LeadPenetration_RT.rdlc">
                 <datasources>
                     <rsweb:ReportDataSource DataSourceId="SqlDataSource1" 
@@ -75,12 +81,43 @@
             </localreport>
         </rsweb:ReportViewer>
       
+      <hr />
+
+      <rsweb:ReportViewer ID="ReportViewer3" runat="server" Font-Names="Verdana" 
+            Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
+            WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="100%" 
+            Height="" ShowBackButton="False" ShowCredentialPrompts="False" 
+            ShowDocumentMapButton="False" ShowExportControls="False" 
+            ShowFindControls="False" ShowPageNavigationControls="False" 
+            ShowParameterPrompts="False" ShowPrintButton="False" 
+            ShowPromptAreaButton="False" ShowRefreshButton="False" ShowToolBar="False" 
+            ShowWaitControlCancelLink="False" ShowZoomControl="False" 
+            SizeToReportContent="True">
+            <localreport reportpath="Reports\Report_LeadPenetration_RT_Unavailable.rdlc">
+                <datasources>
+                    <rsweb:ReportDataSource DataSourceId="SqlDataSource2" 
+                        Name="DataSet1" />
+                </datasources>
+            </localreport>
+        </rsweb:ReportViewer>
+
+ <hr />
+     
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:ACMGREPORTS %>" 
             ProviderName="<%$ ConnectionStrings:ACMGREPORTS.ProviderName %>" 
             SelectCommand="sp_Report_AvailableLeads_RT" 
             SelectCommandType="StoredProcedure">
         </asp:SqlDataSource>
+
+
+        
+      
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:ACMGREPORTS %>" 
+            ProviderName="<%$ ConnectionStrings:ACMGREPORTS.ProviderName %>" 
+            SelectCommand="sp_Report_UnavailableLeadsInActivePool" 
+            SelectCommandType="StoredProcedure"></asp:SqlDataSource>
 
 
     </div>

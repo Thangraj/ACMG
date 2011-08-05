@@ -75,13 +75,13 @@
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:ACMGREPORTS %>" 
             ProviderName="<%$ ConnectionStrings:ACMGREPORTS.ProviderName %>" 
-            SelectCommand="sp_Report_AgentSummary" 
+            SelectCommand="sp_Report_AgentSummaryDateRange" 
             SelectCommandType="StoredProcedure">
             <SelectParameters>
                 <asp:ControlParameter ControlID="txtStartDate" Name="StartDate" 
-                    PropertyName="Text" Type="DateTime" />
+                    PropertyName="Text" Type="DateTime" DefaultValue="" />
                 <asp:ControlParameter ControlID="txtEndDate" Name="EndDate" PropertyName="Text" 
-                    Type="DateTime" />
+                    Type="DateTime" DefaultValue="" />
                 <asp:ControlParameter ControlID="DropDownListAgent" DefaultValue="All" 
                     Name="theAgent" PropertyName="SelectedValue" Type="String" />
                 <asp:ControlParameter ControlID="DropDownListCallCenter" DefaultValue="0" 

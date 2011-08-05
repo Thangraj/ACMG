@@ -54,6 +54,8 @@ namespace ACMGAdmin {
         
         private sp_Report_AvailableLeads_RTDataTable tablesp_Report_AvailableLeads_RT;
         
+        private sp_Report_UnavailableLeadsInActivePoolDataTable tablesp_Report_UnavailableLeadsInActivePool;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -126,6 +128,9 @@ namespace ACMGAdmin {
                 }
                 if ((ds.Tables["sp_Report_AvailableLeads_RT"] != null)) {
                     base.Tables.Add(new sp_Report_AvailableLeads_RTDataTable(ds.Tables["sp_Report_AvailableLeads_RT"]));
+                }
+                if ((ds.Tables["sp_Report_UnavailableLeadsInActivePool"] != null)) {
+                    base.Tables.Add(new sp_Report_UnavailableLeadsInActivePoolDataTable(ds.Tables["sp_Report_UnavailableLeadsInActivePool"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -297,6 +302,16 @@ namespace ACMGAdmin {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public sp_Report_UnavailableLeadsInActivePoolDataTable sp_Report_UnavailableLeadsInActivePool {
+            get {
+                return this.tablesp_Report_UnavailableLeadsInActivePool;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -406,6 +421,9 @@ namespace ACMGAdmin {
                 }
                 if ((ds.Tables["sp_Report_AvailableLeads_RT"] != null)) {
                     base.Tables.Add(new sp_Report_AvailableLeads_RTDataTable(ds.Tables["sp_Report_AvailableLeads_RT"]));
+                }
+                if ((ds.Tables["sp_Report_UnavailableLeadsInActivePool"] != null)) {
+                    base.Tables.Add(new sp_Report_UnavailableLeadsInActivePoolDataTable(ds.Tables["sp_Report_UnavailableLeadsInActivePool"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -530,6 +548,12 @@ namespace ACMGAdmin {
                     this.tablesp_Report_AvailableLeads_RT.InitVars();
                 }
             }
+            this.tablesp_Report_UnavailableLeadsInActivePool = ((sp_Report_UnavailableLeadsInActivePoolDataTable)(base.Tables["sp_Report_UnavailableLeadsInActivePool"]));
+            if ((initTable == true)) {
+                if ((this.tablesp_Report_UnavailableLeadsInActivePool != null)) {
+                    this.tablesp_Report_UnavailableLeadsInActivePool.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -570,6 +594,8 @@ namespace ACMGAdmin {
             base.Tables.Add(this.tablesp_Report_DispositionSummary);
             this.tablesp_Report_AvailableLeads_RT = new sp_Report_AvailableLeads_RTDataTable();
             base.Tables.Add(this.tablesp_Report_AvailableLeads_RT);
+            this.tablesp_Report_UnavailableLeadsInActivePool = new sp_Report_UnavailableLeadsInActivePoolDataTable();
+            base.Tables.Add(this.tablesp_Report_UnavailableLeadsInActivePool);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -659,6 +685,12 @@ namespace ACMGAdmin {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializesp_Report_AvailableLeads_RT() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializesp_Report_UnavailableLeadsInActivePool() {
             return false;
         }
         
@@ -761,6 +793,9 @@ namespace ACMGAdmin {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void sp_Report_AvailableLeads_RTRowChangeEventHandler(object sender, sp_Report_AvailableLeads_RTRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void sp_Report_UnavailableLeadsInActivePoolRowChangeEventHandler(object sender, sp_Report_UnavailableLeadsInActivePoolRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -15949,6 +15984,452 @@ namespace ACMGAdmin {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "sp_Report_AvailableLeads_RTDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class sp_Report_UnavailableLeadsInActivePoolDataTable : global::System.Data.TypedTableBase<sp_Report_UnavailableLeadsInActivePoolRow> {
+            
+            private global::System.Data.DataColumn columnActiveLeads;
+            
+            private global::System.Data.DataColumn columnCallBacks;
+            
+            private global::System.Data.DataColumn columnNotDialActive;
+            
+            private global::System.Data.DataColumn columnReachedCallLimit;
+            
+            private global::System.Data.DataColumn columnDelayNotPassed;
+            
+            private global::System.Data.DataColumn columnNOTinDialWindow;
+            
+            private global::System.Data.DataColumn columnTooLongInPool;
+            
+            private global::System.Data.DataColumn columnHasNOConfiguration;
+            
+            private global::System.Data.DataColumn columnHoliday;
+            
+            private global::System.Data.DataColumn columnNotAllowedTimeZone;
+            
+            private global::System.Data.DataColumn columnNotAllowedCellStates;
+            
+            private global::System.Data.DataColumn columnMNLeads;
+            
+            private global::System.Data.DataColumn columnCampaignID;
+            
+            private global::System.Data.DataColumn columnProductLine;
+            
+            private global::System.Data.DataColumn columnChannel;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public sp_Report_UnavailableLeadsInActivePoolDataTable() {
+                this.TableName = "sp_Report_UnavailableLeadsInActivePool";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal sp_Report_UnavailableLeadsInActivePoolDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected sp_Report_UnavailableLeadsInActivePoolDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ActiveLeadsColumn {
+                get {
+                    return this.columnActiveLeads;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CallBacksColumn {
+                get {
+                    return this.columnCallBacks;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NotDialActiveColumn {
+                get {
+                    return this.columnNotDialActive;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ReachedCallLimitColumn {
+                get {
+                    return this.columnReachedCallLimit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DelayNotPassedColumn {
+                get {
+                    return this.columnDelayNotPassed;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOTinDialWindowColumn {
+                get {
+                    return this.columnNOTinDialWindow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TooLongInPoolColumn {
+                get {
+                    return this.columnTooLongInPool;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HasNOConfigurationColumn {
+                get {
+                    return this.columnHasNOConfiguration;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HolidayColumn {
+                get {
+                    return this.columnHoliday;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NotAllowedTimeZoneColumn {
+                get {
+                    return this.columnNotAllowedTimeZone;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NotAllowedCellStatesColumn {
+                get {
+                    return this.columnNotAllowedCellStates;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MNLeadsColumn {
+                get {
+                    return this.columnMNLeads;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CampaignIDColumn {
+                get {
+                    return this.columnCampaignID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ProductLineColumn {
+                get {
+                    return this.columnProductLine;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ChannelColumn {
+                get {
+                    return this.columnChannel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public sp_Report_UnavailableLeadsInActivePoolRow this[int index] {
+                get {
+                    return ((sp_Report_UnavailableLeadsInActivePoolRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event sp_Report_UnavailableLeadsInActivePoolRowChangeEventHandler sp_Report_UnavailableLeadsInActivePoolRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event sp_Report_UnavailableLeadsInActivePoolRowChangeEventHandler sp_Report_UnavailableLeadsInActivePoolRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event sp_Report_UnavailableLeadsInActivePoolRowChangeEventHandler sp_Report_UnavailableLeadsInActivePoolRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event sp_Report_UnavailableLeadsInActivePoolRowChangeEventHandler sp_Report_UnavailableLeadsInActivePoolRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Addsp_Report_UnavailableLeadsInActivePoolRow(sp_Report_UnavailableLeadsInActivePoolRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public sp_Report_UnavailableLeadsInActivePoolRow Addsp_Report_UnavailableLeadsInActivePoolRow(long ActiveLeads, decimal CallBacks, decimal NotDialActive, decimal ReachedCallLimit, decimal DelayNotPassed, decimal NOTinDialWindow, decimal TooLongInPool, decimal HasNOConfiguration, decimal Holiday, decimal NotAllowedTimeZone, decimal NotAllowedCellStates, decimal MNLeads, int CampaignID, string ProductLine, string Channel) {
+                sp_Report_UnavailableLeadsInActivePoolRow rowsp_Report_UnavailableLeadsInActivePoolRow = ((sp_Report_UnavailableLeadsInActivePoolRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        ActiveLeads,
+                        CallBacks,
+                        NotDialActive,
+                        ReachedCallLimit,
+                        DelayNotPassed,
+                        NOTinDialWindow,
+                        TooLongInPool,
+                        HasNOConfiguration,
+                        Holiday,
+                        NotAllowedTimeZone,
+                        NotAllowedCellStates,
+                        MNLeads,
+                        CampaignID,
+                        ProductLine,
+                        Channel};
+                rowsp_Report_UnavailableLeadsInActivePoolRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowsp_Report_UnavailableLeadsInActivePoolRow);
+                return rowsp_Report_UnavailableLeadsInActivePoolRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                sp_Report_UnavailableLeadsInActivePoolDataTable cln = ((sp_Report_UnavailableLeadsInActivePoolDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new sp_Report_UnavailableLeadsInActivePoolDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnActiveLeads = base.Columns["ActiveLeads"];
+                this.columnCallBacks = base.Columns["CallBacks"];
+                this.columnNotDialActive = base.Columns["NotDialActive"];
+                this.columnReachedCallLimit = base.Columns["ReachedCallLimit"];
+                this.columnDelayNotPassed = base.Columns["DelayNotPassed"];
+                this.columnNOTinDialWindow = base.Columns["NOTinDialWindow"];
+                this.columnTooLongInPool = base.Columns["TooLongInPool"];
+                this.columnHasNOConfiguration = base.Columns["HasNOConfiguration"];
+                this.columnHoliday = base.Columns["Holiday"];
+                this.columnNotAllowedTimeZone = base.Columns["NotAllowedTimeZone"];
+                this.columnNotAllowedCellStates = base.Columns["NotAllowedCellStates"];
+                this.columnMNLeads = base.Columns["MNLeads"];
+                this.columnCampaignID = base.Columns["CampaignID"];
+                this.columnProductLine = base.Columns["ProductLine"];
+                this.columnChannel = base.Columns["Channel"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnActiveLeads = new global::System.Data.DataColumn("ActiveLeads", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnActiveLeads);
+                this.columnCallBacks = new global::System.Data.DataColumn("CallBacks", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCallBacks);
+                this.columnNotDialActive = new global::System.Data.DataColumn("NotDialActive", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNotDialActive);
+                this.columnReachedCallLimit = new global::System.Data.DataColumn("ReachedCallLimit", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReachedCallLimit);
+                this.columnDelayNotPassed = new global::System.Data.DataColumn("DelayNotPassed", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDelayNotPassed);
+                this.columnNOTinDialWindow = new global::System.Data.DataColumn("NOTinDialWindow", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOTinDialWindow);
+                this.columnTooLongInPool = new global::System.Data.DataColumn("TooLongInPool", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTooLongInPool);
+                this.columnHasNOConfiguration = new global::System.Data.DataColumn("HasNOConfiguration", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHasNOConfiguration);
+                this.columnHoliday = new global::System.Data.DataColumn("Holiday", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHoliday);
+                this.columnNotAllowedTimeZone = new global::System.Data.DataColumn("NotAllowedTimeZone", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNotAllowedTimeZone);
+                this.columnNotAllowedCellStates = new global::System.Data.DataColumn("NotAllowedCellStates", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNotAllowedCellStates);
+                this.columnMNLeads = new global::System.Data.DataColumn("MNLeads", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMNLeads);
+                this.columnCampaignID = new global::System.Data.DataColumn("CampaignID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCampaignID);
+                this.columnProductLine = new global::System.Data.DataColumn("ProductLine", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductLine);
+                this.columnChannel = new global::System.Data.DataColumn("Channel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnChannel);
+                this.columnActiveLeads.AllowDBNull = false;
+                this.columnProductLine.MaxLength = 45;
+                this.columnChannel.MaxLength = 45;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public sp_Report_UnavailableLeadsInActivePoolRow Newsp_Report_UnavailableLeadsInActivePoolRow() {
+                return ((sp_Report_UnavailableLeadsInActivePoolRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new sp_Report_UnavailableLeadsInActivePoolRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(sp_Report_UnavailableLeadsInActivePoolRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.sp_Report_UnavailableLeadsInActivePoolRowChanged != null)) {
+                    this.sp_Report_UnavailableLeadsInActivePoolRowChanged(this, new sp_Report_UnavailableLeadsInActivePoolRowChangeEvent(((sp_Report_UnavailableLeadsInActivePoolRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.sp_Report_UnavailableLeadsInActivePoolRowChanging != null)) {
+                    this.sp_Report_UnavailableLeadsInActivePoolRowChanging(this, new sp_Report_UnavailableLeadsInActivePoolRowChangeEvent(((sp_Report_UnavailableLeadsInActivePoolRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.sp_Report_UnavailableLeadsInActivePoolRowDeleted != null)) {
+                    this.sp_Report_UnavailableLeadsInActivePoolRowDeleted(this, new sp_Report_UnavailableLeadsInActivePoolRowChangeEvent(((sp_Report_UnavailableLeadsInActivePoolRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.sp_Report_UnavailableLeadsInActivePoolRowDeleting != null)) {
+                    this.sp_Report_UnavailableLeadsInActivePoolRowDeleting(this, new sp_Report_UnavailableLeadsInActivePoolRowChangeEvent(((sp_Report_UnavailableLeadsInActivePoolRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Removesp_Report_UnavailableLeadsInActivePoolRow(sp_Report_UnavailableLeadsInActivePoolRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DSReport_AgentSummary ds = new DSReport_AgentSummary();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "sp_Report_UnavailableLeadsInActivePoolDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -36217,6 +36698,438 @@ namespace ACMGAdmin {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class sp_Report_UnavailableLeadsInActivePoolRow : global::System.Data.DataRow {
+            
+            private sp_Report_UnavailableLeadsInActivePoolDataTable tablesp_Report_UnavailableLeadsInActivePool;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal sp_Report_UnavailableLeadsInActivePoolRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablesp_Report_UnavailableLeadsInActivePool = ((sp_Report_UnavailableLeadsInActivePoolDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long ActiveLeads {
+                get {
+                    return ((long)(this[this.tablesp_Report_UnavailableLeadsInActivePool.ActiveLeadsColumn]));
+                }
+                set {
+                    this[this.tablesp_Report_UnavailableLeadsInActivePool.ActiveLeadsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal CallBacks {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_Report_UnavailableLeadsInActivePool.CallBacksColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CallBacks\' in table \'sp_Report_UnavailableLeadsInActivePool" +
+                                "\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Report_UnavailableLeadsInActivePool.CallBacksColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NotDialActive {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_Report_UnavailableLeadsInActivePool.NotDialActiveColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NotDialActive\' in table \'sp_Report_UnavailableLeadsInActive" +
+                                "Pool\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Report_UnavailableLeadsInActivePool.NotDialActiveColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal ReachedCallLimit {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_Report_UnavailableLeadsInActivePool.ReachedCallLimitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ReachedCallLimit\' in table \'sp_Report_UnavailableLeadsInAct" +
+                                "ivePool\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Report_UnavailableLeadsInActivePool.ReachedCallLimitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal DelayNotPassed {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_Report_UnavailableLeadsInActivePool.DelayNotPassedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DelayNotPassed\' in table \'sp_Report_UnavailableLeadsInActiv" +
+                                "ePool\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Report_UnavailableLeadsInActivePool.DelayNotPassedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOTinDialWindow {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_Report_UnavailableLeadsInActivePool.NOTinDialWindowColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOTinDialWindow\' in table \'sp_Report_UnavailableLeadsInActi" +
+                                "vePool\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Report_UnavailableLeadsInActivePool.NOTinDialWindowColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal TooLongInPool {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_Report_UnavailableLeadsInActivePool.TooLongInPoolColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TooLongInPool\' in table \'sp_Report_UnavailableLeadsInActive" +
+                                "Pool\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Report_UnavailableLeadsInActivePool.TooLongInPoolColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal HasNOConfiguration {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_Report_UnavailableLeadsInActivePool.HasNOConfigurationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HasNOConfiguration\' in table \'sp_Report_UnavailableLeadsInA" +
+                                "ctivePool\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Report_UnavailableLeadsInActivePool.HasNOConfigurationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Holiday {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_Report_UnavailableLeadsInActivePool.HolidayColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Holiday\' in table \'sp_Report_UnavailableLeadsInActivePool\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Report_UnavailableLeadsInActivePool.HolidayColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NotAllowedTimeZone {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_Report_UnavailableLeadsInActivePool.NotAllowedTimeZoneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NotAllowedTimeZone\' in table \'sp_Report_UnavailableLeadsInA" +
+                                "ctivePool\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Report_UnavailableLeadsInActivePool.NotAllowedTimeZoneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NotAllowedCellStates {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_Report_UnavailableLeadsInActivePool.NotAllowedCellStatesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NotAllowedCellStates\' in table \'sp_Report_UnavailableLeadsI" +
+                                "nActivePool\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Report_UnavailableLeadsInActivePool.NotAllowedCellStatesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal MNLeads {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablesp_Report_UnavailableLeadsInActivePool.MNLeadsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MNLeads\' in table \'sp_Report_UnavailableLeadsInActivePool\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Report_UnavailableLeadsInActivePool.MNLeadsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int CampaignID {
+                get {
+                    try {
+                        return ((int)(this[this.tablesp_Report_UnavailableLeadsInActivePool.CampaignIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CampaignID\' in table \'sp_Report_UnavailableLeadsInActivePoo" +
+                                "l\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Report_UnavailableLeadsInActivePool.CampaignIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ProductLine {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_Report_UnavailableLeadsInActivePool.ProductLineColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProductLine\' in table \'sp_Report_UnavailableLeadsInActivePo" +
+                                "ol\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Report_UnavailableLeadsInActivePool.ProductLineColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Channel {
+                get {
+                    try {
+                        return ((string)(this[this.tablesp_Report_UnavailableLeadsInActivePool.ChannelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Channel\' in table \'sp_Report_UnavailableLeadsInActivePool\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_Report_UnavailableLeadsInActivePool.ChannelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCallBacksNull() {
+                return this.IsNull(this.tablesp_Report_UnavailableLeadsInActivePool.CallBacksColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCallBacksNull() {
+                this[this.tablesp_Report_UnavailableLeadsInActivePool.CallBacksColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNotDialActiveNull() {
+                return this.IsNull(this.tablesp_Report_UnavailableLeadsInActivePool.NotDialActiveColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNotDialActiveNull() {
+                this[this.tablesp_Report_UnavailableLeadsInActivePool.NotDialActiveColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsReachedCallLimitNull() {
+                return this.IsNull(this.tablesp_Report_UnavailableLeadsInActivePool.ReachedCallLimitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetReachedCallLimitNull() {
+                this[this.tablesp_Report_UnavailableLeadsInActivePool.ReachedCallLimitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDelayNotPassedNull() {
+                return this.IsNull(this.tablesp_Report_UnavailableLeadsInActivePool.DelayNotPassedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDelayNotPassedNull() {
+                this[this.tablesp_Report_UnavailableLeadsInActivePool.DelayNotPassedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOTinDialWindowNull() {
+                return this.IsNull(this.tablesp_Report_UnavailableLeadsInActivePool.NOTinDialWindowColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOTinDialWindowNull() {
+                this[this.tablesp_Report_UnavailableLeadsInActivePool.NOTinDialWindowColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTooLongInPoolNull() {
+                return this.IsNull(this.tablesp_Report_UnavailableLeadsInActivePool.TooLongInPoolColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTooLongInPoolNull() {
+                this[this.tablesp_Report_UnavailableLeadsInActivePool.TooLongInPoolColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHasNOConfigurationNull() {
+                return this.IsNull(this.tablesp_Report_UnavailableLeadsInActivePool.HasNOConfigurationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHasNOConfigurationNull() {
+                this[this.tablesp_Report_UnavailableLeadsInActivePool.HasNOConfigurationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHolidayNull() {
+                return this.IsNull(this.tablesp_Report_UnavailableLeadsInActivePool.HolidayColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHolidayNull() {
+                this[this.tablesp_Report_UnavailableLeadsInActivePool.HolidayColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNotAllowedTimeZoneNull() {
+                return this.IsNull(this.tablesp_Report_UnavailableLeadsInActivePool.NotAllowedTimeZoneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNotAllowedTimeZoneNull() {
+                this[this.tablesp_Report_UnavailableLeadsInActivePool.NotAllowedTimeZoneColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNotAllowedCellStatesNull() {
+                return this.IsNull(this.tablesp_Report_UnavailableLeadsInActivePool.NotAllowedCellStatesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNotAllowedCellStatesNull() {
+                this[this.tablesp_Report_UnavailableLeadsInActivePool.NotAllowedCellStatesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMNLeadsNull() {
+                return this.IsNull(this.tablesp_Report_UnavailableLeadsInActivePool.MNLeadsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMNLeadsNull() {
+                this[this.tablesp_Report_UnavailableLeadsInActivePool.MNLeadsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCampaignIDNull() {
+                return this.IsNull(this.tablesp_Report_UnavailableLeadsInActivePool.CampaignIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCampaignIDNull() {
+                this[this.tablesp_Report_UnavailableLeadsInActivePool.CampaignIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProductLineNull() {
+                return this.IsNull(this.tablesp_Report_UnavailableLeadsInActivePool.ProductLineColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProductLineNull() {
+                this[this.tablesp_Report_UnavailableLeadsInActivePool.ProductLineColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsChannelNull() {
+                return this.IsNull(this.tablesp_Report_UnavailableLeadsInActivePool.ChannelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetChannelNull() {
+                this[this.tablesp_Report_UnavailableLeadsInActivePool.ChannelColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -36712,6 +37625,40 @@ namespace ACMGAdmin {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public sp_Report_AvailableLeads_RTRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class sp_Report_UnavailableLeadsInActivePoolRowChangeEvent : global::System.EventArgs {
+            
+            private sp_Report_UnavailableLeadsInActivePoolRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public sp_Report_UnavailableLeadsInActivePoolRowChangeEvent(sp_Report_UnavailableLeadsInActivePoolRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public sp_Report_UnavailableLeadsInActivePoolRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -40470,6 +41417,187 @@ namespace ACMGAdmin.DSReport_AgentSummaryTableAdapters {
         public virtual DSReport_AgentSummary.sp_Report_AvailableLeads_RTDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             DSReport_AgentSummary.sp_Report_AvailableLeads_RTDataTable dataTable = new DSReport_AgentSummary.sp_Report_AvailableLeads_RTDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class sp_Report_UnavailableLeadsInActivePoolTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public sp_Report_UnavailableLeadsInActivePoolTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "sp_Report_UnavailableLeadsInActivePool";
+            tableMapping.ColumnMappings.Add("ActiveLeads", "ActiveLeads");
+            tableMapping.ColumnMappings.Add("CallBacks", "CallBacks");
+            tableMapping.ColumnMappings.Add("NotDialActive", "NotDialActive");
+            tableMapping.ColumnMappings.Add("ReachedCallLimit", "ReachedCallLimit");
+            tableMapping.ColumnMappings.Add("DelayNotPassed", "DelayNotPassed");
+            tableMapping.ColumnMappings.Add("NOTinDialWindow", "NOTinDialWindow");
+            tableMapping.ColumnMappings.Add("TooLongInPool", "TooLongInPool");
+            tableMapping.ColumnMappings.Add("HasNOConfiguration", "HasNOConfiguration");
+            tableMapping.ColumnMappings.Add("Holiday", "Holiday");
+            tableMapping.ColumnMappings.Add("NotAllowedTimeZone", "NotAllowedTimeZone");
+            tableMapping.ColumnMappings.Add("NotAllowedCellStates", "NotAllowedCellStates");
+            tableMapping.ColumnMappings.Add("MNLeads", "MNLeads");
+            tableMapping.ColumnMappings.Add("CampaignID", "CampaignID");
+            tableMapping.ColumnMappings.Add("ProductLine", "ProductLine");
+            tableMapping.ColumnMappings.Add("Channel", "Channel");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ACMGREPORTS"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "`acmgreports`.`sp_Report_UnavailableLeadsInActivePool`";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DSReport_AgentSummary.sp_Report_UnavailableLeadsInActivePoolDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DSReport_AgentSummary.sp_Report_UnavailableLeadsInActivePoolDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DSReport_AgentSummary.sp_Report_UnavailableLeadsInActivePoolDataTable dataTable = new DSReport_AgentSummary.sp_Report_UnavailableLeadsInActivePoolDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

@@ -139,6 +139,15 @@ namespace ACMGAdmin.Reports {
         protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer1;
         
         /// <summary>
+        /// ReportViewer3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer3;
+        
+        /// <summary>
         /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
@@ -146,5 +155,14 @@ namespace ACMGAdmin.Reports {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        
+        /// <summary>
+        /// SqlDataSource2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
     }
 }

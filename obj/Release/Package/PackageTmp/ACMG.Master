@@ -176,7 +176,8 @@
                             </asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Dialer Configuration" Value="Dialer Configuration">
-                            <asp:MenuItem Text="Dialer Rules" Value="Dialer Rules" NavigateUrl="~/MasterInterfaces/DialerRules.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Dialer Rules" Value="Dialer Rules" 
+                                NavigateUrl="~/MasterInterfaces/DialerRules.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="User Admin" Value="User Admin">
                             <asp:MenuItem NavigateUrl="~/Account/ViewUsersByRole.aspx" 
@@ -185,12 +186,12 @@
                                 Value="Add User"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="System Admin" Value="System Admin">
-                            <asp:MenuItem Text="Call Centers " Value="Call Centers" NavigateUrl="~/MasterInterfaces/CallCenter.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Call Centers " Value="Call Centers "></asp:MenuItem>
                             <asp:MenuItem Text="Call Dispositions " Value="Call Dispositions ">
                             </asp:MenuItem>
                             <asp:MenuItem Text="Allowed Calling Times By State" 
                                 Value="Allowed Calling Times By State"></asp:MenuItem>
-                            <asp:MenuItem Text="Holidays" Value="Holidays" NavigateUrl="~/MasterInterfaces/Holidays.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Holidays" Value="Holidays"></asp:MenuItem>
                             <asp:MenuItem Text="PBX Phone Extensions" Value="PBX Phone Extensions">
                             </asp:MenuItem>
                             <asp:MenuItem Text="Routing Groups" Value="Routing Groups"></asp:MenuItem>

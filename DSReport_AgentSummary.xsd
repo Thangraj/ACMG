@@ -1028,6 +1028,36 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sp_Report_UnavailableLeadsInActivePoolTableAdapter" GeneratorDataComponentClassName="sp_Report_UnavailableLeadsInActivePoolTableAdapter" Name="sp_Report_UnavailableLeadsInActivePool" UserDataComponentName="sp_Report_UnavailableLeadsInActivePoolTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ACMGREPORTS (Web.config)" DbObjectName="``.`acmgreports`.`sp_Report_UnavailableLeadsInActivePool`" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>`acmgreports`.`sp_Report_UnavailableLeadsInActivePool`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ActiveLeads" DataSetColumn="ActiveLeads" />
+              <Mapping SourceColumn="CallBacks" DataSetColumn="CallBacks" />
+              <Mapping SourceColumn="NotDialActive" DataSetColumn="NotDialActive" />
+              <Mapping SourceColumn="ReachedCallLimit" DataSetColumn="ReachedCallLimit" />
+              <Mapping SourceColumn="DelayNotPassed" DataSetColumn="DelayNotPassed" />
+              <Mapping SourceColumn="NOTinDialWindow" DataSetColumn="NOTinDialWindow" />
+              <Mapping SourceColumn="TooLongInPool" DataSetColumn="TooLongInPool" />
+              <Mapping SourceColumn="HasNOConfiguration" DataSetColumn="HasNOConfiguration" />
+              <Mapping SourceColumn="Holiday" DataSetColumn="Holiday" />
+              <Mapping SourceColumn="NotAllowedTimeZone" DataSetColumn="NotAllowedTimeZone" />
+              <Mapping SourceColumn="NotAllowedCellStates" DataSetColumn="NotAllowedCellStates" />
+              <Mapping SourceColumn="MNLeads" DataSetColumn="MNLeads" />
+              <Mapping SourceColumn="CampaignID" DataSetColumn="CampaignID" />
+              <Mapping SourceColumn="ProductLine" DataSetColumn="ProductLine" />
+              <Mapping SourceColumn="Channel" DataSetColumn="Channel" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -2364,6 +2394,39 @@
               <xs:element name="PST" msprop:Generator_ColumnVarNameInTable="columnPST" msprop:Generator_ColumnPropNameInRow="PST" msprop:Generator_ColumnPropNameInTable="PSTColumn" msprop:Generator_UserColumnName="PST" type="xs:decimal" minOccurs="0" />
               <xs:element name="Hawaii" msprop:Generator_ColumnVarNameInTable="columnHawaii" msprop:Generator_ColumnPropNameInRow="Hawaii" msprop:Generator_ColumnPropNameInTable="HawaiiColumn" msprop:Generator_UserColumnName="Hawaii" type="xs:decimal" minOccurs="0" />
               <xs:element name="Carribbean" msprop:Generator_ColumnVarNameInTable="columnCarribbean" msprop:Generator_ColumnPropNameInRow="Carribbean" msprop:Generator_ColumnPropNameInTable="CarribbeanColumn" msprop:Generator_UserColumnName="Carribbean" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="sp_Report_UnavailableLeadsInActivePool" msprop:Generator_TableClassName="sp_Report_UnavailableLeadsInActivePoolDataTable" msprop:Generator_TableVarName="tablesp_Report_UnavailableLeadsInActivePool" msprop:Generator_TablePropName="sp_Report_UnavailableLeadsInActivePool" msprop:Generator_RowDeletingName="sp_Report_UnavailableLeadsInActivePoolRowDeleting" msprop:Generator_UserTableName="sp_Report_UnavailableLeadsInActivePool" msprop:Generator_RowChangingName="sp_Report_UnavailableLeadsInActivePoolRowChanging" msprop:Generator_RowEvHandlerName="sp_Report_UnavailableLeadsInActivePoolRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_Report_UnavailableLeadsInActivePoolRowDeleted" msprop:Generator_RowEvArgName="sp_Report_UnavailableLeadsInActivePoolRowChangeEvent" msprop:Generator_RowChangedName="sp_Report_UnavailableLeadsInActivePoolRowChanged" msprop:Generator_RowClassName="sp_Report_UnavailableLeadsInActivePoolRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ActiveLeads" msprop:Generator_ColumnVarNameInTable="columnActiveLeads" msprop:Generator_ColumnPropNameInRow="ActiveLeads" msprop:Generator_ColumnPropNameInTable="ActiveLeadsColumn" msprop:Generator_UserColumnName="ActiveLeads" type="xs:long" />
+              <xs:element name="CallBacks" msprop:Generator_ColumnVarNameInTable="columnCallBacks" msprop:Generator_ColumnPropNameInRow="CallBacks" msprop:Generator_ColumnPropNameInTable="CallBacksColumn" msprop:Generator_UserColumnName="CallBacks" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NotDialActive" msprop:Generator_ColumnVarNameInTable="columnNotDialActive" msprop:Generator_ColumnPropNameInRow="NotDialActive" msprop:Generator_ColumnPropNameInTable="NotDialActiveColumn" msprop:Generator_UserColumnName="NotDialActive" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ReachedCallLimit" msprop:Generator_ColumnVarNameInTable="columnReachedCallLimit" msprop:Generator_ColumnPropNameInRow="ReachedCallLimit" msprop:Generator_ColumnPropNameInTable="ReachedCallLimitColumn" msprop:Generator_UserColumnName="ReachedCallLimit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DelayNotPassed" msprop:Generator_ColumnVarNameInTable="columnDelayNotPassed" msprop:Generator_ColumnPropNameInRow="DelayNotPassed" msprop:Generator_ColumnPropNameInTable="DelayNotPassedColumn" msprop:Generator_UserColumnName="DelayNotPassed" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NOTinDialWindow" msprop:Generator_ColumnVarNameInTable="columnNOTinDialWindow" msprop:Generator_ColumnPropNameInRow="NOTinDialWindow" msprop:Generator_ColumnPropNameInTable="NOTinDialWindowColumn" msprop:Generator_UserColumnName="NOTinDialWindow" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TooLongInPool" msprop:Generator_ColumnVarNameInTable="columnTooLongInPool" msprop:Generator_ColumnPropNameInRow="TooLongInPool" msprop:Generator_ColumnPropNameInTable="TooLongInPoolColumn" msprop:Generator_UserColumnName="TooLongInPool" type="xs:decimal" minOccurs="0" />
+              <xs:element name="HasNOConfiguration" msprop:Generator_ColumnVarNameInTable="columnHasNOConfiguration" msprop:Generator_ColumnPropNameInRow="HasNOConfiguration" msprop:Generator_ColumnPropNameInTable="HasNOConfigurationColumn" msprop:Generator_UserColumnName="HasNOConfiguration" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Holiday" msprop:Generator_ColumnVarNameInTable="columnHoliday" msprop:Generator_ColumnPropNameInRow="Holiday" msprop:Generator_ColumnPropNameInTable="HolidayColumn" msprop:Generator_UserColumnName="Holiday" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NotAllowedTimeZone" msprop:Generator_ColumnVarNameInTable="columnNotAllowedTimeZone" msprop:Generator_ColumnPropNameInRow="NotAllowedTimeZone" msprop:Generator_ColumnPropNameInTable="NotAllowedTimeZoneColumn" msprop:Generator_UserColumnName="NotAllowedTimeZone" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NotAllowedCellStates" msprop:Generator_ColumnVarNameInTable="columnNotAllowedCellStates" msprop:Generator_ColumnPropNameInRow="NotAllowedCellStates" msprop:Generator_ColumnPropNameInTable="NotAllowedCellStatesColumn" msprop:Generator_UserColumnName="NotAllowedCellStates" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MNLeads" msprop:Generator_ColumnVarNameInTable="columnMNLeads" msprop:Generator_ColumnPropNameInRow="MNLeads" msprop:Generator_ColumnPropNameInTable="MNLeadsColumn" msprop:Generator_UserColumnName="MNLeads" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CampaignID" msprop:Generator_ColumnVarNameInTable="columnCampaignID" msprop:Generator_ColumnPropNameInRow="CampaignID" msprop:Generator_ColumnPropNameInTable="CampaignIDColumn" msprop:Generator_UserColumnName="CampaignID" type="xs:int" minOccurs="0" />
+              <xs:element name="ProductLine" msprop:Generator_ColumnVarNameInTable="columnProductLine" msprop:Generator_ColumnPropNameInRow="ProductLine" msprop:Generator_ColumnPropNameInTable="ProductLineColumn" msprop:Generator_UserColumnName="ProductLine" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Channel" msprop:Generator_ColumnVarNameInTable="columnChannel" msprop:Generator_ColumnPropNameInRow="Channel" msprop:Generator_ColumnPropNameInTable="ChannelColumn" msprop:Generator_UserColumnName="Channel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
