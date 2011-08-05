@@ -240,7 +240,7 @@
             </tr>
         </table>
 
-
+    <br />
      <table>
             <tr>
                 <td>
@@ -253,7 +253,7 @@
                 <td>
                     <asp:GridView ID="gvPhoneExtensions" runat="server" AutoGenerateColumns="False" Font-Size="9pt"
                         AllowPaging="True" OnPageIndexChanging="gvPhoneExtensions_PageIndexChanging" 
-                        AllowSorting="true" PageSize="100" >
+                        AllowSorting="true" PageSize="100" EnableTheming="True" >
                         <AlternatingRowStyle BackColor="#E9ECF1" ForeColor="#284775"  />
                         <EditRowStyle BackColor="#999999" />
                         <HeaderStyle BackColor="#5970A6" Font-Bold="True" ForeColor="White" />

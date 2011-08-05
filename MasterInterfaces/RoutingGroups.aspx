@@ -127,9 +127,7 @@
         </table>
 
         <br />
-        <br />
-
-        <table>
+       <table>
             <tr>
                 <td>
                     <h3>

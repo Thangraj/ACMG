@@ -358,7 +358,9 @@ namespace ACMGAdmin.DataAccess
         #endregion
 
         #region updateHolidayDetails
-        public Int32 updateHolidayDetails(string theConnectionString, int intHolidayID, string strState, string strMonth, string strDay, string strHolidayName, string strNotes, string strDate)
+        public Int32 updateHolidayDetails(string theConnectionString, int intHolidayID, string strState, string strMonth, string strDay, string strHolidayName, string strNotes, string strDate,
+                                          string strModifyUser, string strModifyDateTime, string strScreenName,
+                                          string strTableName, string strBeforeImage, string strAfterImage)
         {
             //to get all the Holiday List from the DB
             string theCommandName = "sp_admin_updHolidays";
@@ -416,7 +418,49 @@ namespace ACMGAdmin.DataAccess
                     myCommand.Parameters.Add(myParamDate);
                     myParamDate.Direction = ParameterDirection.Input;
 
-                    intRecAffected = myCommand.ExecuteNonQuery();
+                    MySqlParameter myParamModifyUser = new MySqlParameter();
+                    myParamModifyUser.ParameterName = "strModifyUser";
+                    myParamModifyUser.Value = strModifyUser;
+                    myCommand.Parameters.Add(myParamModifyUser);
+                    myParamModifyUser.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyDate = new MySqlParameter();
+                    myParamModifyDate.ParameterName = "strModifyDateTime";
+                    myParamModifyDate.Value = strModifyDateTime;
+                    myCommand.Parameters.Add(myParamModifyDate);
+                    myParamModifyDate.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamScreenName = new MySqlParameter();
+                    myParamScreenName.ParameterName = "strScreenName";
+                    myParamScreenName.Value = strScreenName;
+                    myCommand.Parameters.Add(myParamScreenName);
+                    myParamScreenName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTabelName = new MySqlParameter();
+                    myParamTabelName.ParameterName = "strTableName";
+                    myParamTabelName.Value = strTableName;
+                    myCommand.Parameters.Add(myParamTabelName);
+                    myParamTabelName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBeforeImage = new MySqlParameter();
+                    myParamBeforeImage.ParameterName = "tBeforeImage";
+                    myParamBeforeImage.Value = strBeforeImage;
+                    myCommand.Parameters.Add(myParamBeforeImage);
+                    myParamBeforeImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamAfterImage = new MySqlParameter();
+                    myParamAfterImage.ParameterName = "tAfterImage";
+                    myParamAfterImage.Value = strAfterImage;
+                    myCommand.Parameters.Add(myParamAfterImage);
+                    myParamAfterImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamOutRes = new MySqlParameter();
+                    myParamOutRes.ParameterName = "oCount";
+                    myCommand.Parameters.Add(myParamOutRes);
+                    myParamOutRes.Direction = ParameterDirection.Output;
+
+                    myCommand.ExecuteNonQuery();
+                    intRecAffected = Convert.ToInt32(myCommand.Parameters["oCount"].Value);
 
                     return intRecAffected;
                 }
@@ -430,7 +474,9 @@ namespace ACMGAdmin.DataAccess
 
         #region insertHoliday
 
-        public Int32 insertHoliday(string theConnectionString, string strState, string strMonth, string strDay, string strHolidayName, string strNotes, string strDate)
+        public Int32 insertHoliday(string theConnectionString, string strState, string strMonth, string strDay, string strHolidayName, string strNotes, string strDate,
+                                   string strModifyUser, string strModifyDateTime, string strScreenName,
+                                          string strTableName, string strBeforeImage, string strAfterImage)
         {
             //to get all the Holiday List from the DB
             string theCommandName = "sp_admin_insHoliday";
@@ -482,7 +528,49 @@ namespace ACMGAdmin.DataAccess
                     myCommand.Parameters.Add(myParamDate);
                     myParamDate.Direction = ParameterDirection.Input;
 
-                    intRecAffected = myCommand.ExecuteNonQuery();
+                    MySqlParameter myParamModifyUser = new MySqlParameter();
+                    myParamModifyUser.ParameterName = "strModifyUser";
+                    myParamModifyUser.Value = strModifyUser;
+                    myCommand.Parameters.Add(myParamModifyUser);
+                    myParamModifyUser.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyDate = new MySqlParameter();
+                    myParamModifyDate.ParameterName = "strModifyDateTime";
+                    myParamModifyDate.Value = strModifyDateTime;
+                    myCommand.Parameters.Add(myParamModifyDate);
+                    myParamModifyDate.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamScreenName = new MySqlParameter();
+                    myParamScreenName.ParameterName = "strScreenName";
+                    myParamScreenName.Value = strScreenName;
+                    myCommand.Parameters.Add(myParamScreenName);
+                    myParamScreenName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTabelName = new MySqlParameter();
+                    myParamTabelName.ParameterName = "strTableName";
+                    myParamTabelName.Value = strTableName;
+                    myCommand.Parameters.Add(myParamTabelName);
+                    myParamTabelName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBeforeImage = new MySqlParameter();
+                    myParamBeforeImage.ParameterName = "tBeforeImage";
+                    myParamBeforeImage.Value = strBeforeImage;
+                    myCommand.Parameters.Add(myParamBeforeImage);
+                    myParamBeforeImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamAfterImage = new MySqlParameter();
+                    myParamAfterImage.ParameterName = "tAfterImage";
+                    myParamAfterImage.Value = strAfterImage;
+                    myCommand.Parameters.Add(myParamAfterImage);
+                    myParamAfterImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamOutRes = new MySqlParameter();
+                    myParamOutRes.ParameterName = "oCount";
+                    myCommand.Parameters.Add(myParamOutRes);
+                    myParamOutRes.Direction = ParameterDirection.Output;
+
+                    myCommand.ExecuteNonQuery();
+                    intRecAffected = Convert.ToInt32(myCommand.Parameters["oCount"].Value);
 
                     return intRecAffected;
                 }
@@ -604,7 +692,9 @@ namespace ACMGAdmin.DataAccess
 
         public Int32 updateDialerRules(string theConnectionString, int intDialerRulesID, int intCampaignID, string strCampaignName, string strPhoneType, int intDaysBetweenDials,
                                         int intHoursBetweenDials, int intMinutesBetweenDials, int intMaxAttempts, int intMaxDaysInPool, string strStartDialTime_EST,
-                                        string strEndDialTime_EST, int intDialOnHolidays, int intDialActive, int intDialPriority, int intArchiveAfterDays)
+                                        string strEndDialTime_EST, int intDialOnHolidays, int intDialActive, int intDialPriority, int intArchiveAfterDays,
+                                        string strModifyUser, string strModifyDateTime, string strScreenName,
+                                        string strTableName, string strBeforeImage, string strAfterImage)
         {
             //to get all the Holiday List from the DB
             string theCommandName = "sp_admin_updDialerRules";
@@ -710,7 +800,49 @@ namespace ACMGAdmin.DataAccess
                     myCommand.Parameters.Add(myParamArchiveAfterDays);
                     myParamArchiveAfterDays.Direction = ParameterDirection.Input;
 
-                    intRecAffected = myCommand.ExecuteNonQuery();
+                    MySqlParameter myParamModifyUser = new MySqlParameter();
+                    myParamModifyUser.ParameterName = "strModifyUser";
+                    myParamModifyUser.Value = strModifyUser;
+                    myCommand.Parameters.Add(myParamModifyUser);
+                    myParamModifyUser.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamModifyDate = new MySqlParameter();
+                    myParamModifyDate.ParameterName = "strModifyDateTime";
+                    myParamModifyDate.Value = strModifyDateTime;
+                    myCommand.Parameters.Add(myParamModifyDate);
+                    myParamModifyDate.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamScreenName = new MySqlParameter();
+                    myParamScreenName.ParameterName = "strScreenName";
+                    myParamScreenName.Value = strScreenName;
+                    myCommand.Parameters.Add(myParamScreenName);
+                    myParamScreenName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamTabelName = new MySqlParameter();
+                    myParamTabelName.ParameterName = "strTableName";
+                    myParamTabelName.Value = strTableName;
+                    myCommand.Parameters.Add(myParamTabelName);
+                    myParamTabelName.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamBeforeImage = new MySqlParameter();
+                    myParamBeforeImage.ParameterName = "tBeforeImage";
+                    myParamBeforeImage.Value = strBeforeImage;
+                    myCommand.Parameters.Add(myParamBeforeImage);
+                    myParamBeforeImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamAfterImage = new MySqlParameter();
+                    myParamAfterImage.ParameterName = "tAfterImage";
+                    myParamAfterImage.Value = strAfterImage;
+                    myCommand.Parameters.Add(myParamAfterImage);
+                    myParamAfterImage.Direction = ParameterDirection.Input;
+
+                    MySqlParameter myParamOutRes = new MySqlParameter();
+                    myParamOutRes.ParameterName = "oCount";
+                    myCommand.Parameters.Add(myParamOutRes);
+                    myParamOutRes.Direction = ParameterDirection.Output;
+
+                    myCommand.ExecuteNonQuery();
+                    intRecAffected = Convert.ToInt32(myCommand.Parameters["oCount"].Value);
 
                     return intRecAffected;
                 }

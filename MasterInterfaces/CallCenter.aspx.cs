@@ -34,7 +34,7 @@ namespace ACMGAdmin.MasterInterfaces
 
                 if (!IsPostBack)
                 {
-                    // calling the below method to populate the Holiday GridView
+                    // calling the below method to populate the CallCenter GridView
                     populateCallCenterGrid();
                 }
             }
@@ -48,7 +48,7 @@ namespace ACMGAdmin.MasterInterfaces
 
 
         /// <summary>
-        /// This event will implement the paging functionality to the Holidays Gridview.
+        /// This event will implement the paging functionality to the CallCenter Gridview.
         /// </summary>
         protected void gvCallCenter_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -254,7 +254,7 @@ namespace ACMGAdmin.MasterInterfaces
                 DataSet dsSelCallCenter = new DataSet();
                 dsSelCallCenter = myObj.getCallCenterByID("LocalMySqlServer", iCallCenterID);
 
-                // Assigning the selected Dailer Rule values to the corresponding fields...
+                // Assigning the selected CallCenter values to the corresponding fields...
                 hdnCallCenterId.Value = dsSelCallCenter.Tables[0].Rows[0]["CallCenterID"].ToString();
                 txtCallCenter.Text = dsSelCallCenter.Tables[0].Rows[0]["CallCenterName"].ToString();
                 txtCallCenterNotes.Text = dsSelCallCenter.Tables[0].Rows[0]["CallCenterNotes"].ToString();
@@ -315,7 +315,7 @@ namespace ACMGAdmin.MasterInterfaces
         {
             try
             {
-                // calling the populateHolidayGrid to refresh the Grid Data
+                // calling the populateCallCenterGrid to refresh the Grid Data
                 populateCallCenterGrid();
                 
                 // setting the default values for the dropdownlist

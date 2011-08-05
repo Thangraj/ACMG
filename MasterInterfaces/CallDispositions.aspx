@@ -281,115 +281,7 @@
 
 
 <div>
-
-     <table>
-            <tr>
-                <td>
-                    <h3>
-                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="Call Disposition Details:"></asp:Label>
-                    </h3>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:GridView ID="gvCallDisposition" runat="server" AutoGenerateColumns="false" Font-Size="9" 
-                     AllowPaging="true" PageSize="10" 
-                        onpageindexchanging="gvCallDisposition_PageIndexChanging" >
-                        <AlternatingRowStyle BackColor="#E9ECF1" ForeColor="#284775" />
-                        <EditRowStyle BackColor="#999999" />
-                        <HeaderStyle BackColor="#5970A6" Font-Bold="True" Height="20px" ForeColor="White" />
-                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" />
-                        <Columns>
-                            <asp:TemplateField HeaderText="Edit">
-                                <ItemTemplate>
-                                    <asp:RadioButton ID="rdEditCallDisp" runat="server" AutoPostBack="true" Text='<%# Eval("CallDispositionID") %>'
-                                        OnCheckedChanged="rdEditCallDisp_CheckedChanged" width="0px" Font-Size="0px"/>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:BoundField DataField="CallDisposition" ReadOnly="true" HeaderText="Call Disposition" 
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="200px" ></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="DoNotCall" ReadOnly="true" HeaderText="DoNotCall" HeaderStyle-CssClass="detailheader"
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="50px"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="Sale" ReadOnly="true" HeaderText="Sale"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="Contact" ReadOnly="true" HeaderText="Contact"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="BadLead" ReadOnly="true" HeaderText="BadLead"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="CallBack" ReadOnly="true" HeaderText="CallBack"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="NotInterested" ReadOnly="true" HeaderText="Not Interested"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="SystemDefaults" ReadOnly="true" HeaderText="SystemDefaults"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="Custom" ReadOnly="true" HeaderText="Custom"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="NotCalled" ReadOnly="true" HeaderText="Not Called"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="Dialed" ReadOnly="true" HeaderText="Dialed" HeaderStyle-CssClass="detailheader"
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="35px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="NotDialed" ReadOnly="true" HeaderText="Not Dialed"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="ProcessedGood" ReadOnly="true" HeaderText="Processed Good"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="ProcessedBad" ReadOnly="true" HeaderText="Processed Bad"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="NotProcessed" ReadOnly="true" HeaderText="Not Processed"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                        </Columns>
-                    </asp:GridView>
-                </td>
-            </tr>
-        </table>
-        <br />
-        <br />
-
-        <table>
+    <table>
             <tr>
                 <td style="background-color: #E9ECF1;width: 300px">
                     <asp:Label ID="lblCallDisposition" Text="Call Disposition" CssClass="detailheader" runat="server"></asp:Label>
@@ -655,6 +547,116 @@
                 </td>
             </tr>
         </table>
+
+    <br />
+     <table>
+            <tr>
+                <td>
+                    <h3>
+                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="Call Disposition Details:"></asp:Label>
+                    </h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:GridView ID="gvCallDisposition" runat="server" AutoGenerateColumns="false" Font-Size="9" 
+                     AllowPaging="true" PageSize="100" 
+                        onpageindexchanging="gvCallDisposition_PageIndexChanging" >
+                        <AlternatingRowStyle BackColor="#E9ECF1" ForeColor="#284775" />
+                        <EditRowStyle BackColor="#999999" />
+                        <HeaderStyle BackColor="#5970A6" Font-Bold="True" Height="20px" ForeColor="White" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                        <Columns>
+                            <asp:TemplateField HeaderText="Edit">
+                                <ItemTemplate>
+                                    <asp:RadioButton ID="rdEditCallDisp" runat="server" AutoPostBack="true" Text='<%# Eval("CallDispositionID") %>'
+                                        OnCheckedChanged="rdEditCallDisp_CheckedChanged" width="0px" Font-Size="0px"/>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="CallDisposition" ReadOnly="true" HeaderText="Call Disposition" 
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="200px" ></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="DoNotCall" ReadOnly="true" HeaderText="DoNotCall" HeaderStyle-CssClass="detailheader"
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="50px"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="Sale" ReadOnly="true" HeaderText="Sale"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="Contact" ReadOnly="true" HeaderText="Contact"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="BadLead" ReadOnly="true" HeaderText="BadLead"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="CallBack" ReadOnly="true" HeaderText="CallBack"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="NotInterested" ReadOnly="true" HeaderText="Not Interested"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="SystemDefaults" ReadOnly="true" HeaderText="SystemDefaults"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="Custom" ReadOnly="true" HeaderText="Custom"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="NotCalled" ReadOnly="true" HeaderText="Not Called"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="Dialed" ReadOnly="true" HeaderText="Dialed" HeaderStyle-CssClass="detailheader"
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="35px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="NotDialed" ReadOnly="true" HeaderText="Not Dialed"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="ProcessedGood" ReadOnly="true" HeaderText="Processed Good"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="ProcessedBad" ReadOnly="true" HeaderText="Processed Bad"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="NotProcessed" ReadOnly="true" HeaderText="Not Processed"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                        </Columns>
+                    </asp:GridView>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+
+        
 
 
 </div>

@@ -60,7 +60,7 @@ namespace ACMGAdmin.MasterInterfaces
                 txtChannel.BackColor = System.Drawing.Color.White;
                 txtTargusCode.BackColor = System.Drawing.Color.White;
 
-                // setting the hdnCallCenterId in the hiddenfield - (to check modifications during Save button click)
+                // setting the hdnLeadCampaignId in the hiddenfield - (to check modifications during Save button click)
                 hdnLeadCampaignId.Value = senderRB.Text;
                 populateSelectedRecord(Convert.ToInt32(hdnLeadCampaignId.Value));
 

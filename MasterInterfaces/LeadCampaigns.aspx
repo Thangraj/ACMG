@@ -80,62 +80,7 @@ function highlightModFields() {
 </script>
 
 <div>
-
     <table>
-            <tr>
-                <td>
-                    <h3>
-                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="Lead Group Details:"></asp:Label>
-                    </h3>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:GridView ID="gvLeadCampaigns" runat="server" AutoGenerateColumns="False" Font-Size="9pt"
-                        AllowPaging="True" OnPageIndexChanging="gvLeadCampaigns_PageIndexChanging" 
-                        AllowSorting="true" onsorting="gvLeadCampaigns_Sorting"
-                        >
-                        <AlternatingRowStyle BackColor="#E9ECF1" ForeColor="#284775"  />
-                        <EditRowStyle BackColor="#999999" />
-                        <HeaderStyle BackColor="#5970A6" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
-                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" />
-                        <Columns>
-                            <asp:TemplateField HeaderText="Edit"  >
-                                <ItemTemplate>
-                                    <asp:RadioButton ID="rdEditLeadCampaign" runat="server"  AutoPostBack="true"
-                                         oncheckedchanged="rdEditLeadCampaign_CheckedChanged" Text='<%# Eval("LeadCampaignId") %>' TextAlign ="Right"  width="0px" Font-Size="0px" />
-                                </ItemTemplate>
-                                <ControlStyle ForeColor="White" Font-Size="0px" Width="0px"/>
-                                <ItemStyle CssClass="detailitem" Width="0px" />
-                            </asp:TemplateField>
-                            <asp:BoundField DataField="CampaignProductCode" ReadOnly="true" HeaderText="Lead Group Product Code" HeaderStyle-CssClass="detailheader"  
-                                SortExpression="CampaignProductCode"    ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="150px" ></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="ProductLine" ReadOnly="true" HeaderText="Product Line" HeaderStyle-CssClass="detailheader"  
-                                SortExpression="ProductLine" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="175px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="125px" ></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="Channel" ReadOnly="true" HeaderText="Channel" HeaderStyle-CssClass="detailheader"  
-                                SortExpression="Channel" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="75px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="75px" ></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="TargusCode" ReadOnly="true" HeaderText="Targus Code"  
-                                SortExpression="TargusCode" HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="175px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="175px" ></ItemStyle>
-                            </asp:BoundField>
-                        </Columns>
-                    </asp:GridView>
-                </td>
-            </tr>
-        </table>
-        <br />
-        <br />
-        <table>
             <tr>
                 <td style="background-color: #E9ECF1; width: 250px">
                     <asp:Label ID="lblCampaignProdCode" Text="Campaign Product Code" CssClass="detailheader" runat="server"></asp:Label>
@@ -216,6 +161,62 @@ function highlightModFields() {
                 </td>
             </tr>
         </table>
+    <br />
+
+    <table>
+            <tr>
+                <td>
+                    <h3>
+                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="Lead Group Details:"></asp:Label>
+                    </h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:GridView ID="gvLeadCampaigns" runat="server" AutoGenerateColumns="False" Font-Size="9pt"
+                        AllowPaging="True" OnPageIndexChanging="gvLeadCampaigns_PageIndexChanging" 
+                        AllowSorting="true" onsorting="gvLeadCampaigns_Sorting" PageSize="100"
+                        >
+                        <AlternatingRowStyle BackColor="#E9ECF1" ForeColor="#284775"  />
+                        <EditRowStyle BackColor="#999999" />
+                        <HeaderStyle BackColor="#5970A6" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                        <Columns>
+                            <asp:TemplateField HeaderText="Edit"  >
+                                <ItemTemplate>
+                                    <asp:RadioButton ID="rdEditLeadCampaign" runat="server"  AutoPostBack="true"
+                                         oncheckedchanged="rdEditLeadCampaign_CheckedChanged" Text='<%# Eval("LeadCampaignId") %>' TextAlign ="Right"  width="0px" Font-Size="0px" />
+                                </ItemTemplate>
+                                <ControlStyle ForeColor="White" Font-Size="0px" Width="0px"/>
+                                <ItemStyle CssClass="detailitem" Width="0px" />
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="CampaignProductCode" ReadOnly="true" HeaderText="Lead Group Product Code" HeaderStyle-CssClass="detailheader"  
+                                SortExpression="CampaignProductCode"    ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="150px" ></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="ProductLine" ReadOnly="true" HeaderText="Product Line" HeaderStyle-CssClass="detailheader"  
+                                SortExpression="ProductLine" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="175px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="125px" ></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="Channel" ReadOnly="true" HeaderText="Channel" HeaderStyle-CssClass="detailheader"  
+                                SortExpression="Channel" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="75px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="75px" ></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="TargusCode" ReadOnly="true" HeaderText="Targus Code"  
+                                SortExpression="TargusCode" HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="175px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="175px" ></ItemStyle>
+                            </asp:BoundField>
+                        </Columns>
+                    </asp:GridView>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
 
 </div>
 

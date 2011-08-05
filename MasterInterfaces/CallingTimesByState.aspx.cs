@@ -82,7 +82,7 @@ namespace ACMGAdmin.MasterInterfaces
                 txtHolidayStartTime.BackColor = System.Drawing.Color.White;
                 txtHolidayEndTime.BackColor = System.Drawing.Color.White;
 
-                // setting the hdnCallCenterId in the hiddenfield - (to check modifications during Save button click)
+                // setting the hdnStateId in the hiddenfield - (to check modifications during Save button click)
                 hdnState.Value = senderRB.Text;
                 populateSelectedRecord(hdnState.Value);
 
@@ -147,9 +147,9 @@ namespace ACMGAdmin.MasterInterfaces
 
                     if (hdnFlagType.Value == "ADD")
                     {
-                        // call the routine to add a new LeadCampaign record into the table..
-                        DataAccess.MySQLAccess myLeadCampaignObj = new DataAccess.MySQLAccess();
-                        int intInsOut = myLeadCampaignObj.insCallingTimesByState("LocalMySqlServer", txtState.Text, txtWeekdayStartTime.Text, txtWeekdayEndTime.Text, txtSaturdayStartTime.Text,
+                        // call the routine to add a new CallingTimesByState record into the table..
+                        DataAccess.MySQLAccess myCallingTimesObj = new DataAccess.MySQLAccess();
+                        int intInsOut = myCallingTimesObj.insCallingTimesByState("LocalMySqlServer", txtState.Text, txtWeekdayStartTime.Text, txtWeekdayEndTime.Text, txtSaturdayStartTime.Text,
                                                             txtSaturdayEndTime.Text, txtSundayStartTime.Text, txtSundayEndTime.Text, txtHolidayStartTime.Text, txtHolidayEndTime.Text,
                                                             strUser, strDateTime, strScreenName, strTableName, strBeforeImage.ToString(), strAfterImage.ToString());
                         if (intInsOut > 0)
@@ -237,14 +237,14 @@ namespace ACMGAdmin.MasterInterfaces
 
 
         /// <summary>
-        /// this function will takes the LeadCampaignID as input and selects the Lead Campaign record values from DB and
+        /// this function will takes the State as input and selects the CallingTimesByState record values from DB and
         /// populate in the screen.
         /// </summary>
         private void populateSelectedRecord(string strState)
         {
             try
             {
-                // code to populate the Holiday data in the Gridview..
+                // code to populate the CallingTimesByState data in the Gridview..
                 DataAccess.MySQLAccess myObj = new DataAccess.MySQLAccess();
                 DataSet dsCallingTimes = new DataSet();
                 dsCallingTimes = myObj.getCallingTimesByStateAbbr("LocalMySqlServer", strState);

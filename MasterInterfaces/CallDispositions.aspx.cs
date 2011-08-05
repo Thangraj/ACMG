@@ -232,7 +232,7 @@ namespace ACMGAdmin.MasterInterfaces
         }
 
         /// <summary>
-        /// This event will implement the paging functionality to the Holidays Gridview.
+        /// This event will implement the paging functionality to the CallDispositions Gridview.
         /// </summary>
         protected void gvCallDisposition_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -252,7 +252,7 @@ namespace ACMGAdmin.MasterInterfaces
         
         #region Private Methods
         /// <summary>
-        /// this function will fetch the values from Database and populate the DialerRules Gridview.
+        /// this function will fetch the values from Database and populate the CallDispositions Gridview.
         /// </summary>
         private void populateCallDispGrid()
         {
@@ -300,12 +300,12 @@ namespace ACMGAdmin.MasterInterfaces
                 string strProcessedBad = "";
                 string strNotProcessed = "";
 
-                // code to populate the Holiday data in the Gridview..
+                // code to populate the CallDisposition data in the Gridview..
                 DataAccess.MySQLAccess myObj = new DataAccess.MySQLAccess();
                 DataSet dsSelCallDisp = new DataSet();
                 dsSelCallDisp = myObj.getCallDispByID("LocalMySqlServer", iCallDispID);
 
-                // Assigning the selected Dailer Rule values to the corresponding fields...
+                // Assigning the selected CallDisposition values to the corresponding fields...
                 //hdnCallDispId.Value = dsSelCallDisp.Tables[0].Rows[0]["CallDispositionID"].ToString();
                 txtCallDisposition.Text = dsSelCallDisp.Tables[0].Rows[0]["CallDisposition"].ToString();
                 
@@ -510,7 +510,7 @@ namespace ACMGAdmin.MasterInterfaces
         {
             try
             {
-                // calling the populateHolidayGrid to refresh the Grid Data
+                // calling the CallDisposition to refresh the Grid Data
                 populateCallDispGrid();
 
                 // setting the default values for the controls

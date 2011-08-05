@@ -183,108 +183,6 @@
 <div>
         <table>
             <tr>
-                <td>
-                    <h3>
-                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="Dialer Rule Details:"></asp:Label>
-                    </h3>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:GridView ID="gvDialerRules" runat="server" AutoGenerateColumns="false" Font-Size="9" 
-                     AllowPaging="true" PageSize="10" 
-                        onpageindexchanging="gvDialerRules_PageIndexChanging">
-                        <AlternatingRowStyle BackColor="#E9ECF1" ForeColor="#284775" />
-                        <EditRowStyle BackColor="#999999" />
-                        <HeaderStyle BackColor="#5970A6" Font-Bold="True" Height="20px" ForeColor="White" />
-                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" />
-                        <Columns>
-                            <asp:TemplateField HeaderText="Edit">
-                                <ItemTemplate>
-                                    <asp:RadioButton ID="rdEditDialer" runat="server" AutoPostBack="true" Text='<%# Eval("DialerRulesID") %>'
-                                        OnCheckedChanged="rdEditDialer_CheckedChanged" width="0px" Font-Size="0px"/>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:BoundField DataField="CampaignId" ReadOnly="true" Visible="false" HeaderText="Campaign Id"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" ></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="CampaignName" ReadOnly="true" HeaderText="Campaign" 
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="150px" ></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="PhoneType" ReadOnly="true" HeaderText="Type" HeaderStyle-CssClass="detailheader"
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="75px"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="DaysBetweenDials" ReadOnly="true" HeaderText="Days BTW Dials"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="HoursBetweenDials" ReadOnly="true" HeaderText="Hrs BTW Dials"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="MinutesBetweenDials" ReadOnly="true" HeaderText="Min BTW Dials"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="MaxAttempts" ReadOnly="true" HeaderText="Max Attempt"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="MaxDaysInPool" ReadOnly="true" HeaderText="Max Days"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="StartDialTime_EST" ReadOnly="true" HeaderText="Start Dial"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="EndDialTime_EST" ReadOnly="true" HeaderText="End Dial"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="DialOnHolidays" ReadOnly="true" HeaderText="Holidays"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="DialActive" ReadOnly="true" HeaderText="Active" HeaderStyle-CssClass="detailheader"
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="DialPriority" ReadOnly="true" HeaderText="Priority"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="ArchiveAfterDays" ReadOnly="true" HeaderText="Archive Days"
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                        </Columns>
-                    </asp:GridView>
-                </td>
-            </tr>
-        </table>
-        <br />
-        <asp:Literal ID="Literal1" runat="server"></asp:Literal>
-        <br />
-        <table>
-            <tr>
                 <td style="background-color: #E9ECF1;width: 300px">
                     <asp:Label ID="lblCmpName" Text="Campaign Name" CssClass="detailheader" runat="server"></asp:Label>
                 </td>
@@ -500,5 +398,109 @@
                 </td>
             </tr>
         </table>
+
+        <br />
+        <table>
+            <tr>
+                <td>
+                    <h3>
+                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="Dialer Rule Details:"></asp:Label>
+                    </h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:GridView ID="gvDialerRules" runat="server" AutoGenerateColumns="false" Font-Size="9" 
+                     AllowPaging="true" PageSize="100" 
+                        onpageindexchanging="gvDialerRules_PageIndexChanging">
+                        <AlternatingRowStyle BackColor="#E9ECF1" ForeColor="#284775" />
+                        <EditRowStyle BackColor="#999999" />
+                        <HeaderStyle BackColor="#5970A6" Font-Bold="True" Height="20px" ForeColor="White" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                        <Columns>
+                            <asp:TemplateField HeaderText="Edit">
+                                <ItemTemplate>
+                                    <asp:RadioButton ID="rdEditDialer" runat="server" AutoPostBack="true" Text='<%# Eval("DialerRulesID") %>'
+                                        OnCheckedChanged="rdEditDialer_CheckedChanged" width="0px" Font-Size="0px"/>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="CampaignId" ReadOnly="true" Visible="false" HeaderText="Campaign Id"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" ></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="CampaignName" ReadOnly="true" HeaderText="Campaign" 
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="150px" ></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="PhoneType" ReadOnly="true" HeaderText="Type" HeaderStyle-CssClass="detailheader"
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="75px"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="DaysBetweenDials" ReadOnly="true" HeaderText="Days BTW Dials"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="HoursBetweenDials" ReadOnly="true" HeaderText="Hrs BTW Dials"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="MinutesBetweenDials" ReadOnly="true" HeaderText="Min BTW Dials"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="MaxAttempts" ReadOnly="true" HeaderText="Max Attempt"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="MaxDaysInPool" ReadOnly="true" HeaderText="Max Days"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="StartDialTime_EST" ReadOnly="true" HeaderText="Start Dial"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="EndDialTime_EST" ReadOnly="true" HeaderText="End Dial"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="75px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="DialOnHolidays" ReadOnly="true" HeaderText="Holidays"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="DialActive" ReadOnly="true" HeaderText="Active" HeaderStyle-CssClass="detailheader"
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="DialPriority" ReadOnly="true" HeaderText="Priority"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="ArchiveAfterDays" ReadOnly="true" HeaderText="Archive Days"
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="100px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                        </Columns>
+                    </asp:GridView>
+                </td>
+            </tr>
+        </table>
+        <br />
+      
+        
     </div>
 </asp:Content>

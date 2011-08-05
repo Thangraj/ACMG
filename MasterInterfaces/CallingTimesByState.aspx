@@ -138,84 +138,6 @@
 
     <table>
             <tr>
-                <td>
-                    <h3>
-                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="Calling Times By State Details:"></asp:Label>
-                    </h3>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:GridView ID="gvCallingTimesByState" runat="server" AutoGenerateColumns="False" Font-Size="9pt"
-                        AllowPaging="True" OnPageIndexChanging="gvCallingTimesByState_PageIndexChanging" 
-                        >
-                        <AlternatingRowStyle BackColor="#E9ECF1" ForeColor="#284775"  />
-                        <EditRowStyle BackColor="#999999" />
-                        <HeaderStyle BackColor="#5970A6" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
-                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" />
-                        <Columns>
-                            <asp:TemplateField HeaderText="Edit"  >
-                                <ItemTemplate>
-                                    <asp:RadioButton ID="rdEditCallingTimes" runat="server"  AutoPostBack="true" OnCheckedChanged="rdEditCallingTimes_OnCheckedChanged"
-                                         Text='<%# Eval("State") %>' TextAlign ="Right"  width="0px" Font-Size="0px" />
-                                </ItemTemplate>
-                                <ControlStyle ForeColor="White" Font-Size="0px" Width="0px"/>
-                                <ItemStyle CssClass="detailitem" Width="0px"/>
-                            </asp:TemplateField>
-                            <asp:BoundField DataField="State" ReadOnly="true" HeaderText="State" HeaderStyle-CssClass="detailheader"  
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="125px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="125px" ></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="WeekdayStartTime" ReadOnly="true" HeaderText="Weekday StartTime" HeaderStyle-CssClass="detailheader"  
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="WeekdayEndTime" ReadOnly="true" HeaderText="Weekday EndTime" HeaderStyle-CssClass="detailheader"  
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="SaturdayStartTime" ReadOnly="true" HeaderText="Saturday StartTime"  
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                             <asp:BoundField DataField="SaturdayEndTime" ReadOnly="true" HeaderText="Saturday EndTime" HeaderStyle-CssClass="detailheader"  
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="SundayStartTime" ReadOnly="true" HeaderText="Sunday StartTime" HeaderStyle-CssClass="detailheader"  
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="SundayEndTime" ReadOnly="true" HeaderText="Sunday EndTime"  
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="HolidayStartTime" ReadOnly="true" HeaderText="Holiday StartTime" HeaderStyle-CssClass="detailheader"  
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="HolidayEndTime" ReadOnly="true" HeaderText="Holiday EndTime"  
-                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="125px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="125px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                        </Columns>
-                    </asp:GridView>
-                </td>
-            </tr>
-        </table>
-        <br />
-        <br />
-        <table>
-            <tr>
                 <td style="background-color: #E9ECF1; width: 200px">
                     <asp:Label ID="lblState" Text="State" CssClass="detailheader" runat="server"></asp:Label>
                 </td>
@@ -380,6 +302,89 @@
             
             </tr>
         </table>
+    
+    <br />
+
+    <table>
+            <tr>
+                <td>
+                    <h3>
+                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="Calling Times By State Details:"></asp:Label>
+                    </h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:GridView ID="gvCallingTimesByState" runat="server" 
+                        AutoGenerateColumns="False" Font-Size="9pt"
+                        AllowPaging="True" 
+                        OnPageIndexChanging="gvCallingTimesByState_PageIndexChanging" PageSize="100" 
+                        >
+                        <AlternatingRowStyle BackColor="#E9ECF1" ForeColor="#284775"  />
+                        <EditRowStyle BackColor="#999999" />
+                        <HeaderStyle BackColor="#5970A6" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                        <Columns>
+                            <asp:TemplateField HeaderText="Edit"  >
+                                <ItemTemplate>
+                                    <asp:RadioButton ID="rdEditCallingTimes" runat="server"  AutoPostBack="true" OnCheckedChanged="rdEditCallingTimes_OnCheckedChanged"
+                                         Text='<%# Eval("State") %>' TextAlign ="Right"  width="0px" Font-Size="0px" />
+                                </ItemTemplate>
+                                <ControlStyle ForeColor="White" Font-Size="0px" Width="0px"/>
+                                <ItemStyle CssClass="detailitem" Width="0px"/>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="State" ReadOnly="true" HeaderText="State" HeaderStyle-CssClass="detailheader"  
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="125px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="125px" ></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="WeekdayStartTime" ReadOnly="true" HeaderText="Weekday StartTime" HeaderStyle-CssClass="detailheader"  
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="WeekdayEndTime" ReadOnly="true" HeaderText="Weekday EndTime" HeaderStyle-CssClass="detailheader"  
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="SaturdayStartTime" ReadOnly="true" HeaderText="Saturday StartTime"  
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                             <asp:BoundField DataField="SaturdayEndTime" ReadOnly="true" HeaderText="Saturday EndTime" HeaderStyle-CssClass="detailheader"  
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="SundayStartTime" ReadOnly="true" HeaderText="Sunday StartTime" HeaderStyle-CssClass="detailheader"  
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="SundayEndTime" ReadOnly="true" HeaderText="Sunday EndTime"  
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="HolidayStartTime" ReadOnly="true" HeaderText="Holiday StartTime" HeaderStyle-CssClass="detailheader"  
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="150px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="HolidayEndTime" ReadOnly="true" HeaderText="Holiday EndTime"  
+                                HeaderStyle-CssClass="detailheader" ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="125px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="125px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                        </Columns>
+                    </asp:GridView>
+                </td>
+            </tr>
+        </table>
+        <br />
+        
 
 </div>
 

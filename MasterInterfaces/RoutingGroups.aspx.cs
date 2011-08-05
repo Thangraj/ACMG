@@ -77,7 +77,7 @@ namespace ACMGAdmin.MasterInterfaces
                 txtRoutingGroupDesc.BackColor = System.Drawing.Color.White;
                 txtRoutingGroupDesc.BackColor = System.Drawing.Color.White;
                 
-                // setting the hdnRoutingGroupId in the hiddenfield - (to check modifications during Save button click)
+                // setting the RoutingGroupId in the hiddenfield - (to check modifications during Save button click)
                 hdnRoutingGroupId.Value = senderRB.Text;
                 populateSelectedRecord(Convert.ToInt32(hdnRoutingGroupId.Value));
 
@@ -137,8 +137,8 @@ namespace ACMGAdmin.MasterInterfaces
                     if (hdnFlagType.Value == "ADD")
                     {
                         // call the routine to add a new RoutingGroup record into the table..
-                        DataAccess.MySQLAccess myCallCenterObj = new DataAccess.MySQLAccess();
-                        int intInsOut = myCallCenterObj.insRoutingGroups("LocalMySqlServer", txtRoutingGroup.Text, txtRoutingGroupDesc.Text, 
+                        DataAccess.MySQLAccess myRoutingGroupObj = new DataAccess.MySQLAccess();
+                        int intInsOut = myRoutingGroupObj.insRoutingGroups("LocalMySqlServer", txtRoutingGroup.Text, txtRoutingGroupDesc.Text, 
                                                                           strUser, strDateTime, strScreenName, strTableName, strBeforeImage.ToString(), strAfterImage.ToString());
                         if (intInsOut > 0)
                         {
@@ -197,7 +197,7 @@ namespace ACMGAdmin.MasterInterfaces
         {
             try
             {
-                // code to populate the Phone Extension data in the Gridview..
+                // code to populate the Routing Groups data in the Gridview..
                 DataAccess.MySQLAccess myObj = new DataAccess.MySQLAccess();
                 DataSet dsRoutingGroups = new DataSet();
                 dsRoutingGroups = myObj.getRoutingGroups("LocalMySqlServer");
@@ -224,12 +224,12 @@ namespace ACMGAdmin.MasterInterfaces
         {
             try
             {
-                // code to populate the Holiday data in the Gridview..
+                // code to populate the Routing Groups data in the Gridview..
                 DataAccess.MySQLAccess myObj = new DataAccess.MySQLAccess();
                 DataSet dsSelRoutingGroup = new DataSet();
                 dsSelRoutingGroup = myObj.getRoutingGroupsByID("LocalMySqlServer", iRoutingGroupID);
 
-                // Assigning the selected Dailer Rule values to the corresponding fields...
+                // Assigning the selected Routing Groups values to the corresponding fields...
                 hdnRoutingGroupId.Value = dsSelRoutingGroup.Tables[0].Rows[0]["RoutingGroupID"].ToString();
                 txtRoutingGroup.Text = dsSelRoutingGroup.Tables[0].Rows[0]["RoutingGroup"].ToString();
                 txtRoutingGroupDesc.Text = dsSelRoutingGroup.Tables[0].Rows[0]["RoutingGroupDesc"].ToString();

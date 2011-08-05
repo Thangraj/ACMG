@@ -45,7 +45,7 @@ namespace ACMGAdmin.MasterInterfaces
         }
 
         /// <summary>
-        /// This event will implement the paging functionality to the Holidays Gridview.
+        /// This event will implement the paging functionality to the PhoneExtensions Gridview.
         /// </summary>
         protected void gvPhoneExtensions_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -84,7 +84,7 @@ namespace ACMGAdmin.MasterInterfaces
                 txtUserName.BackColor = System.Drawing.Color.White;
                 txtPassword.BackColor = System.Drawing.Color.White;
 
-                // setting the hdnCallCenterId in the hiddenfield - (to check modifications during Save button click)
+                // setting the PhoneExtensionId in the hiddenfield - (to check modifications during Save button click)
                 hdnPhoneExtensionId.Value = senderRB.Text;
                 populateSelectedRecord(Convert.ToInt32(hdnPhoneExtensionId.Value));
 
@@ -148,7 +148,7 @@ namespace ACMGAdmin.MasterInterfaces
 
                     if (hdnFlagType.Value == "ADD")
                     {
-                        // call the routine to add a new CallCenter record into the table..
+                        // call the routine to add a new PhoneExtensions record into the table..
                         DataAccess.MySQLAccess myCallCenterObj = new DataAccess.MySQLAccess();
                         int intInsOut = myCallCenterObj.insertPhoneExtension("LocalMySqlServer", txtSwitchName.Text, txtCompany.Text, txtSwitchAddress.Text, txtSwitchPort.Text,
                                                                           txtExtension.Text,txtUserName.Text, txtPassword.Text,
@@ -238,12 +238,12 @@ namespace ACMGAdmin.MasterInterfaces
         {
             try
             {
-                // code to populate the Holiday data in the Gridview..
+                // code to populate the PhoneExtensions data in the Gridview..
                 DataAccess.MySQLAccess myObj = new DataAccess.MySQLAccess();
                 DataSet dsSelPhoneExt = new DataSet();
                 dsSelPhoneExt = myObj.getPhoneExtensionByID("LocalMySqlServer", iPhoneExtensionID);
 
-                // Assigning the selected Dailer Rule values to the corresponding fields...
+                // Assigning the selected PhoneExtensions values to the corresponding fields...
                 hdnPhoneExtensionId.Value = dsSelPhoneExt.Tables[0].Rows[0]["PhoneExtensionID"].ToString();
                 txtSwitchName.Text = dsSelPhoneExt.Tables[0].Rows[0]["SwitchName"].ToString();
                 txtCompany.Text = dsSelPhoneExt.Tables[0].Rows[0]["Company"].ToString();
