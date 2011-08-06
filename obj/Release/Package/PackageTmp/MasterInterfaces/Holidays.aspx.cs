@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Data;
 using System.Collections.Generic;
 using System.Linq;
@@ -98,13 +99,30 @@ namespace ACMGAdmin.MasterInterfaces
             {
                 if (Page.IsValid)
                 {
+                    // Below fields will be used for logging functionality..
+                    string strUser = "";
+                    string strDateTime = DateTime.Now.ToString();
+                    string strScreenName = "Holidays";
+                    string strTableName = "tbl_holidays";
+                    StringBuilder strBeforeImage = new StringBuilder();
+                    StringBuilder strAfterImage = new StringBuilder();
+
+                    strUser = User.Identity.Name;
+                    strBeforeImage.Append(hdnHolidayId.Value + " || " + hdnState.Value + " || " + hdnMonth.Value + " || " +
+                                            hdnDay.Value + " || " + hdnHolidayName.Value + " || " + hdnNotes.Value + " || " +
+                                            hdnDate.Value);
+
+                    strAfterImage.Append(hdnHolidayId.Value + " || " + drpState.SelectedValue+ " || " + drpMonth.SelectedValue+ " || " +
+                                         drpDay.SelectedValue + " || " + txtHolidayName.Text + " || " + txtNotes.Text + " || " +
+                                         txtTheDate.Text);
 
                     if (hdnFlagType.Value == "EDIT")
                     {
 
                         //hdnFlagType.Value = "";
                         DataAccess.MySQLAccess myUpdObj = new DataAccess.MySQLAccess();
-                        int iOutput = myUpdObj.updateHolidayDetails("LocalMySqlServer", Convert.ToInt32(hdnHolidayId.Value), drpState.SelectedValue, drpMonth.SelectedValue, drpDay.SelectedValue, txtHolidayName.Text, txtNotes.Text, txtTheDate.Text);
+                        int iOutput = myUpdObj.updateHolidayDetails("LocalMySqlServer", Convert.ToInt32(hdnHolidayId.Value), drpState.SelectedValue, drpMonth.SelectedValue, drpDay.SelectedValue, txtHolidayName.Text, txtNotes.Text, txtTheDate.Text,
+                                                                    strUser, strDateTime, strScreenName, strTableName, strBeforeImage.ToString(), strAfterImage.ToString());
 
                         //checking whether record has been updated
                         if (iOutput > 0)
@@ -128,7 +146,8 @@ namespace ACMGAdmin.MasterInterfaces
                     {
                         // call the routine to add a new Holiday record into the table..
                         DataAccess.MySQLAccess myInsObj = new DataAccess.MySQLAccess();
-                        int intInsOut = myInsObj.insertHoliday("LocalMySqlServer", drpState.SelectedValue, drpMonth.SelectedValue, drpDay.SelectedValue, txtHolidayName.Text, txtNotes.Text, txtTheDate.Text);
+                        int intInsOut = myInsObj.insertHoliday("LocalMySqlServer", drpState.SelectedValue, drpMonth.SelectedValue, drpDay.SelectedValue, txtHolidayName.Text, txtNotes.Text, txtTheDate.Text,
+                                                              strUser, strDateTime, strScreenName, strTableName, strBeforeImage.ToString(), strAfterImage.ToString());
                         if (intInsOut > 0)
                         {
                             populateHolidayGrid("","");

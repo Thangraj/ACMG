@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Data;
 using System.Collections.Generic;
 using System.Linq;
@@ -88,10 +89,31 @@ namespace ACMGAdmin.MasterInterfaces
             {
                 if (Page.IsValid)
                 {
+                    // Below fields will be used for logging functionality..
+                    string strUser = "";
+                    string strDateTime = DateTime.Now.ToString();
+                    string strScreenName = "Holidays";
+                    string strTableName = "tbl_holidays";
+                    StringBuilder strBeforeImage = new StringBuilder();
+                    StringBuilder strAfterImage = new StringBuilder();
+
+                    strUser = User.Identity.Name;
+                    strBeforeImage.Append(hdnCampaignId.Value + " || " + hdnDaysBetDials.Value + " || " + hdnHrsBetDials.Value + " || " +
+                                            hdnMinsBetDials.Value + " || " + hdnMaxAttempts.Value + " || " + hdnMaxDaysInpool.Value + " || " +
+                                            hdnStartTimeEST.Value + " || " + hdnEndTimeEST.Value + " || " + hdnDialHolidays.Value + " || " +
+                                            hdnDialActive.Value + " || " + hdnPriority.Value + " || " + hdnArchiveAfterDays.Value);
+
+                    strAfterImage.Append(hdnCampaignId.Value + " || " + txtDaysBetDials.Text + " || " + txtHrsBetDials.Text + " || " +
+                                         txtMinsBetDials.Text + " || " + txtMaxAttempts.Text + " || " + txtMaxDaysInpool.Text + " || " +
+                                         txtStartTimeEST.Text + " || " + txtEndTimeEST.Text + " || " + rblHolidays.SelectedValue + " || "+
+                                         rblActive.SelectedValue + " || " + txtPriority.Text + " || " + txtArchiveAfterDays.Text);
+
+
                     DataAccess.MySQLAccess myUpdObj = new DataAccess.MySQLAccess();
                     int iOutput = myUpdObj.updateDialerRules("LocalMySqlServer", Convert.ToInt32(hdnDialerRuleId.Value), Convert.ToInt32(hdnCampaignId.Value), txtCmpame.Text, txtPhoneType.Text, Convert.ToInt32(txtDaysBetDials.Text),
                                                             Convert.ToInt32(txtHrsBetDials.Text), Convert.ToInt32(txtMinsBetDials.Text), Convert.ToInt32(txtMaxAttempts.Text), Convert.ToInt32(txtMaxDaysInpool.Text), txtStartTimeEST.Text,
-                                                            txtEndTimeEST.Text, Convert.ToInt32(rblHolidays.SelectedValue), Convert.ToInt32(rblActive.SelectedValue), Convert.ToInt32(txtPriority.Text), Convert.ToInt32(txtArchiveAfterDays.Text));
+                                                            txtEndTimeEST.Text, Convert.ToInt32(rblHolidays.SelectedValue), Convert.ToInt32(rblActive.SelectedValue), Convert.ToInt32(txtPriority.Text), Convert.ToInt32(txtArchiveAfterDays.Text),
+                                                            strUser, strDateTime, strScreenName, strTableName, strBeforeImage.ToString(), strAfterImage.ToString());
 
                     //checking whether record has been updated
                     if (iOutput > 0)
@@ -130,7 +152,7 @@ namespace ACMGAdmin.MasterInterfaces
         {
             try
             {
-                // code to populate the Holiday data in the Gridview..
+                // code to populate the DialerRules data in the Gridview..
                 DataAccess.MySQLAccess myObj = new DataAccess.MySQLAccess();
                 DataSet dsDialerRules = new DataSet();
                 dsDialerRules = myObj.getDialerRules("LocalMySqlServer");
@@ -159,12 +181,12 @@ namespace ACMGAdmin.MasterInterfaces
             {
                 string strDailholidays = "";
                 string strDialActive = "";
-                // code to populate the Holiday data in the Gridview..
+                // code to populate the DialerRules data in the Gridview..
                 DataAccess.MySQLAccess myObj = new DataAccess.MySQLAccess();
                 DataSet dsSelDialerRules = new DataSet();
                 dsSelDialerRules = myObj.getDialerRulesByID("LocalMySqlServer", iDialerRulesID);
 
-                // Assigning the selected Dailer Rule values to the corresponding fields...
+                // Assigning the selected Dialer Rule values to the corresponding fields...
                 hdnCampaignId.Value = dsSelDialerRules.Tables[0].Rows[0]["CampaignID"].ToString();
                 txtCmpame.Text = dsSelDialerRules.Tables[0].Rows[0]["CampaignName"].ToString();
                 txtPhoneType.Text = dsSelDialerRules.Tables[0].Rows[0]["PhoneType"].ToString();

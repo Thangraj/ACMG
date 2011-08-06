@@ -247,3 +247,8 @@ div.row span.field_right
 {
 	height: 6px;
 }
+
+.textBoxUpperCase
+{
+	text-transform:uppercase;
+}

@@ -142,14 +142,14 @@
                         </asp:MenuItem>
                         <asp:MenuItem Text="Campaign Management" Value="Campaign Management">
                             <asp:MenuItem Text="Campaign Configuration" Value="Campaign Configuration">
-                                <asp:MenuItem Text="Preview Dial Campaigns" Value="Preview Dial Campaigns">
+                                <asp:MenuItem Text="Preview Dial Campaigns" Value="Preview Dial Campaigns" >
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Campaign DNIS Assignment" Value="Campaign DNIS Assignment">
                                 </asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Leads To Campaign Configuration" 
                                 Value="Leads To Campaign Configuration">
-                                <asp:MenuItem Text="Lead Group Types" Value="Lead Group Types"></asp:MenuItem>
+                                <asp:MenuItem Text="Lead Group Types" Value="Lead Group Types" NavigateUrl="~/MasterInterfaces/LeadCampaigns.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Lead Group to Campaign Assignment" 
                                     Value="Lead Group to Campaign Assignment"></asp:MenuItem>
                             </asp:MenuItem>
@@ -176,8 +176,7 @@
                             </asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Dialer Configuration" Value="Dialer Configuration">
-                            <asp:MenuItem Text="Dialer Rules" Value="Dialer Rules" 
-                                NavigateUrl="~/MasterInterfaces/DialerRules.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Dialer Rules" Value="Dialer Rules" NavigateUrl="~/MasterInterfaces/DialerRules.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="User Admin" Value="User Admin">
                             <asp:MenuItem NavigateUrl="~/Account/ViewUsersByRole.aspx" 
@@ -186,15 +185,15 @@
                                 Value="Add User"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="System Admin" Value="System Admin">
-                            <asp:MenuItem Text="Call Centers " Value="Call Centers "></asp:MenuItem>
-                            <asp:MenuItem Text="Call Dispositions " Value="Call Dispositions ">
+                            <asp:MenuItem Text="Call Centers " Value="Call Centers" NavigateUrl="~/MasterInterfaces/CallCenter.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Call Dispositions " Value="Call Dispositions " NavigateUrl="~/MasterInterfaces/CallDispositions.aspx">
                             </asp:MenuItem>
-                            <asp:MenuItem Text="Allowed Calling Times By State" 
+                            <asp:MenuItem Text="Allowed Calling Times By State"  NavigateUrl="~/MasterInterfaces/CallingTimesByState.aspx"
                                 Value="Allowed Calling Times By State"></asp:MenuItem>
-                            <asp:MenuItem Text="Holidays" Value="Holidays"></asp:MenuItem>
-                            <asp:MenuItem Text="PBX Phone Extensions" Value="PBX Phone Extensions">
+                            <asp:MenuItem Text="Holidays" Value="Holidays" NavigateUrl="~/MasterInterfaces/Holidays.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="PBX Phone Extensions" Value="PBX Phone Extensions" NavigateUrl="~/MasterInterfaces/PhoneExtensions.aspx">
                             </asp:MenuItem>
-                            <asp:MenuItem Text="Routing Groups" Value="Routing Groups"></asp:MenuItem>
+                            <asp:MenuItem Text="Routing Groups" Value="Routing Groups" NavigateUrl="~/MasterInterfaces/RoutingGroups.aspx"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Account/Edit_Site_Roles.aspx" Text="User Roles" 
                                 Value="User Roles"></asp:MenuItem>
                         </asp:MenuItem>

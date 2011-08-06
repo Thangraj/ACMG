@@ -5,9 +5,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-   // function which will highlight the field values whcih have been changed in Edit Mode and intimate the user with the
+   
  <script type="text/javascript">
-
+     // function which will highlight the field values whcih have been changed in Edit Mode and intimate the user with the
     // message box...
     function highlightModFields() {
 
@@ -108,6 +108,154 @@
 
 
     <div>
+            <table>
+                <tr>
+                    <td style="background-color: #E9ECF1; width: 300px">
+                        <asp:Label ID="lblState" Text="State" CssClass="detailheader" runat="server"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="drpState" runat="server" >
+                        </asp:DropDownList>
+               
+                </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #E9ECF1; width: 300px">
+                        <asp:Label ID="lblMonth" Text="Month" CssClass="detailheader" runat="server"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="drpMonth" runat="server" TabIndex="2">
+                            <asp:ListItem Selected="True" Text="01" Value="01"></asp:ListItem>
+                            <asp:ListItem Text="02" Value="02"></asp:ListItem>
+                            <asp:ListItem Text="03" Value="03"></asp:ListItem>
+                            <asp:ListItem Text="04" Value="04"></asp:ListItem>
+                            <asp:ListItem Text="05" Value="05"></asp:ListItem>
+                            <asp:ListItem Text="06" Value="06"></asp:ListItem>
+                            <asp:ListItem Text="07" Value="07"></asp:ListItem>
+                            <asp:ListItem Text="08" Value="08"></asp:ListItem>
+                            <asp:ListItem Text="09" Value="09"></asp:ListItem>
+                            <asp:ListItem Text="10" Value="10"></asp:ListItem>
+                            <asp:ListItem Text="11" Value="11"></asp:ListItem>
+                            <asp:ListItem Text="12" Value="12"></asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #E9ECF1; width: 300px">
+                        <asp:Label ID="lblDay" Text="Day" CssClass="detailheader" runat="server"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="drpDay" runat="server" TabIndex="3">
+                            <asp:ListItem Selected="True" Text="01" Value="01"></asp:ListItem>
+                            <asp:ListItem Text="02" Value="02"></asp:ListItem>
+                            <asp:ListItem Text="03" Value="03"></asp:ListItem>
+                            <asp:ListItem Text="04" Value="04"></asp:ListItem>
+                            <asp:ListItem Text="05" Value="05"></asp:ListItem>
+                            <asp:ListItem Text="06" Value="06"></asp:ListItem>
+                            <asp:ListItem Text="07" Value="07"></asp:ListItem>
+                            <asp:ListItem Text="08" Value="08"></asp:ListItem>
+                            <asp:ListItem Text="09" Value="09"></asp:ListItem>
+                            <asp:ListItem Text="10" Value="10"></asp:ListItem>
+                            <asp:ListItem Text="11" Value="11"></asp:ListItem>
+                            <asp:ListItem Text="12" Value="12"></asp:ListItem>
+                            <asp:ListItem Text="13" Value="13"></asp:ListItem>
+                            <asp:ListItem Text="14" Value="14"></asp:ListItem>
+                            <asp:ListItem Text="15" Value="15"></asp:ListItem>
+                            <asp:ListItem Text="16" Value="16"></asp:ListItem>
+                            <asp:ListItem Text="17" Value="17"></asp:ListItem>
+                            <asp:ListItem Text="18" Value="18"></asp:ListItem>
+                            <asp:ListItem Text="19" Value="19"></asp:ListItem>
+                            <asp:ListItem Text="20" Value="20"></asp:ListItem>
+                            <asp:ListItem Text="21" Value="21"></asp:ListItem>
+                            <asp:ListItem Text="22" Value="22"></asp:ListItem>
+                            <asp:ListItem Text="23" Value="23"></asp:ListItem>
+                            <asp:ListItem Text="24" Value="24"></asp:ListItem>
+                            <asp:ListItem Text="25" Value="25"></asp:ListItem>
+                            <asp:ListItem Text="26" Value="26"></asp:ListItem>
+                            <asp:ListItem Text="27" Value="27"></asp:ListItem>
+                            <asp:ListItem Text="28" Value="28"></asp:ListItem>
+                            <asp:ListItem Text="29" Value="29"></asp:ListItem>
+                            <asp:ListItem Text="30" Value="30"></asp:ListItem>
+                            <asp:ListItem Text="31" Value="31"></asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #E9ECF1; width: 300px">
+                        <asp:Label ID="lblHolidayName" Text="Holiday Name" CssClass="detailheader" runat="server"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtHolidayName" Width="250px" Font-Names="Arial" TabIndex="4"
+                            runat="server" CssClass="detailitem"  Text="" 
+                           ></asp:TextBox>
+                          <asp:RequiredFieldValidator ID="rfvHolidayName" ForeColor="Red" Display="Dynamic" runat="server" ControlToValidate="txtHolidayName" ErrorMessage="Please enter holiday name value !"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="regValHolidayName" runat="server" ControlToValidate="txtHolidayName" Display="Dynamic"
+                        ValidationExpression="(\s|.){0,255}$" ErrorMessage="Max Length is 255!" ForeColor="Red"></asp:RegularExpressionValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #E9ECF1; width: 300px">
+                        <asp:Label ID="lblNotes" Text="Notes" CssClass="detailheader" runat="server"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtNotes" Width="250px" TextMode="MultiLine" TabIndex="5"
+                            Font-Names="Arial" MaxLength="255" 
+                            Height="50px" runat="server" CssClass="detailitem" Text="" 
+                            ></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvNotes" ForeColor="Red" Display="Dynamic"  runat="server" ControlToValidate="txtNotes" ErrorMessage="Please enter notes value !"></asp:RequiredFieldValidator>
+                             <asp:RegularExpressionValidator ID="regExValNotes" runat="server" ControlToValidate="txtNotes" Display="Dynamic"
+                        ValidationExpression="(\s|.){0,255}$" ForeColor="Red" ErrorMessage="Max Length is 255!"></asp:RegularExpressionValidator>
+                    
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #E9ECF1; width: 300px">
+                        <asp:Label ID="lblTheDate" Text="Next Date" CssClass="detailheader" runat="server"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtTheDate"  Width="100px" runat="server" CssClass="detailitem" MaxLength="20" Text=""></asp:TextBox>
+                        <asp:ImageButton ID="ibTheDate" ImageUrl="~/images/Calendar.jpg" TabIndex="6" runat="server" CausesValidation="false"  />
+                        <cc1:CalendarExtender ID="calExTheDate" PopupButtonID="ibTheDate"  PopupPosition="Right" 
+                            Format="yyyy-MM-dd" runat="server" Enabled="true" TargetControlID="txtTheDate"></cc1:CalendarExtender>
+                        <asp:RequiredFieldValidator ID="rfvDate" ForeColor="Red" runat="server" Display="Dynamic" ControlToValidate="txtTheDate" ErrorMessage="Please enter date value !"></asp:RequiredFieldValidator>
+                    </td>
+                
+                </tr>
+                <tr>
+                    <td align="right">
+                        <asp:Button ID="btnSave" runat="server" Text="Save Changes" Enabled="false" TabIndex="7"
+                            onclick="btnSave_Click" />
+                    </td>
+                    <td align="left">
+                        <asp:Button ID="btnAddNew" runat="server" Text="AddNew" TabIndex="8" CausesValidation="false"  OnClientClick="return confirm('Do you want to clear the fields and add a new record?')"
+                            onclick="btnAddNew_Click" />
+                    </td>
+                </tr>
+                <tr>
+	            <td colspan="2" align="center">
+	                <div id="ConfirmationMessage" runat="server" class="alert" ></div>
+	            </td>
+    </tr>
+    <tr>
+	            <td colspan="2" align="center">
+	                <div id="divErrorMsg" runat="server" style="color:Red"></div>
+	            </td>
+    </tr>
+    <tr>
+        <td>
+        <asp:HiddenField ID="hdnHolidayId" runat="server" />
+        <asp:HiddenField ID="hdnFlagType" runat="server" />
+        <asp:HiddenField ID="hdnState" runat="server" />
+        <asp:HiddenField ID="hdnMonth" runat="server" />
+        <asp:HiddenField ID="hdnDay" runat="server" />
+        <asp:HiddenField ID="hdnHolidayName" runat="server" />
+        <asp:HiddenField ID="hdnNotes" runat="server" />
+        <asp:HiddenField ID="hdnDate" runat="server" />
+        </td>
+    </tr>
+    </table>
+
+    <br />
         <table>
             <tr>
                 <td>
@@ -120,7 +268,7 @@
                 <td>
                     <asp:GridView ID="gvHolidays" runat="server" AutoGenerateColumns="False" Font-Size="9pt"
                         AllowPaging="True" OnPageIndexChanging="gvHolidays_PageIndexChanging" 
-                        AllowSorting="true" onsorting="gvHolidays_Sorting">
+                        AllowSorting="true" onsorting="gvHolidays_Sorting" PageSize="100">
                         <AlternatingRowStyle BackColor="#E9ECF1" ForeColor="#284775"  />
                         <EditRowStyle BackColor="#999999" />
                         <HeaderStyle BackColor="#5970A6" Font-Bold="True" ForeColor="White" />
@@ -177,152 +325,6 @@
         <br />
         <asp:Literal ID="Literal1" runat="server"></asp:Literal>
         <br />
-        <table>
-            <tr>
-                <td style="background-color: #E9ECF1; width: 300px">
-                    <asp:Label ID="lblState" Text="State" CssClass="detailheader" runat="server"></asp:Label>
-                </td>
-                <td>
-                    <asp:DropDownList ID="drpState" runat="server" >
-                    </asp:DropDownList>
-               
-            </td>
-            </tr>
-            <tr>
-                <td style="background-color: #E9ECF1; width: 300px">
-                    <asp:Label ID="lblMonth" Text="Month" CssClass="detailheader" runat="server"></asp:Label>
-                </td>
-                <td>
-                    <asp:DropDownList ID="drpMonth" runat="server" TabIndex="2">
-                        <asp:ListItem Selected="True" Text="01" Value="01"></asp:ListItem>
-                        <asp:ListItem Text="02" Value="02"></asp:ListItem>
-                        <asp:ListItem Text="03" Value="03"></asp:ListItem>
-                        <asp:ListItem Text="04" Value="04"></asp:ListItem>
-                        <asp:ListItem Text="05" Value="05"></asp:ListItem>
-                        <asp:ListItem Text="06" Value="06"></asp:ListItem>
-                        <asp:ListItem Text="07" Value="07"></asp:ListItem>
-                        <asp:ListItem Text="08" Value="08"></asp:ListItem>
-                        <asp:ListItem Text="09" Value="09"></asp:ListItem>
-                        <asp:ListItem Text="10" Value="10"></asp:ListItem>
-                        <asp:ListItem Text="11" Value="11"></asp:ListItem>
-                        <asp:ListItem Text="12" Value="12"></asp:ListItem>
-                    </asp:DropDownList>
-                </td>
-            </tr>
-            <tr>
-                <td style="background-color: #E9ECF1; width: 300px">
-                    <asp:Label ID="lblDay" Text="Day" CssClass="detailheader" runat="server"></asp:Label>
-                </td>
-                <td>
-                    <asp:DropDownList ID="drpDay" runat="server" TabIndex="3">
-                        <asp:ListItem Selected="True" Text="01" Value="01"></asp:ListItem>
-                        <asp:ListItem Text="02" Value="02"></asp:ListItem>
-                        <asp:ListItem Text="03" Value="03"></asp:ListItem>
-                        <asp:ListItem Text="04" Value="04"></asp:ListItem>
-                        <asp:ListItem Text="05" Value="05"></asp:ListItem>
-                        <asp:ListItem Text="06" Value="06"></asp:ListItem>
-                        <asp:ListItem Text="07" Value="07"></asp:ListItem>
-                        <asp:ListItem Text="08" Value="08"></asp:ListItem>
-                        <asp:ListItem Text="09" Value="09"></asp:ListItem>
-                        <asp:ListItem Text="10" Value="10"></asp:ListItem>
-                        <asp:ListItem Text="11" Value="11"></asp:ListItem>
-                        <asp:ListItem Text="12" Value="12"></asp:ListItem>
-                        <asp:ListItem Text="13" Value="13"></asp:ListItem>
-                        <asp:ListItem Text="14" Value="14"></asp:ListItem>
-                        <asp:ListItem Text="15" Value="15"></asp:ListItem>
-                        <asp:ListItem Text="16" Value="16"></asp:ListItem>
-                        <asp:ListItem Text="17" Value="17"></asp:ListItem>
-                        <asp:ListItem Text="18" Value="18"></asp:ListItem>
-                        <asp:ListItem Text="19" Value="19"></asp:ListItem>
-                        <asp:ListItem Text="20" Value="20"></asp:ListItem>
-                        <asp:ListItem Text="21" Value="21"></asp:ListItem>
-                        <asp:ListItem Text="22" Value="22"></asp:ListItem>
-                        <asp:ListItem Text="23" Value="23"></asp:ListItem>
-                        <asp:ListItem Text="24" Value="24"></asp:ListItem>
-                        <asp:ListItem Text="25" Value="25"></asp:ListItem>
-                        <asp:ListItem Text="26" Value="26"></asp:ListItem>
-                        <asp:ListItem Text="27" Value="27"></asp:ListItem>
-                        <asp:ListItem Text="28" Value="28"></asp:ListItem>
-                        <asp:ListItem Text="29" Value="29"></asp:ListItem>
-                        <asp:ListItem Text="30" Value="30"></asp:ListItem>
-                        <asp:ListItem Text="31" Value="31"></asp:ListItem>
-                    </asp:DropDownList>
-                </td>
-            </tr>
-            <tr>
-                <td style="background-color: #E9ECF1; width: 300px">
-                    <asp:Label ID="lblHolidayName" Text="Holiday Name" CssClass="detailheader" runat="server"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox ID="txtHolidayName" Width="250px" Font-Names="Arial" TabIndex="4"
-                        runat="server" CssClass="detailitem"  Text="" 
-                       ></asp:TextBox>
-                      <asp:RequiredFieldValidator ID="rfvHolidayName" ForeColor="Red" Display="Dynamic" runat="server" ControlToValidate="txtHolidayName" ErrorMessage="Please enter holiday name value !"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="regValHolidayName" runat="server" ControlToValidate="txtHolidayName" Display="Dynamic"
-                    ValidationExpression="(\s|.){0,255}$" ErrorMessage="Max Length is 255!"></asp:RegularExpressionValidator>
-                </td>
-            </tr>
-            <tr>
-                <td style="background-color: #E9ECF1; width: 300px">
-                    <asp:Label ID="lblNotes" Text="Notes" CssClass="detailheader" runat="server"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox ID="txtNotes" Width="250px" TextMode="MultiLine" TabIndex="5"
-                        Font-Names="Arial" MaxLength="255" 
-                        Height="50px" runat="server" CssClass="detailitem" Text="" 
-                        ></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvNotes" ForeColor="Red" Display="Dynamic"  runat="server" ControlToValidate="txtNotes" ErrorMessage="Please enter notes value !"></asp:RequiredFieldValidator>
-                         <asp:RegularExpressionValidator ID="regExValNotes" runat="server" ControlToValidate="txtNotes" Display="Dynamic"
-                    ValidationExpression="(\s|.){0,255}$" ForeColor="Red" ErrorMessage="Max Length is 255!"></asp:RegularExpressionValidator>
-                    
-                </td>
-            </tr>
-            <tr>
-                <td style="background-color: #E9ECF1; width: 300px">
-                    <asp:Label ID="lblTheDate" Text="Next Date" CssClass="detailheader" runat="server"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox ID="txtTheDate"  Width="100px" runat="server" CssClass="detailitem" MaxLength="20" Text=""></asp:TextBox>
-                    <asp:ImageButton ID="ibTheDate" ImageUrl="~/images/Calendar.jpg" TabIndex="6" runat="server" CausesValidation="false"  />
-                    <cc1:CalendarExtender ID="calExTheDate" PopupButtonID="ibTheDate"  PopupPosition="Right" 
-                        Format="yyyy-MM-dd" runat="server" Enabled="true" TargetControlID="txtTheDate"></cc1:CalendarExtender>
-                    <asp:RequiredFieldValidator ID="rfvDate" ForeColor="Red" runat="server" Display="Dynamic" ControlToValidate="txtTheDate" ErrorMessage="Please enter date value !"></asp:RequiredFieldValidator>
-                </td>
-                
-            </tr>
-            <tr>
-                <td align="right">
-                    <asp:Button ID="btnSave" runat="server" Text="Save Changes" Enabled="false" TabIndex="7"
-                        onclick="btnSave_Click" />
-                </td>
-                <td align="left">
-                    <asp:Button ID="btnAddNew" runat="server" Text="AddNew" TabIndex="8" CausesValidation="false"  OnClientClick="return confirm('Do you want to clear the fields and add a new record?')"
-                        onclick="btnAddNew_Click" />
-                </td>
-            </tr>
-            <tr>
-	        <td colspan="2" align="center">
-	            <div id="ConfirmationMessage" runat="server" class="alert" ></div>
-	        </td>
-</tr>
-<tr>
-	        <td colspan="2" align="center">
-	            <div id="divErrorMsg" runat="server" style="color:Red"></div>
-	        </td>
-</tr>
-<tr>
-    <td>
-    <asp:HiddenField ID="hdnHolidayId" runat="server" />
-    <asp:HiddenField ID="hdnFlagType" runat="server" />
-    <asp:HiddenField ID="hdnState" runat="server" />
-    <asp:HiddenField ID="hdnMonth" runat="server" />
-    <asp:HiddenField ID="hdnDay" runat="server" />
-    <asp:HiddenField ID="hdnHolidayName" runat="server" />
-    <asp:HiddenField ID="hdnNotes" runat="server" />
-    <asp:HiddenField ID="hdnDate" runat="server" />
-    </td>
-</tr>
-        </table>
     </div>
 
 </asp:Content>

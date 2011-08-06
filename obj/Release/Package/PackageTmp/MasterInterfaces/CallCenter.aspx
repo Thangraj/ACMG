@@ -92,60 +92,7 @@
 
 
 <div>
-        <table>
-            <tr>
-                <td>
-                    <h3>
-                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="CallCenter Details:"></asp:Label>
-                    </h3>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:GridView ID="gvCallCenter" runat="server" AutoGenerateColumns="False" Font-Size="9pt"
-                        AllowPaging="True" onpageindexchanging="gvCallCenter_PageIndexChanging" >
-                        <AlternatingRowStyle BackColor="#E9ECF1" ForeColor="#284775"  />
-                        <EditRowStyle BackColor="#999999" />
-                        <HeaderStyle BackColor="#5970A6" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
-                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" />
-                        <Columns>
-                            <asp:TemplateField HeaderText="Edit"  >
-                                <ItemTemplate>
-                                    <asp:RadioButton ID="rdEditCallCenter" runat="server"  AutoPostBack="true" OnCheckedChanged="rdEditCallCenter_CheckedChanged"
-                                         Text='<%# Eval("CallCenterId") %>' TextAlign ="Right"  width="0px" Font-Size="0px" />
-                                </ItemTemplate>
-                                <ControlStyle ForeColor="White" Font-Size="0px" Width="0px"/>
-                                <ItemStyle CssClass="detailitem" Width="0px" />
-                            </asp:TemplateField>
-                            <asp:BoundField DataField="CallCenterName" ReadOnly="true" HeaderText="CallCenter Name" HeaderStyle-CssClass="detailheader" SortExpression="State"
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="150px" ></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="CallCenterNotes" ReadOnly="true" HeaderText="Notes" HeaderStyle-CssClass="detailheader" SortExpression="Month"
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="350px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="350px" ></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="LDAPConnectStringName" ReadOnly="true" HeaderText="LDAP ConnectionString" HeaderStyle-CssClass="detailheader" SortExpression="Day"
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="300px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="300px" ></ItemStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="Active" ReadOnly="true" HeaderText="Active" HeaderStyle-CssClass="detailheader" SortExpression="Day"
-                                ItemStyle-CssClass="detailitem">
-                                <HeaderStyle CssClass="detailheader" Width="50px"></HeaderStyle>
-                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
-                            </asp:BoundField>
-                        </Columns>
-                    </asp:GridView>
-                </td>
-            </tr>
-        </table>
-        <br />
-        <asp:Literal ID="Literal1" runat="server"></asp:Literal>
-        <br />
-        <table>
+    <table>
            <tr>
                 <td style="background-color: #E9ECF1; width: 300px">
                     <asp:Label ID="lblCallCenterName" Text="CallCenter Name" CssClass="detailheader" runat="server"></asp:Label>
@@ -205,31 +152,84 @@
                         onclick="btnSave_Click" />
                 </td>
                 <td align="left">
-                    <asp:Button ID="btnAddNew" runat="server" Text="AddNew" TabIndex="8" CausesValidation="false"  OnClientClick="return confirm('Do you want to clear the fields and add a new record?')"
+                    <asp:Button ID="btnAddNew" runat="server" Text="AddNew" CausesValidation="false"  OnClientClick="return confirm('Do you want to clear the fields and add a new record?')"
                         onclick="btnAddNew_Click" />
                 </td>
             </tr>
             <tr>
-	        <td colspan="2" align="center">
-	            <div id="ConfirmationMessage" runat="server" class="alert" ></div>
-	        </td>
-</tr>
-<tr>
-	        <td colspan="2" align="center">
-	            <div id="divErrorMsg" runat="server" style="color:Red"></div>
-	        </td>
-</tr>
-<tr>
-    <td>
-    <asp:HiddenField ID="hdnCallCenterId" runat="server" />
-    <asp:HiddenField ID="hdnCallCenterName" runat="server" />
-    <asp:HiddenField ID="hdnCallCenterNotes" runat="server" />
-    <asp:HiddenField ID="hdnConnectionString" runat="server" />
-    <asp:HiddenField ID="hdnActive" runat="server" />
-    <asp:HiddenField ID="hdnFlagType" runat="server" />
-    </td>
-</tr>
+	            <td colspan="2" align="center">
+	                <div id="ConfirmationMessage" runat="server" class="alert" ></div>
+	            </td>
+            </tr>
+            <tr>
+	            <td colspan="2" align="center">
+	                <div id="divErrorMsg" runat="server" style="color:Red"></div>
+	            </td>
+            </tr>
+            <tr>
+                <td>
+                <asp:HiddenField ID="hdnCallCenterId" runat="server" />
+                <asp:HiddenField ID="hdnCallCenterName" runat="server" />
+                <asp:HiddenField ID="hdnCallCenterNotes" runat="server" />
+                <asp:HiddenField ID="hdnConnectionString" runat="server" />
+                <asp:HiddenField ID="hdnActive" runat="server" />
+                <asp:HiddenField ID="hdnFlagType" runat="server" />
+                </td>
+            </tr>
         </table>
+        <br />
+        <table>
+            <tr>
+                <td>
+                    <h3>
+                    <asp:Label ID="lblHeader" CssClass="detailheader" runat="server" Text="Call Center Details:"></asp:Label>
+                    </h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:GridView ID="gvCallCenter" runat="server" AutoGenerateColumns="False" Font-Size="9pt"
+                        AllowPaging="True" onpageindexchanging="gvCallCenter_PageIndexChanging" 
+                        PageSize="100" >
+                        <AlternatingRowStyle BackColor="#E9ECF1" ForeColor="#284775"  />
+                        <EditRowStyle BackColor="#999999" />
+                        <HeaderStyle BackColor="#5970A6" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                        <Columns>
+                            <asp:TemplateField HeaderText="Edit"  >
+                                <ItemTemplate>
+                                    <asp:RadioButton ID="rdEditCallCenter" runat="server"  AutoPostBack="true" OnCheckedChanged="rdEditCallCenter_CheckedChanged"
+                                         Text='<%# Eval("CallCenterId") %>' TextAlign ="Right"  width="0px" Font-Size="0px" />
+                                </ItemTemplate>
+                                <ControlStyle ForeColor="White" Font-Size="0px" Width="0px"/>
+                                <ItemStyle CssClass="detailitem" Width="0px" />
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="CallCenterName" ReadOnly="true" HeaderText="CallCenter Name" HeaderStyle-CssClass="detailheader" SortExpression="State"
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="150px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="150px" ></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="CallCenterNotes" ReadOnly="true" HeaderText="Notes" HeaderStyle-CssClass="detailheader" SortExpression="Month"
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="350px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="350px" ></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="LDAPConnectStringName" ReadOnly="true" HeaderText="LDAP ConnectionString" HeaderStyle-CssClass="detailheader" SortExpression="Day"
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="300px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="300px" ></ItemStyle>
+                            </asp:BoundField>
+                            <asp:BoundField DataField="Active" ReadOnly="true" HeaderText="Active" HeaderStyle-CssClass="detailheader" SortExpression="Day"
+                                ItemStyle-CssClass="detailitem">
+                                <HeaderStyle CssClass="detailheader" Width="50px"></HeaderStyle>
+                                <ItemStyle CssClass="detailitem" Width="50px" HorizontalAlign="Center"></ItemStyle>
+                            </asp:BoundField>
+                        </Columns>
+                    </asp:GridView>
+                </td>
+            </tr>
+        </table>
+
     </div>
 
 </asp:Content>
