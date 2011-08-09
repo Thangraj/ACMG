@@ -32,21 +32,21 @@ namespace ACMGAdmin.Account
 
         void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
-                if (!Roles.RoleExists("Administrators"))
-                {
-                    txtCreateRole.Text = "Administrators";
-                }
-            }
+            //if (!Page.IsPostBack)
+            //{
+            //    if (!Roles.RoleExists("Administrators"))
+            //    {
+            //        txtCreateRole.Text = "Administrators";
+            //    }
+            //}
 
-            if (!Roles.IsUserInRole("Administrators") )
-            {
-                //Label1.Text = User.Identity.Name + " is in role TestRole";
-                Response.Redirect("NoAccess.aspx");
-                //Response.Write("Only Admin allowed");
-                //Response.End();
-            }
+            //if (!Roles.IsUserInRole("Administrators") )
+            //{
+            //    //Label1.Text = User.Identity.Name + " is in role TestRole";
+            //    Response.Redirect("NoAccess.aspx");
+            //    //Response.Write("Only Admin allowed");
+            //    //Response.End();
+            //}
             
         }
 

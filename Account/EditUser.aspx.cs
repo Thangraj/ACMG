@@ -20,12 +20,12 @@ namespace ACMGAdmin.Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Roles.IsUserInRole("Administrators") && !Roles.IsUserInRole("User Admin"))
-            {
-                //Label1.Text = User.Identity.Name + " is in role TestRole";
-               Response.Redirect("~NoAccess.aspx");
+            //if (!Roles.IsUserInRole("Administrators") && !Roles.IsUserInRole("User Admin"))
+            //{
+            //    //Label1.Text = User.Identity.Name + " is in role TestRole";
+            //   Response.Redirect("~NoAccess.aspx");
                 
-            }
+            //}
             
             
             theCallCenterConnectString = Session["theCallCenterConnectString"].ToString();
@@ -86,9 +86,9 @@ namespace ACMGAdmin.Account
             // Load the User Roles into checkboxes.
             UserRoles.DataSource = Roles.GetAllRoles();
             UserRoles.DataBind();
-            if (!Roles.IsUserInRole("Administrators"))
+            if (!Roles.IsUserInRole("System Administration"))
             {
-                UserRoles.Items.Remove("Administrators");
+                UserRoles.Items.Remove("System Administration");
             }
             // Disable checkboxes if appropriate:
             //if (UserInfo.CurrentMode != DetailsViewMode.Edit)

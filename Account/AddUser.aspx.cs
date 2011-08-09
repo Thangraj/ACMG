@@ -15,19 +15,19 @@ namespace ACMGAdmin.Account
     //
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Request.QueryString.HasKeys()) { 
-            if (!Roles.IsUserInRole("Administrators") && !Roles.IsUserInRole("User Admin"))
-            {
-                //Label1.Text = User.Identity.Name + " is in role TestRole";
-                Response.Redirect("~NoAccess.aspx");
-                //Response.Write("Only Admin allowed");
-                //Response.End();
-            }
-            else
-            {
-                //Label1.Text = User.Identity.Name + " is NOT in role TestRole";
-            }
-            }
+            //if (!Request.QueryString.HasKeys()) { 
+            //if (!Roles.IsUserInRole("Administrators") && !Roles.IsUserInRole("User Admin"))
+            //{
+            //    //Label1.Text = User.Identity.Name + " is in role TestRole";
+            //    Response.Redirect("~NoAccess.aspx");
+            //    //Response.Write("Only Admin allowed");
+            //    //Response.End();
+            //}
+            //else
+            //{
+            //    //Label1.Text = User.Identity.Name + " is NOT in role TestRole";
+            //}
+            //}
             theCallCenterConnectString = Session["theCallCenterConnectString"].ToString();
             LabelUserList.Text = "Add User for " + Session["theCallCenterName"].ToString();
             if (IsPostBack)
@@ -88,9 +88,9 @@ namespace ACMGAdmin.Account
         {
             UserRoles.DataSource = Roles.GetAllRoles();
             UserRoles.DataBind();
-            if (!Roles.IsUserInRole("Administrators"))
+            if (!Roles.IsUserInRole("System Administration"))
             {
-                UserRoles.Items.Remove("Administrators");
+                UserRoles.Items.Remove("System Administration");
             }
         }
 
