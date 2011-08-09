@@ -38,6 +38,7 @@
     <WarningLevel>4</WarningLevel>
     <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit">
