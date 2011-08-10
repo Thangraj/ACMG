@@ -1,0 +1,226 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ACMG.master.cs" Inherits="ACMGAdmin.ACMG" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1"  %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<title>ACMG Oubound Management Administration Portal</title>
+	<link href="Styles/ACMGSite.css" rel="stylesheet" type="text/css" />
+   <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+	</asp:ContentPlaceHolder>
+
+
+
+</head>
+<body onunload="sessioncleanup();"  >
+<form id="form1" runat="server">
+<asp:ScriptManager ID="ScriptManager1" runat="server">
+</asp:ScriptManager>
+
+
+   
+		 <div id="masthead">
+			<div id="logo"><img alt="" style="width: 135px; height: 90px;" 
+					src="/images/ACMGLogo.gif" /></div>
+			 <div class="right">
+			 
+				 <span>
+					 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+						 <AnonymousTemplate>
+							 [ <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a>
+							 ]
+						 </AnonymousTemplate>
+						 <LoggedInTemplate> <span class="bold" >(Call Center:
+						<%= " " + Session["theCallCenterName"] + ") " + Session["AgentFirstName"] + " " + Session["AgentLastName"]%> 
+								<%-- (<asp:LoginName ID="HeadLoginName" runat="server" />)--%>
+								
+							 </span>! [
+							 <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="RedirectToLoginPage"
+								 OnLoggedOut="HeadLoginStatus_LoggedOut" LogoutText="Log Out" LogoutPageUrl="~/"
+								 ViewStateMode="Inherit" />
+							 ]
+						 </LoggedInTemplate>
+					 </asp:LoginView>
+				 </span>
+				 
+			    <br />
+				 <span>
+					 <asp:Literal ID="LiteralthePhone" runat="server"></asp:Literal>
+				 </span> 
+				 
+				 
+			 </div>
+			<asp:Literal ID="LiteralthePhoneControl" runat="server"></asp:Literal>
+			 <br />
+             <br />
+             <br />
+				 <asp:Label ID="LabelNotify" runat="server" Font-Size="XX-Small"></asp:Label>
+		</div>
+		 
+
+ 
+	   
+		<div id="container">
+		<div id="topmenu">
+		
+		
+		<asp:LoginView ID="LoginView1" runat="server">
+			<AnonymousTemplate>
+			  
+			    
+			  
+			</AnonymousTemplate>
+			<LoggedInTemplate>
+			<div>
+				<asp:Menu ID="MainMenu" runat="server" 
+					StaticSubMenuIndent="10px" Orientation="Horizontal" BackColor="White" 
+                    DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" 
+                    ForeColor="#284E98" RenderingMode="Table">
+					<DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
+                    <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                    <DynamicMenuStyle BackColor="#B5C7DE" />
+                    <DynamicSelectedStyle BackColor="#507CD1" />
+					<Items>
+						<asp:MenuItem Text="Reports" Value="Reports">
+						    <asp:MenuItem 
+                                Text="Agent Reports" 
+                                Value="Agent Reports">
+                                <asp:MenuItem NavigateUrl="~/Reports/Report_CallCenterAgentSummaryTodayV2.aspx" 
+                                    Text="Agent Summary Today " Value="Agent Summary Today">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Reports/Report_CallCenterAgentSummaryByDateRangeV2.aspx" 
+                                    Text="Agent Summary By Date Range " 
+                                    Value="Agent Summary By Date Range "></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Reports/Report_DispositionSummary.aspx" 
+                                    Text="Disposition Summary" Value="Disposition Summary"></asp:MenuItem>
+                            </asp:MenuItem>
+							<asp:MenuItem 
+								Text="Lead Pool Reports" Value="Lead Pool Reports">
+                                <asp:MenuItem NavigateUrl="~/Reports/Report_LeadPenetration_RT.aspx" 
+                                    Text="Real Time Available Lead Pool" Value="Real Time Available Lead Pool">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Reports/Report_LeadPenetration.aspx" 
+                                    Text="Lead Penetration and Activity " 
+                                    Value="Lead Penetration and Activity ">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Reports/Report_LeadFeedByDate.aspx" 
+                                    Text="Leed Feed By Date" Value="Leed Feed By Date"></asp:MenuItem>
+                            </asp:MenuItem>
+						    <asp:MenuItem 
+                                Text="Campaign Reports" 
+                                Value="Campaign Reports">
+                                <asp:MenuItem NavigateUrl="~/Reports/Report_CampaignSummarySalesDateRange.aspx" 
+                                    Text="Campaign Summary By Date Range" Value="Campaign Summary By Date Range">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Reports/Report_CampaignSummaryAgentDateRange.aspx" 
+                                    Text="Campaign Summary By Agent + Date Range" 
+                                    Value="Campaign Summary By Agent + Date Range"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Reports/Report_CampaignSummaryLeadSourceByWeek.aspx" 
+                                    Text="Campaign Summary By Lead Source + Week" 
+                                    Value="Campaign Summary By Lead Source + Week"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Reports/Report_CampaignSummaryRoutingGroupDateRange.aspx" 
+                                    Text="Campaign Summary By routing Group + Date Range" 
+                                    Value="Campaign Summary By routing Group + Date Range"></asp:MenuItem>
+                            </asp:MenuItem>
+						    <asp:MenuItem Text="Lead List Reports" Value="Lead List Reports">
+                                <asp:MenuItem NavigateUrl="~/Reports/Report_LeadExport.aspx" 
+                                    Text="Lead List Export" Value="Lead List Export"></asp:MenuItem>
+                            </asp:MenuItem>
+						</asp:MenuItem>
+					    <asp:MenuItem Text="Compliance" Value="Compliance">
+                            <asp:MenuItem Text="Call Recordings" Value="Call Recordings">
+                                <asp:MenuItem NavigateUrl="~/Compliance/CallRecordingsSales.aspx" 
+                                    Text="Call Recordings All Sales" Value="Call Recordings All Sales">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Compliance/CallRecordingsSearch.aspx" 
+                                    Text="Call Recordings Search" Value="Call Recordings Search"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Live Call Monitor" Value="Live Call Monitor">
+                                <asp:MenuItem NavigateUrl="~/Compliance/LiveCallMonitor.aspx" 
+                                    Text="Monitor Calls" Value="Monitor Calls"></asp:MenuItem>
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Campaign Management" Value="Campaign Management">
+                            <asp:MenuItem Text="Campaign Configuration" Value="Campaign Configuration">
+                                <asp:MenuItem Text="Preview Dial Campaigns" Value="Preview Dial Campaigns" >
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Campaign DNIS Assignment" Value="Campaign DNIS Assignment">
+                                </asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Leads To Campaign Configuration" 
+                                Value="Leads To Campaign Configuration">
+                                <asp:MenuItem Text="Lead Group Types" Value="Lead Group Types" NavigateUrl="~/MasterInterfaces/LeadCampaigns.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Lead Group to Campaign Assignment" 
+                                    Value="Lead Group to Campaign Assignment"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Sales Package Configuration" 
+                                Value="Sales Package Configuration">
+                                <asp:MenuItem Text="Sales Packages" Value="Sales Packages"></asp:MenuItem>
+                                <asp:MenuItem Text="Product Offers" Value="Product Offers"></asp:MenuItem>
+                                <asp:MenuItem Text="Product Offer Codes" Value="Product Offer Codes">
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Sales Scripts" Value="Sales Scripts"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Campaign Scheduling and Routing" 
+                                Value="Campaign Scheduling and Routing">
+                                <asp:MenuItem Text="Agent Skill Groups" Value="Agent Skill Groups">
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Assign Agents To Skill Groups" 
+                                    Value="Assign Agents To Skill Groups"></asp:MenuItem>
+                                <asp:MenuItem Text="Set Up Offers/Campaigns Routing and Schedule" 
+                                    Value="Set Up Offers/Campaigns Routing and Schedule"></asp:MenuItem>
+                                <asp:MenuItem Text="View Current Routing and Schedules" 
+                                    Value="View Current Routing and Schedules"></asp:MenuItem>
+                                <asp:MenuItem Text="Test View Offers By Agent " 
+                                    Value="Test View Offers By Agent "></asp:MenuItem>
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Dialer Configuration" Value="Dialer Configuration">
+                            <asp:MenuItem Text="Dialer Rules" Value="Dialer Rules" NavigateUrl="~/MasterInterfaces/DialerRules.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="User Admin" Value="User Admin">
+                            <asp:MenuItem NavigateUrl="~/Account/ViewUsersByRole.aspx" 
+                                Text="View/Edit Users" Value="View/Edit Users"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Account/AddUser.aspx" Text="Add User" 
+                                Value="Add User"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="System Admin" Value="System Admin">
+                            <asp:MenuItem Text="Call Centers " Value="Call Centers" NavigateUrl="~/MasterInterfaces/CallCenter.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Call Dispositions " Value="Call Dispositions " NavigateUrl="~/MasterInterfaces/CallDispositions.aspx">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Allowed Calling Times By State"  NavigateUrl="~/MasterInterfaces/CallingTimesByState.aspx"
+                                Value="Allowed Calling Times By State"></asp:MenuItem>
+                            <asp:MenuItem Text="Holidays" Value="Holidays" NavigateUrl="~/MasterInterfaces/Holidays.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="PBX Phone Extensions" Value="PBX Phone Extensions" NavigateUrl="~/MasterInterfaces/PhoneExtensions.aspx">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Routing Groups" Value="Routing Groups" NavigateUrl="~/MasterInterfaces/RoutingGroups.aspx"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Account/Edit_Site_Roles.aspx" Text="User Roles" 
+                                Value="User Roles"></asp:MenuItem>
+                        </asp:MenuItem>
+					</Items>
+				    <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
+				    <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+				    <StaticSelectedStyle BackColor="#507CD1" />
+				</asp:Menu>
+				</div>
+			</LoggedInTemplate>
+		</asp:LoginView>
+        </div>
+		<div id="theContentPage">
+		
+		<asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+		</div>
+		</div>
+		<div class="clear">
+	   
+		</div>
+	   
+		<div class="footer">
+		
+		   
+		
+	</div>
+	</form>
+</body>
+</html>
+
