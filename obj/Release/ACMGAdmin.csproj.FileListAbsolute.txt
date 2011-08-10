@@ -72,3 +72,10 @@ C:\ACMGProject\OD-AdministrationandReportingApplication_Offshore\obj\Release\Rdl
 C:\ACMGProject\OD-AdministrationandReportingApplication_Offshore\obj\Release\RdlCompile.compiled
 C:\ACMGProject\OD-AdministrationandReportingApplication_Offshore\obj\Release\ACMGAdmin.dll
 C:\ACMGProject\OD-AdministrationandReportingApplication_Offshore\obj\Release\ACMGAdmin.pdb
+C:\Thangaraj\Asterisk\ACMG_Latest\bin\ACMGAdmin.dll
+C:\Thangaraj\Asterisk\ACMG_Latest\bin\ACMGAdmin.pdb
+C:\Thangaraj\Asterisk\ACMG_Latest\obj\Release\ResolveAssemblyReference.cache
+C:\Thangaraj\Asterisk\ACMG_Latest\obj\Release\RdlCompile.cache
+C:\Thangaraj\Asterisk\ACMG_Latest\obj\Release\RdlCompile.compiled
+C:\Thangaraj\Asterisk\ACMG_Latest\obj\Release\ACMGAdmin.dll
+C:\Thangaraj\Asterisk\ACMG_Latest\obj\Release\ACMGAdmin.pdb
